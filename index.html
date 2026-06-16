@@ -19,29 +19,11 @@
   --gold:#f59e0b;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-}
-
-button,input,select,textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:var(--bg);color:var(--text)}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
 
 header{
   position:sticky;
@@ -60,14 +42,8 @@ header{
   align-items:center;
 }
 
-.logo{
-  font-size:28px;
-  font-weight:900;
-}
-
-.logo span{
-  color:var(--accent);
-}
+.logo{font-size:28px;font-weight:900}
+.logo span{color:var(--accent)}
 
 .search{
   display:grid;
@@ -76,28 +52,11 @@ header{
   overflow:hidden;
 }
 
-.search select,
-.search input,
-.search button{
-  border:0;
-  padding:14px;
-}
+.search select,.search input,.search button{border:0;padding:14px}
+.search select{background:#ffedd5;font-weight:900}
+.search button{background:var(--accent);font-size:20px}
 
-.search select{
-  background:#ffedd5;
-  font-weight:900;
-}
-
-.search button{
-  background:var(--accent);
-  font-size:20px;
-}
-
-.actions{
-  display:flex;
-  gap:10px;
-}
-
+.actions{display:flex;gap:10px}
 .actions button{
   background:rgba(255,255,255,.12);
   color:white;
@@ -123,9 +82,7 @@ nav button{
   white-space:nowrap;
 }
 
-nav button:hover{
-  color:var(--accent);
-}
+nav button:hover{color:var(--accent)}
 
 .hero{
   padding:35px 5%;
@@ -149,9 +106,7 @@ nav button:hover{
   margin-bottom:18px;
 }
 
-.heroText h1 span{
-  color:var(--main);
-}
+.heroText h1 span{color:var(--main)}
 
 .heroText p{
   color:var(--muted);
@@ -168,16 +123,8 @@ nav button:hover{
   font-weight:900;
 }
 
-.btn.primary{
-  border:0;
-  background:var(--accent);
-}
-
-.btn.dark{
-  border:0;
-  background:var(--dark);
-  color:white;
-}
+.btn.primary{border:0;background:var(--accent)}
+.btn.dark{border:0;background:var(--dark);color:white}
 
 .heroCards{
   display:grid;
@@ -198,9 +145,7 @@ nav button:hover{
   box-shadow:0 15px 35px rgba(15,118,110,.18);
 }
 
-.heroCard.big{
-  grid-row:span 2;
-}
+.heroCard.big{grid-row:span 2}
 
 .heroCard:after{
   content:"";
@@ -209,18 +154,13 @@ nav button:hover{
   background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.05));
 }
 
-.heroCard h3,
-.heroCard strong,
-.heroCard p{
+.heroCard h3,.heroCard strong,.heroCard p{
   position:relative;
   z-index:2;
   color:white;
 }
 
-.heroCard h3{
-  font-size:30px;
-  margin-bottom:8px;
-}
+.heroCard h3{font-size:30px;margin-bottom:8px}
 
 .quick{
   padding:18px 5%;
@@ -267,8 +207,7 @@ aside{
   margin-bottom:8px;
 }
 
-.filter input,
-.filter select{
+.filter input,.filter select{
   width:100%;
   padding:12px;
   border:1px solid var(--border);
@@ -287,10 +226,7 @@ aside{
   gap:15px;
 }
 
-.resultsTop p{
-  color:var(--muted);
-  margin-top:4px;
-}
+.resultsTop p{color:var(--muted);margin-top:4px}
 
 .grid{
   display:grid;
@@ -335,10 +271,7 @@ aside{
   flex:1;
 }
 
-.cardBody h3{
-  font-size:19px;
-  margin-bottom:8px;
-}
+.cardBody h3{font-size:19px;margin-bottom:8px}
 
 .cardBody p{
   color:var(--muted);
@@ -354,11 +287,7 @@ aside{
   margin-bottom:8px;
 }
 
-.price{
-  font-size:22px;
-  font-weight:900;
-  margin-bottom:8px;
-}
+.price{font-size:22px;font-weight:900;margin-bottom:8px}
 
 .tags{
   display:flex;
@@ -391,10 +320,7 @@ aside{
   font-weight:900;
 }
 
-.cardBtns .add{
-  border:0;
-  background:var(--accent);
-}
+.cardBtns .add{border:0;background:var(--accent)}
 
 .quote{
   padding:35px 5%;
@@ -416,23 +342,15 @@ form{
   gap:14px;
 }
 
-form input,
-form select,
-form textarea{
+form input,form select,form textarea{
   padding:13px;
   border:1px solid var(--border);
   border-radius:10px;
   font-size:15px;
 }
 
-form textarea,
-.full{
-  grid-column:1/-1;
-}
-
-textarea{
-  min-height:130px;
-}
+form textarea,.full{grid-column:1/-1}
+textarea{min-height:130px}
 
 .item{
   border:1px solid var(--border);
@@ -462,9 +380,7 @@ textarea{
   padding:20px;
 }
 
-.modal.open{
-  display:flex;
-}
+.modal.open{display:flex}
 
 .modalBox{
   background:white;
@@ -497,14 +413,8 @@ textarea{
   background-position:center;
 }
 
-.modalInfo{
-  padding:30px;
-}
-
-.modalInfo h2{
-  font-size:34px;
-  margin-bottom:10px;
-}
+.modalInfo{padding:30px}
+.modalInfo h2{font-size:34px;margin-bottom:10px}
 
 .modalInfo p{
   color:var(--muted);
@@ -541,9 +451,7 @@ textarea{
   box-shadow:-10px 0 35px rgba(0,0,0,.25);
 }
 
-.drawer.open{
-  right:0;
-}
+.drawer.open{right:0}
 
 .drawerHead{
   background:var(--dark);
@@ -560,20 +468,9 @@ textarea{
   font-size:24px;
 }
 
-.drawerBody{
-  padding:18px;
-  overflow:auto;
-  flex:1;
-}
-
-.drawerFoot{
-  border-top:1px solid var(--border);
-  padding:18px;
-}
-
-.adminSection{
-  padding:35px 5%;
-}
+.drawerBody{padding:18px;overflow:auto;flex:1}
+.drawerFoot{border-top:1px solid var(--border);padding:18px}
+.adminSection{padding:35px 5%}
 
 footer{
   background:#134e4a;
@@ -584,26 +481,13 @@ footer{
   gap:20px;
 }
 
-footer p{
-  color:#d1fae5;
-}
+footer p{color:#d1fae5}
 
 @media(max-width:900px){
-  .top,.hero,.layout,.quote,.modalBox,footer{
-    grid-template-columns:1fr;
-  }
-
-  aside{
-    position:static;
-  }
-
-  .heroText h1{
-    font-size:42px;
-  }
-
-  form{
-    grid-template-columns:1fr;
-  }
+  .top,.hero,.layout,.quote,.modalBox,footer{grid-template-columns:1fr}
+  aside{position:static}
+  .heroText h1{font-size:42px}
+  form{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -618,7 +502,7 @@ footer p{
       <select id="department">
         <option value="all">All</option>
       </select>
-      <input id="searchInput" placeholder="Search bounce house, mascot, franchise inflatable..." oninput="renderProducts()">
+      <input id="searchInput" placeholder="Search mascot, franchise inflatable, slip n slide..." oninput="renderProducts()">
       <button onclick="renderProducts()">🔍</button>
     </div>
 
@@ -635,25 +519,25 @@ footer p{
 <section class="hero">
   <div class="heroText">
     <div style="color:var(--main);font-weight:900;margin-bottom:10px;">COMMERCIAL INFLATABLE CATALOG</div>
-    <h1>Custom inflatables, bounce houses, and brand displays <span>built to stand out.</span></h1>
-    <p>Browse bounce houses, mascot inflatables, franchise displays, water attractions, and custom brand builds. Add products to a quote and request a custom design proof.</p>
+    <h1>Custom inflatables, mascot builds, and franchise displays <span>built to stand out.</span></h1>
+    <p>Browse custom King of the Hill inflatables, slip n slides, mascot inflatables, franchise characters, restaurant displays, and branded inflatable attractions.</p>
     <button class="btn primary" onclick="scrollToProducts()">Start Shopping</button>
     <button class="btn dark" onclick="openCart()">View Quote</button>
   </div>
 
   <div class="heroCards">
-    <div class="heroCard big" style="background-image:url('images/king-of-the-hill.jpg')">
+    <div class="heroCard big" id="heroBig">
       <div>
         <h3>King of the Hill</h3>
         <p>Large custom climbing inflatable attraction.</p>
       </div>
     </div>
 
-    <div class="heroCard" style="background-image:url('images/college-mascot-inflatable.jpg')">
+    <div class="heroCard" id="heroMascot">
       <strong>College Mascots</strong>
     </div>
 
-    <div class="heroCard" style="background-image:url('images/franchise-character-inflatable.jpg')">
+    <div class="heroCard" id="heroFranchise">
       <strong>Franchise Displays</strong>
     </div>
   </div>
@@ -801,7 +685,7 @@ footer p{
 <footer>
   <div>
     <h2>InflatePro Customs</h2>
-    <p>Commercial inflatable catalog for bounce houses, mascot inflatables, franchise displays, water attractions, and custom brand builds.</p>
+    <p>Commercial inflatable catalog for mascot inflatables, franchise displays, water attractions, and custom brand builds.</p>
   </div>
   <div>
     <p><strong>Email:</strong> quotes@inflateprocustoms.com</p>
@@ -810,285 +694,116 @@ footer p{
 </footer>
 
 <script>
+function makeImage(title,type){
+  const colors = {
+    hill:["#0f766e","#38bdf8","#f97316"],
+    slide:["#2563eb","#7dd3fc","#f97316"],
+    mascot:["#7c3aed","#f8fafc","#f97316"],
+    panda:["#111827","#ffffff","#f97316"],
+    franchise:["#f97316","#fde68a","#0f766e"],
+    arch:["#0f766e","#ccfbf1","#f97316"]
+  };
+
+  const c = colors[type] || colors.franchise;
+
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff7ed"/>
+        <stop offset="1" stop-color="#ccfbf1"/>
+      </linearGradient>
+      <filter id="shadow">
+        <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000" flood-opacity=".25"/>
+      </filter>
+    </defs>
+
+    <rect width="1400" height="900" fill="url(#bg)"/>
+    <circle cx="1120" cy="150" r="260" fill="#99f6e4" opacity=".55"/>
+    <rect x="80" y="650" width="1240" height="150" rx="75" fill="#d1fae5" stroke="#115e59" stroke-width="8"/>
+
+    ${
+      type === "hill" ? `
+      <g filter="url(#shadow)">
+        <rect x="250" y="540" width="900" height="210" rx="100" fill="${c[0]}" stroke="#134e4a" stroke-width="10"/>
+        <rect x="360" y="590" width="680" height="110" rx="55" fill="${c[1]}" stroke="#134e4a" stroke-width="6"/>
+        <path d="M390 610 L700 230 L1010 610 Z" fill="${c[1]}" stroke="#134e4a" stroke-width="10"/>
+        <path d="M500 610 L700 310 L900 610 Z" fill="#bae6fd" opacity=".9"/>
+        <rect x="610" y="220" width="180" height="65" rx="25" fill="#22c55e" stroke="#134e4a" stroke-width="8"/>
+        <line x1="700" y1="290" x2="500" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="560" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="620" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="680" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="740" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="800" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="860" y2="610" stroke="${c[2]}" stroke-width="10"/>
+        <line x1="700" y1="290" x2="920" y2="610" stroke="${c[2]}" stroke-width="10"/>
+      </g>` :
+      type === "slide" ? `
+      <g filter="url(#shadow)">
+        <path d="M180 660 L1180 660 L980 350 L360 350 Z" fill="${c[0]}" stroke="#134e4a" stroke-width="10"/>
+        <path d="M300 625 L1060 625 L910 410 L430 410 Z" fill="${c[1]}" opacity=".95"/>
+        <line x1="180" y1="660" x2="360" y2="350" stroke="#1e40af" stroke-width="42"/>
+        <line x1="1180" y1="660" x2="980" y2="350" stroke="#1e40af" stroke-width="42"/>
+        <circle cx="1070" cy="650" r="20" fill="#7dd3fc"/>
+        <circle cx="1125" cy="625" r="16" fill="#7dd3fc"/>
+        <circle cx="1010" cy="615" r="14" fill="#7dd3fc"/>
+      </g>` :
+      type === "arch" ? `
+      <g filter="url(#shadow)">
+        <rect x="260" y="240" width="880" height="520" rx="130" fill="${c[0]}" stroke="#134e4a" stroke-width="10"/>
+        <rect x="430" y="390" width="540" height="370" rx="70" fill="#fff7ed" stroke="#134e4a" stroke-width="8"/>
+        <rect x="350" y="290" width="700" height="90" rx="45" fill="${c[2]}" stroke="#134e4a" stroke-width="6"/>
+      </g>` :
+      `
+      <g filter="url(#shadow)">
+        <ellipse cx="700" cy="360" rx="205" ry="190" fill="${c[1]}" stroke="#134e4a" stroke-width="10"/>
+        <rect x="450" y="500" width="500" height="260" rx="120" fill="${c[0]}" stroke="#134e4a" stroke-width="10"/>
+        <rect x="315" y="470" width="220" height="140" rx="70" fill="${c[0]}" stroke="#134e4a" stroke-width="8"/>
+        <rect x="865" y="470" width="220" height="140" rx="70" fill="${c[0]}" stroke="#134e4a" stroke-width="8"/>
+        <circle cx="620" cy="340" r="28" fill="#111827"/>
+        <circle cx="780" cy="340" r="28" fill="#111827"/>
+        <path d="M610 410 Q700 480 790 410" fill="none" stroke="#111827" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="540" cy="240" r="55" fill="${c[0]}" stroke="#134e4a" stroke-width="8"/>
+        <circle cx="860" cy="240" r="55" fill="${c[0]}" stroke="#134e4a" stroke-width="8"/>
+      </g>`
+    }
+
+    <rect x="90" y="70" width="760" height="150" rx="30" fill="white" stroke="#d6d3d1" stroke-width="4"/>
+    <text x="130" y="145" font-family="Arial" font-size="54" font-weight="900" fill="#1f2937">${title}</text>
+    <text x="130" y="195" font-family="Arial" font-size="25" font-weight="700" fill="#0f766e">InflatePro Customs</text>
+  </svg>`;
+
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
 const products = [
   {
     id:1,
-    name:"Rainforest Rapids Bounce House",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Water Attraction",
-    price:14500,
-    image:"images/rainforest-rapids.jpg",
-    rating:4.9,
-    reviews:41,
-    badge:"Featured",
-    size:"Large",
-    days:60,
-    water:true,
-    desc:"Large rainforest-themed bounce house and water attraction built for rentals, company events, and summer parties.",
-    tags:["Bounce House","Water","Rental Ready","Large Attraction"],
-    keywords:["rainforest","rapids","bounce house","water slide","rental"]
-  },
-  {
-    id:2,
-    name:"Dolphin Water Bounce House",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Water Attraction",
-    price:9800,
-    image:"images/dolphin-water-bounce.jpg",
-    rating:4.8,
-    reviews:27,
-    badge:"Water",
-    size:"Medium/Large",
-    days:50,
-    water:true,
-    desc:"Dolphin-themed water bounce attraction for summer rentals, pool parties, and family events.",
-    tags:["Dolphin","Water","Bounce House"],
-    keywords:["dolphin","water","bounce","kids"]
-  },
-  {
-    id:3,
-    name:"Croc Water Bouncer",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Water Attraction",
-    price:9200,
-    image:"images/croc-water-bouncer.jpg",
-    rating:4.7,
-    reviews:22,
-    badge:"Popular",
-    size:"Medium",
-    days:50,
-    water:true,
-    desc:"Crocodile-themed inflatable bouncer designed for water play, party rentals, and summer events.",
-    tags:["Croc","Water","Bouncer"],
-    keywords:["croc","crocodile","water bouncer","summer"]
-  },
-  {
-    id:4,
-    name:"Bug Bath Bounce House",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Game / Activity",
-    price:8500,
-    image:"images/bug-bath.jpg",
-    rating:4.7,
-    reviews:19,
-    badge:"Fun",
-    size:"Medium",
-    days:45,
-    water:false,
-    desc:"Bright bug-themed bounce house attraction for younger kids, rentals, and themed events.",
-    tags:["Kids","Theme","Bounce House"],
-    keywords:["bug bath","bug","kids","bounce house"]
-  },
-  {
-    id:5,
-    name:"Elefun Bounce House",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Game / Activity",
-    price:8900,
-    image:"images/elefun.jpg",
-    rating:4.8,
-    reviews:26,
-    badge:"Kids Favorite",
-    size:"Medium",
-    days:45,
-    water:false,
-    desc:"Elephant-themed bounce house with fun character appeal for birthdays, schools, and family events.",
-    tags:["Elephant","Kids","Bounce House"],
-    keywords:["elefun","elephant","bounce house","kids"]
-  },
-  {
-    id:6,
-    name:"Princess Paradise Bounce House",
-    category:"Bounce Houses",
-    market:"Event Rentals",
-    use:"Game / Activity",
-    price:9400,
-    image:"images/princess-paradise.jpg",
-    rating:4.9,
-    reviews:34,
-    badge:"Party",
-    size:"Medium/Large",
-    days:50,
-    water:false,
-    desc:"Princess-themed inflatable bounce house made for birthday parties, school events, and rental companies.",
-    tags:["Princess","Party","Bounce House"],
-    keywords:["princess","castle","paradise","bounce house"]
-  },
-  {
-    id:7,
-    name:"Fast Food Character Inflatable",
-    category:"Franchise Inflatables",
-    market:"Restaurants",
-    use:"Brand Display",
-    price:10000,
-    image:"images/franchise-character-inflatable.jpg",
-    rating:4.9,
-    reviews:42,
-    badge:"Franchise",
-    size:"Up to 6 ft",
-    days:45,
-    water:false,
-    desc:"Custom restaurant character inflatable for franchises, grand openings, drive-thru promotions, and photo moments.",
-    tags:["Character","Franchise","Logo Ready","Photo Spot"],
-    keywords:["mcdonalds","burger","restaurant","fast food","character"]
-  },
-  {
-    id:8,
-    name:"Grimace Style Character Inflatable",
-    category:"Franchise Inflatables",
-    market:"Restaurants",
-    use:"Photo Spot",
-    price:10500,
-    image:"images/grimace-character-inflatable.jpg",
-    rating:4.8,
-    reviews:18,
-    badge:"Character",
-    size:"Up to 6 ft",
-    days:50,
-    water:false,
-    desc:"Large friendly character inflatable for restaurant chains, social media photos, and promotional events.",
-    tags:["Franchise","Character","Photo Spot"],
-    keywords:["grimace","purple","character","restaurant","franchise"]
-  },
-  {
-    id:9,
-    name:"Panda Restaurant Mascot Inflatable",
-    category:"Franchise Inflatables",
-    market:"Restaurants",
-    use:"Photo Spot",
-    price:9500,
-    image:"images/panda-mascot-inflatable.jpg",
-    rating:4.8,
-    reviews:31,
-    badge:"Mascot",
-    size:"4-8 ft",
-    days:45,
-    water:false,
-    desc:"Standing or sitting panda mascot inflatable designed for food brands, restaurants, and retail chains.",
-    tags:["Mascot","Custom Pose","Indoor/Outdoor"],
-    keywords:["panda","restaurant","mascot","brand"]
-  },
-  {
-    id:10,
-    name:"College Mascot Inflatable",
-    category:"Mascot Inflatables",
-    market:"Schools",
-    use:"School Event",
-    price:9000,
-    image:"images/college-mascot-inflatable.jpg",
-    rating:4.9,
-    reviews:26,
-    badge:"School",
-    size:"5-10 ft",
-    days:50,
-    water:false,
-    desc:"School mascot inflatable for games, tailgates, student events, alumni activities, and campus photo areas.",
-    tags:["College","Mascot","Tailgate"],
-    keywords:["school","college","byu","utah","football","mascot"]
-  },
-  {
-    id:11,
-    name:"Sports Mascot Tunnel",
-    category:"Mascot Inflatables",
-    market:"Schools",
-    use:"School Event",
-    price:14500,
-    image:"images/sports-mascot-tunnel.jpg",
-    rating:4.8,
-    reviews:13,
-    badge:"Sports",
-    size:"Custom",
-    days:65,
-    water:false,
-    desc:"Custom sports entrance tunnel with mascot face, colors, and team branding.",
-    tags:["Sports","Mascot","Tunnel"],
-    keywords:["sports","tunnel","mascot","team"]
-  },
-  {
-    id:12,
     name:"King of the Hill Inflatable",
     category:"Activity Inflatables",
     market:"Event Rentals",
     use:"Game / Activity",
     price:12000,
-    image:"images/king-of-the-hill.jpg",
-    rating:4.8,
+    image:makeImage("KING OF THE HILL","hill"),
+    rating:4.9,
     reviews:19,
     badge:"Premium",
-    size:"Custom",
+    size:"Large Custom",
     days:60,
     water:true,
-    desc:"Competitive climbing inflatable with ramps, ropes, soap/water use, and padded landing zones.",
+    desc:"Competitive climbing inflatable with smooth ramps, ropes, soap/water use, flat top, and a padded 360° landing zone.",
     tags:["Activity","Teen/Adult","Climbing","Water Option"],
     keywords:["king of the mountain","king of the hill","hill","climb","water","soap","teen"]
   },
   {
-    id:13,
-    name:"Slip and Slide Track",
-    category:"Water Attractions",
-    market:"Event Rentals",
-    use:"Water Attraction",
-    price:7500,
-    image:"images/slip-and-slide-track.jpg",
-    rating:4.6,
-    reviews:38,
-    badge:"Summer",
-    size:"30-100 ft",
-    days:50,
-    water:true,
-    desc:"Long inflatable water track with raised side walls, slick surface, and custom color combinations.",
-    tags:["Water","Summer","Custom Length"],
-    keywords:["slip n slide","slip and slide","water slide","summer"]
-  },
-  {
-    id:14,
-    name:"Inflatable Bowling Slide",
-    category:"Activity Inflatables",
-    market:"Event Rentals",
-    use:"Game / Activity",
-    price:6800,
-    image:"images/inflatable-bowling-slide.jpg",
-    rating:4.8,
-    reviews:22,
-    badge:"Fun",
-    size:"25-60 ft",
-    days:45,
-    water:true,
-    desc:"Players slide down a slick inflatable lane and crash into oversized bowling pins.",
-    tags:["Game","Bowling","Water Option"],
-    keywords:["bowling","pins","slide","game"]
-  },
-  {
-    id:15,
-    name:"Branded Entrance Arch",
-    category:"Promotional",
-    market:"Events",
-    use:"Brand Display",
-    price:4200,
-    image:"images/branded-entrance-arch.jpg",
-    rating:4.7,
-    reviews:54,
-    badge:"Best Value",
-    size:"10-30 ft wide",
-    days:35,
-    water:false,
-    desc:"Large inflatable arch for entrances, races, school events, store openings, and sponsor displays.",
-    tags:["Arch","Logo","Entrance"],
-    keywords:["arch","entrance","race","sponsor"]
-  },
-  {
-    id:16,
+    id:2,
     name:"Blue Gray King of the Hill",
     category:"Activity Inflatables",
     market:"Event Rentals",
     use:"Game / Activity",
     price:12500,
-    image:"images/blue-gray-king-of-the-hill.jpg",
+    image:makeImage("BLUE GRAY HILL","hill"),
     rating:4.9,
     reviews:16,
     badge:"New",
@@ -1100,67 +815,85 @@ const products = [
     keywords:["blue gray king of the hill","king of the mountain","climbing inflatable","ropes","landing ring","soap water"]
   },
   {
-    id:17,
-    name:"Blue Gray Slip N Slide Bounce House",
+    id:3,
+    name:"Slip N Slide Bounce House",
     category:"Water Attractions",
     market:"Event Rentals",
     use:"Water Attraction",
     price:8200,
-    image:"images/blue-gray-slip-n-slide.jpg",
+    image:makeImage("SLIP N SLIDE","slide"),
     rating:4.8,
     reviews:21,
-    badge:"New",
+    badge:"Summer",
     size:"Custom Length",
     days:55,
     water:true,
-    desc:"Blue and gray slip n slide style inflatable with raised walls, long slick lane, and bounce-house style construction for water events.",
+    desc:"Blue and gray slip n slide style inflatable with raised side walls, long slick lane, and bounce-house style construction for water events.",
     tags:["Slip N Slide","Blue/Gray","Water","Summer"],
     keywords:["blue gray slip n slide","slip and slide bounce house","water track","side walls","slick lane"]
   },
   {
-    id:18,
-    name:"Ronald Style Franchise Inflatable",
-    category:"Franchise Inflatables",
-    market:"Restaurants",
-    use:"Photo Spot",
-    price:10000,
-    image:"images/ronald-style-franchise-inflatable.jpg",
-    rating:4.9,
-    reviews:14,
-    badge:"Franchise",
-    size:"Up to 6 ft",
+    id:4,
+    name:"Long Slip N Slide Track",
+    category:"Water Attractions",
+    market:"Event Rentals",
+    use:"Water Attraction",
+    price:7500,
+    image:makeImage("SLIDE TRACK","slide"),
+    rating:4.7,
+    reviews:18,
+    badge:"Water",
+    size:"30-100 ft",
     days:50,
-    water:false,
-    desc:"Standing franchise character inflatable designed for restaurant displays, grand openings, photo spots, and branded events.",
-    tags:["Franchise","Character","Restaurant","Photo Spot"],
-    keywords:["ronald style","restaurant character","franchise inflatable","fast food mascot","standing character"]
+    water:true,
+    desc:"Long inflatable water track with raised sides, slick sliding surface, and custom color combinations.",
+    tags:["Water","Summer","Custom Length"],
+    keywords:["slip n slide","slip and slide","water slide","summer"]
   },
   {
-    id:19,
-    name:"Sitting Franchise Character Inflatable",
+    id:5,
+    name:"Inflatable Bowling Slide",
+    category:"Activity Inflatables",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:6800,
+    image:makeImage("BOWLING SLIDE","slide"),
+    rating:4.8,
+    reviews:22,
+    badge:"Fun",
+    size:"25-60 ft",
+    days:45,
+    water:true,
+    desc:"Players slide down a slick inflatable lane and crash into oversized bowling pins.",
+    tags:["Game","Bowling","Water Option"],
+    keywords:["bowling","pins","slide","game"]
+  },
+  {
+    id:6,
+    name:"Fast Food Character Inflatable",
     category:"Franchise Inflatables",
     market:"Restaurants",
     use:"Brand Display",
     price:10000,
-    image:"images/sitting-franchise-character.jpg",
-    rating:4.8,
-    reviews:11,
-    badge:"Custom Pose",
+    image:makeImage("FRANCHISE CHARACTER","franchise"),
+    rating:4.9,
+    reviews:42,
+    badge:"Franchise",
     size:"Up to 6 ft",
-    days:50,
+    days:45,
     water:false,
-    desc:"Sitting character inflatable option for franchises that want a friendly branded display customers can take photos beside.",
-    tags:["Sitting Pose","Franchise","Custom","Display"],
-    keywords:["sitting mascot","sitting character","restaurant inflatable","custom pose","franchise display"]
+    desc:"Custom restaurant character inflatable for franchises, grand openings, drive-thru promotions, and photo moments.",
+    tags:["Character","Franchise","Logo Ready","Photo Spot"],
+    keywords:["restaurant","fast food","character","franchise","brand display"]
   },
   {
-    id:20,
+    id:7,
     name:"Standing Franchise Character Inflatable",
     category:"Franchise Inflatables",
     market:"Restaurants",
     use:"Brand Display",
     price:10000,
-    image:"images/standing-franchise-character.jpg",
+    image:makeImage("STANDING CHARACTER","franchise"),
     rating:4.9,
     reviews:18,
     badge:"Standing",
@@ -1172,13 +905,67 @@ const products = [
     keywords:["standing mascot","standing character","restaurant inflatable","brand display","custom franchise"]
   },
   {
-    id:21,
+    id:8,
+    name:"Sitting Franchise Character Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Brand Display",
+    price:10000,
+    image:makeImage("SITTING CHARACTER","franchise"),
+    rating:4.8,
+    reviews:11,
+    badge:"Custom Pose",
+    size:"Up to 6 ft",
+    days:50,
+    water:false,
+    desc:"Sitting character inflatable option for franchises that want a friendly branded display customers can take photos beside.",
+    tags:["Sitting Pose","Franchise","Custom","Display"],
+    keywords:["sitting mascot","sitting character","restaurant inflatable","custom pose","franchise display"]
+  },
+  {
+    id:9,
+    name:"Purple Franchise Character Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Photo Spot",
+    price:10500,
+    image:makeImage("PURPLE CHARACTER","mascot"),
+    rating:4.8,
+    reviews:18,
+    badge:"Character",
+    size:"Up to 6 ft",
+    days:50,
+    water:false,
+    desc:"Large friendly purple character inflatable for restaurant chains, social media photos, and promotional events.",
+    tags:["Franchise","Character","Photo Spot"],
+    keywords:["purple","character","restaurant","franchise","photo spot"]
+  },
+  {
+    id:10,
+    name:"Panda Restaurant Mascot Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Photo Spot",
+    price:10000,
+    image:makeImage("PANDA MASCOT","panda"),
+    rating:4.9,
+    reviews:31,
+    badge:"Panda",
+    size:"4-8 ft",
+    days:45,
+    water:false,
+    desc:"Standing or sitting panda mascot inflatable designed for food brands, restaurants, and retail chains.",
+    tags:["Panda","Restaurant","Mascot","Franchise"],
+    keywords:["panda","restaurant","mascot","brand","food brand inflatable"]
+  },
+  {
+    id:11,
     name:"Custom Fast Food Mascot Inflatable",
     category:"Franchise Inflatables",
     market:"Restaurants",
     use:"Photo Spot",
     price:10000,
-    image:"images/custom-fast-food-mascot.jpg",
+    image:makeImage("FAST FOOD MASCOT","franchise"),
     rating:4.8,
     reviews:20,
     badge:"Restaurant",
@@ -1190,85 +977,13 @@ const products = [
     keywords:["fast food mascot","restaurant mascot","custom mascot","franchise inflatable","brand character"]
   },
   {
-    id:22,
-    name:"Panda Express Style Inflatable",
-    category:"Franchise Inflatables",
-    market:"Restaurants",
-    use:"Photo Spot",
-    price:10000,
-    image:"images/panda-express-style-inflatable.jpg",
-    rating:4.9,
-    reviews:17,
-    badge:"Panda",
-    size:"4-8 ft",
-    days:50,
-    water:false,
-    desc:"Panda-style restaurant mascot inflatable designed for food brands, franchise marketing, and customer photo opportunities.",
-    tags:["Panda","Restaurant","Mascot","Franchise"],
-    keywords:["panda express style","panda mascot","restaurant panda","franchise panda","food brand inflatable"]
-  },
-  {
-    id:23,
-    name:"BYU Style Cougar Mascot Inflatable",
-    category:"Mascot Inflatables",
-    market:"Schools",
-    use:"School Event",
-    price:10000,
-    image:"images/byu-style-cougar-mascot.jpg",
-    rating:4.9,
-    reviews:19,
-    badge:"College",
-    size:"5-10 ft",
-    days:55,
-    water:false,
-    desc:"College cougar-style mascot inflatable for school spirit events, tailgates, football games, campus displays, and fan photo areas.",
-    tags:["College","Cougar","Mascot","Tailgate"],
-    keywords:["byu style","cougar mascot","college mascot","school spirit","tailgate inflatable"]
-  },
-  {
-    id:24,
-    name:"Custom College Mascot Standing Inflatable",
-    category:"Mascot Inflatables",
-    market:"Schools",
-    use:"School Event",
-    price:10000,
-    image:"images/custom-college-mascot-standing.jpg",
-    rating:4.8,
-    reviews:23,
-    badge:"Mascot",
-    size:"5-10 ft",
-    days:55,
-    water:false,
-    desc:"Standing college mascot inflatable customized around school colors, mascot shape, logo placement, and event use.",
-    tags:["College","Standing","Mascot","Custom"],
-    keywords:["custom college mascot","standing mascot","school mascot inflatable","logo mascot","team spirit"]
-  },
-  {
-    id:25,
-    name:"Custom School Mascot Photo Inflatable",
-    category:"Mascot Inflatables",
-    market:"Schools",
-    use:"Photo Spot",
-    price:9500,
-    image:"images/school-mascot-photo-inflatable.jpg",
-    rating:4.8,
-    reviews:15,
-    badge:"Photo Spot",
-    size:"5-10 ft",
-    days:50,
-    water:false,
-    desc:"Mascot inflatable made as a school photo spot for games, student nights, fundraisers, dances, and campus events.",
-    tags:["School","Photo Spot","Mascot","Custom"],
-    keywords:["school mascot","photo inflatable","campus photo spot","fundraiser","student event"]
-  },
-  {
-    id:26,
+    id:12,
     name:"Franchise Mascot Display Set",
     category:"Franchise Inflatables",
     market:"Restaurants",
     use:"Brand Display",
     price:28000,
-    image:"images/franchise-mascot-display-set.jpg",
+    image:makeImage("DISPLAY SET","franchise"),
     rating:4.9,
     reviews:9,
     badge:"Bundle",
@@ -1280,13 +995,85 @@ const products = [
     keywords:["franchise mascot set","restaurant display set","multiple mascots","brand characters","custom inflatable set"]
   },
   {
-    id:27,
+    id:13,
+    name:"College Mascot Inflatable",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:10000,
+    image:makeImage("COLLEGE MASCOT","mascot"),
+    rating:4.9,
+    reviews:26,
+    badge:"School",
+    size:"5-10 ft",
+    days:50,
+    water:false,
+    desc:"School mascot inflatable for games, tailgates, student events, alumni activities, and campus photo areas.",
+    tags:["College","Mascot","Tailgate"],
+    keywords:["school","college","football","mascot","tailgate","campus"]
+  },
+  {
+    id:14,
+    name:"Custom College Mascot Standing Inflatable",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:10000,
+    image:makeImage("STANDING MASCOT","mascot"),
+    rating:4.8,
+    reviews:23,
+    badge:"Mascot",
+    size:"5-10 ft",
+    days:55,
+    water:false,
+    desc:"Standing college mascot inflatable customized around school colors, mascot shape, logo placement, and event use.",
+    tags:["College","Standing","Mascot","Custom"],
+    keywords:["custom college mascot","standing mascot","school mascot inflatable","logo mascot","team spirit"]
+  },
+  {
+    id:15,
+    name:"Cougar Style College Mascot Inflatable",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:10000,
+    image:makeImage("COUGAR MASCOT","mascot"),
+    rating:4.9,
+    reviews:19,
+    badge:"College",
+    size:"5-10 ft",
+    days:55,
+    water:false,
+    desc:"College cougar-style mascot inflatable for school spirit events, tailgates, football games, campus displays, and fan photo areas.",
+    tags:["College","Cougar","Mascot","Tailgate"],
+    keywords:["cougar mascot","college mascot","school spirit","tailgate inflatable"]
+  },
+  {
+    id:16,
+    name:"Custom School Mascot Photo Inflatable",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"Photo Spot",
+    price:9500,
+    image:makeImage("PHOTO MASCOT","mascot"),
+    rating:4.8,
+    reviews:15,
+    badge:"Photo Spot",
+    size:"5-10 ft",
+    days:50,
+    water:false,
+    desc:"Mascot inflatable made as a school photo spot for games, student nights, fundraisers, dances, and campus events.",
+    tags:["School","Photo Spot","Mascot","Custom"],
+    keywords:["school mascot","photo inflatable","campus photo spot","fundraiser","student event"]
+  },
+  {
+    id:17,
     name:"Custom Mascot Entrance Display",
     category:"Mascot Inflatables",
     market:"Schools",
     use:"School Event",
     price:13500,
-    image:"images/custom-mascot-entrance-display.jpg",
+    image:makeImage("MASCOT ENTRANCE","arch"),
     rating:4.8,
     reviews:12,
     badge:"Entrance",
@@ -1298,13 +1085,31 @@ const products = [
     keywords:["mascot entrance","school entrance inflatable","sports inflatable","team mascot display"]
   },
   {
-    id:28,
+    id:18,
+    name:"Sports Mascot Tunnel",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:14500,
+    image:makeImage("MASCOT TUNNEL","arch"),
+    rating:4.8,
+    reviews:13,
+    badge:"Sports",
+    size:"Custom",
+    days:65,
+    water:false,
+    desc:"Custom sports entrance tunnel with mascot face, colors, and team branding.",
+    tags:["Sports","Mascot","Tunnel"],
+    keywords:["sports","tunnel","mascot","team"]
+  },
+  {
+    id:19,
     name:"Custom Brand Character Inflatable",
     category:"Franchise Inflatables",
     market:"Corporate",
     use:"Brand Display",
     price:10500,
-    image:"images/custom-brand-character-inflatable.jpg",
+    image:makeImage("BRAND CHARACTER","franchise"),
     rating:4.9,
     reviews:13,
     badge:"Custom",
@@ -1314,6 +1119,24 @@ const products = [
     desc:"Custom inflatable brand character for companies, franchises, stores, sports groups, or promotional events.",
     tags:["Custom","Brand","Character","Promotional"],
     keywords:["custom brand character","company mascot","corporate inflatable","promotional character","custom inflatable"]
+  },
+  {
+    id:20,
+    name:"Branded Entrance Arch",
+    category:"Promotional",
+    market:"Events",
+    use:"Brand Display",
+    price:4200,
+    image:makeImage("BRANDED ARCH","arch"),
+    rating:4.7,
+    reviews:54,
+    badge:"Best Value",
+    size:"10-30 ft wide",
+    days:35,
+    water:false,
+    desc:"Large inflatable arch for entrances, races, school events, store openings, and sponsor displays.",
+    tags:["Arch","Logo","Entrance"],
+    keywords:["arch","entrance","race","sponsor"]
   }
 ];
 
@@ -1326,7 +1149,7 @@ function money(n){
 }
 
 function categories(){
-  return ["All","Bounce Houses","Franchise Inflatables","Mascot Inflatables","Water Attractions","Activity Inflatables","Promotional"];
+  return ["All","Franchise Inflatables","Mascot Inflatables","Water Attractions","Activity Inflatables","Promotional"];
 }
 
 function fillNav(){
@@ -1358,6 +1181,10 @@ function fillNav(){
   `;
 
   document.getElementById("quick").innerHTML = categories().slice(1).map(c => `<button onclick="setCategory('${c}')">${c}</button>`).join("");
+
+  document.getElementById("heroBig").style.backgroundImage = `url('${products[0].image}')`;
+  document.getElementById("heroMascot").style.backgroundImage = `url('${products[12].image}')`;
+  document.getElementById("heroFranchise").style.backgroundImage = `url('${products[5].image}')`;
 }
 
 function setCategory(c){
@@ -1409,7 +1236,7 @@ function renderProducts(){
   if(sort === "rating") list.sort((a,b)=>b.rating-a.rating);
 
   document.getElementById("resultTitle").textContent = list.length + " Products Found";
-  document.getElementById("resultSub").textContent = "Showing commercial inflatable products and quote-ready options.";
+  document.getElementById("resultSub").textContent = "Showing custom inflatable products and quote-ready options.";
 
   document.getElementById("grid").innerHTML = list.map(p => `
     <div class="card">
