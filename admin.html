@@ -29,6 +29,45 @@ button{cursor:pointer;border:0;border-radius:999px;padding:12px 18px;font-weight
 .smallText{color:var(--muted);font-size:13px;line-height:1.4}
 .codeBox{background:#111827;color:#d1fae5;padding:14px;border-radius:12px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:12px;max-height:280px}
 .item{border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;background:#f9fafb}
+
+.pasteZone{
+  border:2px dashed var(--main);
+  background:#ecfdf5;
+  border-radius:16px;
+  padding:22px;
+  text-align:center;
+  margin:10px 0 14px;
+  color:#134e4a;
+  font-weight:900;
+}
+.pasteZone:focus{
+  outline:3px solid var(--accent);
+}
+.pasteZone small{
+  display:block;
+  font-weight:400;
+  color:#6b7280;
+  margin-top:6px;
+}
+.pastedImageRow{
+  display:grid;
+  grid-template-columns:100px 1fr auto;
+  gap:10px;
+  align-items:center;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  margin:8px 0;
+  background:#f9fafb;
+}
+.pastedImagePreview{
+  height:70px;
+  border-radius:10px;
+  background-size:cover;
+  background-position:center;
+  background-color:#ecfdf5;
+}
+
 @media(max-width:900px){.productAdminGrid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -102,6 +141,13 @@ button{cursor:pointer;border:0;border-radius:999px;padding:12px 18px;font-weight
 <label>Gallery Images</label>
 <p class="smallText">Paste as many images as you want. One image path/URL per line.</p>
 <textarea id="productGallery" placeholder="images/king-1.png&#10;images/king-2.png&#10;https://example.com/image.png"></textarea>
+
+          <div class="pasteZone" id="pasteZone" tabindex="0">
+            Click here, then paste image from text/message/photo using Ctrl+V or Command+V
+            <small>Pasted images will be saved as data URLs in this product gallery.</small>
+          </div>
+
+          <div id="pastedImageList"></div>
 
 <button class="btnLight" onclick="previewImages()">Preview Images</button>
 <div class="thumbGrid" id="imagePreview"></div>
@@ -811,7 +857,7 @@ function selectProduct(id){
   productGallery.value=Array.isArray(p.gallery)?p.gallery.join("\n"):(p.gallery||""); productDesc.value=p.desc||"";
   productTags.value=Array.isArray(p.tags)?p.tags.join(", "):(p.tags||""); productKeywords.value=Array.isArray(p.keywords)?p.keywords.join(", "):(p.keywords||"");
   productDetails.value=Array.isArray(p.details)?p.details.join("\n"):(p.details||""); productPackaging.value=Array.isArray(p.packaging)?p.packaging.join("\n"):(p.packaging||""); productIncluded.value=Array.isArray(p.included)?p.included.join("\n"):(p.included||"");
-  previewImages(); renderProductList();
+  previewImages(); renderPastedImages(); renderProductList();
 }
 function lines(v){return String(v||"").split(/\n|,/).map(x=>x.trim()).filter(Boolean);}
 function previewImages(){
@@ -837,7 +883,98 @@ function renderQuotes(){
   const quotes=JSON.parse(localStorage.getItem("moonwave_requests"))||[];
   quoteList.innerHTML=quotes.length?quotes.map(q=>`<div class="item"><h3>${q.company||""} — ${q.name||""}</h3><p>${q.email||""} | ${q.phone||""}</p><p><strong>Products:</strong> ${(q.products||[]).join(", ")}</p><p><strong>Budget:</strong> ${q.budget||""}</p><p>${q.details||""}</p></div>`).join(""):"<p>No quote requests found yet.</p>";
 }
+
+function setupImagePaste(){
+  const zone = document.getElementById("pasteZone");
+  if(!zone) return;
+
+  zone.addEventListener("click",()=>zone.focus());
+
+  zone.addEventListener("paste", e=>{
+    const items = e.clipboardData && e.clipboardData.items ? [...e.clipboardData.items] : [];
+    const imageItems = items.filter(item => item.type && item.type.startsWith("image/"));
+
+    if(!imageItems.length){
+      alert("No image found in your clipboard. Copy the actual image, then click the box and paste.");
+      return;
+    }
+
+    e.preventDefault();
+
+    imageItems.forEach(item=>{
+      const file = item.getAsFile();
+      const reader = new FileReader();
+
+      reader.onload = event=>{
+        const dataUrl = event.target.result;
+
+        const pastedBox = document.getElementById("productPastedImages");
+        if(pastedBox){
+          pastedBox.value = pastedBox.value.trim()
+            ? pastedBox.value.trim() + "\n" + dataUrl
+            : dataUrl;
+        }else{
+          const galleryBox = document.getElementById("productGallery");
+          galleryBox.value = galleryBox.value.trim()
+            ? galleryBox.value.trim() + "\n" + dataUrl
+            : dataUrl;
+        }
+
+        renderPastedImages();
+        previewImages();
+        alert("Image pasted into this product. Click Save Product, then Publish to Customer Website.");
+      };
+
+      reader.readAsDataURL(file);
+    });
+  });
+}
+
+function renderPastedImages(){
+  const list = document.getElementById("pastedImageList");
+  if(!list) return;
+
+  let imgs = [];
+
+  const pastedBox = document.getElementById("productPastedImages");
+  if(pastedBox){
+    imgs = pastedBox.value.split(/\n/).map(x=>x.trim()).filter(Boolean);
+  }else{
+    imgs = document.getElementById("productGallery").value.split(/\n/).map(x=>x.trim()).filter(x=>x.startsWith("data:image"));
+  }
+
+  list.innerHTML = imgs.map((img,i)=>`
+    <div class="pastedImageRow">
+      <div class="pastedImagePreview" style="background-image:url('${img}')"></div>
+      <div>
+        <strong>Pasted Image ${i+1}</strong>
+        <p class="smallText">Saved as pasted image data</p>
+      </div>
+      <button class="btnDanger" onclick="removePastedImage(${i})">Remove</button>
+    </div>
+  `).join("");
+}
+
+function removePastedImage(index){
+  const pastedBox = document.getElementById("productPastedImages");
+
+  if(pastedBox){
+    let imgs = pastedBox.value.split(/\n/).map(x=>x.trim()).filter(Boolean);
+    imgs.splice(index,1);
+    pastedBox.value = imgs.join("\n");
+  }else{
+    let lines = productGallery.value.split(/\n/).map(x=>x.trim()).filter(Boolean);
+    const dataIndexes = lines.map((x,i)=>x.startsWith("data:image") ? i : -1).filter(i=>i>=0);
+    if(dataIndexes[index] !== undefined) lines.splice(dataIndexes[index],1);
+    productGallery.value = lines.join("\n");
+  }
+
+  renderPastedImages();
+  previewImages();
+}
+
 if(localStorage.getItem("moonwave_admin_logged_in")==="true") showAdmin();
+setupImagePaste();
 </script>
 </body>
 </html>
