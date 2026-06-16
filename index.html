@@ -566,6 +566,123 @@ footer p{color:#d1fae5}
   margin-bottom:4px;
 }
 
+
+.industrySection,.gallerySection,.compareSection,.wizardSection,.faqSection{
+  padding:30px 5%;
+}
+
+.industryGrid,.galleryGrid,.compareGrid,.wizardGrid,.faqGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+}
+
+.industryCard,.galleryCard,.compareCard,.wizardCard,.faqCard{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.industryCard{
+  cursor:pointer;
+}
+
+.industryCard:hover,.galleryCard:hover,.compareCard:hover{
+  transform:translateY(-3px);
+  transition:.18s;
+}
+
+.galleryCard{
+  overflow:hidden;
+  padding:0;
+}
+
+.galleryImg{
+  height:190px;
+  background-size:cover;
+  background-position:center;
+  background-color:#ecfdf5;
+}
+
+.galleryBody{
+  padding:16px;
+}
+
+.favoriteBtn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:4;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:999px;
+  width:38px;
+  height:38px;
+  font-size:18px;
+}
+
+.favoriteBtn.saved{
+  background:var(--accent);
+}
+
+.uploadBox{
+  border:2px dashed var(--border);
+  background:#f9fafb;
+  padding:16px;
+  border-radius:14px;
+  grid-column:1/-1;
+}
+
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+
+.timeline div{
+  background:#ccfbf1;
+  color:#134e4a;
+  border-radius:14px;
+  padding:14px;
+  font-weight:900;
+  text-align:center;
+}
+
+.shippingEstimator{
+  margin-top:12px;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#f9fafb;
+}
+
+.shippingEstimator input{
+  width:100%;
+  padding:11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin:8px 0;
+}
+
+.customerPortal{
+  margin-top:15px;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff7ed;
+}
+
+.adminNotice{
+  padding:14px 5%;
+  background:#134e4a;
+  color:white;
+  font-weight:900;
+  text-align:center;
+}
+
 @media(max-width:900px){
   .top,.hero,.layout,.quote,.modalBox,footer{grid-template-columns:1fr}
   aside{position:static}
@@ -592,7 +709,7 @@ footer p{color:#d1fae5}
     <div class="actions">
       <button onclick="scrollToProducts()">Products</button>
       <button onclick="openCart()">Build My Quote <span id="cartCount">0</span></button>
-      <button onclick="adminLogin()">Admin</button>
+      
     </div>
   </div>
 
@@ -717,6 +834,86 @@ footer p{color:#d1fae5}
   </main>
 </section>
 
+
+<section class="industrySection">
+  <div class="sectionTitle">
+    <h2>Shop by Industry</h2>
+    <p>Choose the customer type and Moon Wave will recommend the best inflatable styles.</p>
+  </div>
+  <div class="industryGrid">
+    <div class="industryCard" onclick="setMarketFilter('Restaurants')"><h3>Restaurants & Franchises</h3><p>Characters, branded displays, grand opening inflatables, photo spots.</p></div>
+    <div class="industryCard" onclick="setMarketFilter('Schools')"><h3>Schools & Colleges</h3><p>Mascots, tunnels, spirit displays, tailgate attractions.</p></div>
+    <div class="industryCard" onclick="setMarketFilter('Event Rentals')"><h3>Event Rental Companies</h3><p>Games, water attractions, King of the Hill builds, archways.</p></div>
+    <div class="industryCard" onclick="setMarketFilter('Corporate')"><h3>Corporate Brands</h3><p>Brand characters, logo displays, sponsor archways, trade show inflatables.</p></div>
+  </div>
+</section>
+
+<section class="wizardSection">
+  <div class="sectionTitle">
+    <h2>Design Request Wizard</h2>
+    <p>Answer a few questions to help choose the right inflatable style.</p>
+  </div>
+  <div class="wizardGrid">
+    <div class="wizardCard">
+      <h3>What do you want to build?</h3>
+      <select id="wizardType" onchange="runWizard()">
+        <option>Franchise Character</option>
+        <option>School Mascot</option>
+        <option>Water Attraction</option>
+        <option>Interactive Game</option>
+        <option>Entrance Arch / Tunnel</option>
+      </select>
+    </div>
+    <div class="wizardCard">
+      <h3>Where will it be used?</h3>
+      <select id="wizardUse" onchange="runWizard()">
+        <option>Restaurant or Store</option>
+        <option>School Event</option>
+        <option>Rental Inventory</option>
+        <option>Festival or Corporate Event</option>
+      </select>
+    </div>
+    <div class="wizardCard">
+      <h3>Recommended Starting Point</h3>
+      <p id="wizardResult">Select options to see a recommendation.</p>
+      <button class="btn primary" onclick="scrollToProducts()">View Recommended Designs</button>
+    </div>
+  </div>
+</section>
+
+<section class="gallerySection">
+  <div class="sectionTitle">
+    <h2>Project Gallery</h2>
+    <p>Use this section to show real projects, renders, finished products, and customer examples.</p>
+  </div>
+  <div class="galleryGrid" id="projectGallery"></div>
+</section>
+
+<section class="compareSection">
+  <div class="sectionTitle">
+    <h2>Compare Popular Builds</h2>
+    <p>Quick comparison for customers deciding between several inflatable types.</p>
+  </div>
+  <div class="compareGrid">
+    <div class="compareCard"><h3>King of the Hill</h3><p>Best for teen/adult competition, water/soap use, high-energy events.</p></div>
+    <div class="compareCard"><h3>Franchise Character</h3><p>Best for restaurants, brand photos, grand openings, and social media.</p></div>
+    <div class="compareCard"><h3>Slip N Slide</h3><p>Best for summer events, rentals, festivals, and outdoor parties.</p></div>
+    <div class="compareCard"><h3>Mascot Tunnel</h3><p>Best for schools, teams, football games, and fan entrances.</p></div>
+  </div>
+</section>
+
+<section class="faqSection">
+  <div class="sectionTitle">
+    <h2>Common Questions</h2>
+  </div>
+  <div class="faqGrid">
+    <div class="faqCard"><h3>Can we use our logo?</h3><p>Yes. Add logo notes in the quote form. A file upload can be added to the final production workflow.</p></div>
+    <div class="faqCard"><h3>Can we choose colors?</h3><p>Yes. Brand colors, school colors, and custom color layouts can be included in the quote.</p></div>
+    <div class="faqCard"><h3>How long does production take?</h3><p>Most builds estimate 35-90 days depending on size, detail, artwork, quantity, and shipping.</p></div>
+    <div class="faqCard"><h3>Is shipping included?</h3><p>Shipping is estimated after packed size, weight, and delivery location are known.</p></div>
+  </div>
+</section>
+
 <section class="quote">
   <form id="quoteForm" onsubmit="submitQuote(event)">
     <h2 class="full">Request a Custom Quote</h2>
@@ -748,7 +945,16 @@ footer p{color:#d1fae5}
     <input id="brandColors" placeholder="Brand Colors">
     <input id="logoNeeded" placeholder="Logo / Mascot Notes">
 
+    <div class="uploadBox">
+      <strong>Design File / Logo Upload Notes</strong>
+      <p style="color:var(--muted);margin:6px 0 10px;">For now, enter the file name or describe the logo/artwork. Later this can connect to real file uploads.</p>
+      <input id="artworkFile" placeholder="Example: school-logo.png, mascot sketch, brand guide, etc.">
+    </div>
     <textarea id="details" placeholder="Describe colors, logo placement, size, mascot details, and use case."></textarea>
+    <div class="customerPortal full">
+      <h3>Customer Portal Preview</h3>
+      <p style="color:var(--muted);margin-top:6px;">After submitting, customers could eventually view quote status, upload artwork, approve mockups, and pay deposits here.</p>
+    </div>
 
     <button class="btn primary full" type="submit">Submit Quote Request</button>
   </form>
@@ -851,6 +1057,20 @@ footer p{color:#d1fae5}
       <div class="detailBlock"><h3>Product Details</h3><div class="detailList" id="productDetails"></div></div>
       <div class="detailBlock"><h3>Packaging & Shipping</h3><div class="detailList" id="packagingDetails"></div></div>
       <div class="detailBlock"><h3>What Is Included</h3><div class="detailList" id="includedDetails"></div></div>
+      <div class="detailBlock">
+        <h3>Shipping Estimator</h3>
+        <div class="shippingEstimator">
+          <label><strong>Delivery State</strong></label>
+          <input id="shipState" placeholder="Example: Utah, California, Texas" oninput="estimateShipping()">
+          <p id="shippingResult">Enter a state to estimate shipping range.</p>
+        </div>
+      </div>
+      <div class="detailBlock">
+        <h3>Production Timeline</h3>
+        <div class="timeline">
+          <div>Quote</div><div>Design</div><div>Approval</div><div>Production</div><div>Shipping</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1340,7 +1560,10 @@ products.forEach(p => {
     "Quote review before production",
     "Blower recommendation",
     "Repair kit option",
-    "Packaging/shipping estimate"
+    "Packaging/shipping estimate",
+    "Storage bag details",
+    "Packed weight estimate",
+    "Setup and safety guidance"
   ];
 });
 
@@ -1518,7 +1741,7 @@ function renderProducts(){
   document.getElementById("grid").innerHTML = list.map(p => `
     <div class="card" onclick="openModal(${p.id})">
       <div class="img" style="background-image:url('${p.image}')">
-        <span class="badge">${p.badge}</span>
+        <span class="badge">${p.badge}</span><button class="favoriteBtn" onclick="event.stopPropagation();toggleFavorite(${p.id},this)">♡</button>
       </div>
       <div class="cardBody">
         <h3>${p.name}</h3>
@@ -1641,6 +1864,7 @@ function submitQuote(e){
     targetSize:targetSize.value,
     brandColors:brandColors.value,
     logoNeeded:logoNeeded.value,
+    artworkFile:artworkFile.value,
     details:details.value,
     products:quote.map(p=>`${p.qty}x ${p.name}`),
     total:quote.reduce((s,p)=>s+p.price*p.qty,0),
@@ -1694,7 +1918,67 @@ function renderAdmin(){
       <p><strong>Target Size:</strong> ${r.targetSize || ""}</p>
       <p><strong>Brand Colors:</strong> ${r.brandColors || ""}</p>
       <p><strong>Logo/Mascot Notes:</strong> ${r.logoNeeded || ""}</p>
+      <p><strong>Artwork/File Notes:</strong> ${r.artworkFile || ""}</p>
       <p>${r.details}</p>
+    </div>
+  `).join("");
+}
+
+
+function setMarketFilter(marketName){
+  document.getElementById("market").value = marketName;
+  scrollToProducts();
+  renderProducts();
+}
+
+function runWizard(){
+  const type = document.getElementById("wizardType").value;
+  const use = document.getElementById("wizardUse").value;
+  let result = "Recommended: ";
+
+  if(type.includes("Franchise")) result += "Fast Food Character Inflatable or Franchise Mascot Display Set.";
+  else if(type.includes("School")) result += "College Mascot Inflatable or Mascot Tunnel.";
+  else if(type.includes("Water")) result += "Slip N Slide Bounce House or Long Slip N Slide Track.";
+  else if(type.includes("Interactive")) result += "King of the Hill Inflatable or Inflatable Bowling Slide.";
+  else result += "Branded Entrance Arch or Sports Mascot Tunnel.";
+
+  result += " Best for " + use + ".";
+  document.getElementById("wizardResult").textContent = result;
+}
+
+function toggleFavorite(id,btn){
+  let saved = JSON.parse(localStorage.getItem("moonwave_favorites")) || [];
+  if(saved.includes(id)){
+    saved = saved.filter(x=>x!==id);
+    btn.classList.remove("saved");
+    btn.textContent = "♡";
+  }else{
+    saved.push(id);
+    btn.classList.add("saved");
+    btn.textContent = "♥";
+  }
+  localStorage.setItem("moonwave_favorites",JSON.stringify(saved));
+}
+
+function estimateShipping(){
+  const state = (document.getElementById("shipState").value || "").toLowerCase();
+  let msg = "Estimated freight: $450 - $1,200 depending on packed size and weight.";
+  if(state.includes("utah") || state.includes("idaho") || state.includes("nevada")) msg = "Estimated regional freight: $250 - $850 depending on packed size and weight.";
+  if(state.includes("california") || state.includes("texas") || state.includes("florida") || state.includes("new york")) msg = "Estimated long-distance freight: $650 - $1,800 depending on packed size and weight.";
+  document.getElementById("shippingResult").textContent = msg;
+}
+
+function renderProjectGallery(){
+  const gallery = document.getElementById("projectGallery");
+  if(!gallery) return;
+  const items = products.slice(0,8);
+  gallery.innerHTML = items.map(p=>`
+    <div class="galleryCard" onclick="openModal(${p.id})">
+      <div class="galleryImg" style="background-image:url('${p.image}')"></div>
+      <div class="galleryBody">
+        <h3>${p.name}</h3>
+        <p style="color:var(--muted);margin-top:6px;">Render, finished product, and customer photo can be added here.</p>
+      </div>
     </div>
   `).join("");
 }
@@ -1707,6 +1991,8 @@ fillNav();
 renderProducts();
 renderQuote();
 renderAdmin();
+runWizard();
+renderProjectGallery();
 </script>
 
 </body>
