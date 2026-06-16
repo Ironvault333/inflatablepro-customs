@@ -483,6 +483,35 @@ footer{
 
 footer p{color:#d1fae5}
 
+
+.featured,.howWorks,.trust{padding:30px 5%}
+.sectionTitle{margin-bottom:16px}
+.sectionTitle h2{font-size:34px;margin-bottom:6px}
+.sectionTitle p{color:var(--muted);line-height:1.5}
+.featuredGrid,.steps,.trustGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.featuredCard,.step,.trustCard{background:white;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+.featuredCard{min-height:210px;background-size:cover;background-position:center;position:relative;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
+.featuredCard:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.04))}
+.featuredCard div{position:relative;z-index:2;color:white}
+.featuredCard h3{font-size:24px;margin-bottom:8px}
+.featuredCard p{color:#ecfeff;line-height:1.45}
+.card{cursor:pointer;transition:.18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.1)}
+.cardHint{font-size:12px;color:var(--main);font-weight:900;margin-top:6px}
+.proofBadges{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.proof{background:#f9fafb;border:1px solid var(--border);border-radius:999px;padding:5px 8px;font-size:12px;font-weight:900;color:#374151}
+.modalBox{width:1180px;grid-template-columns:1.05fr .95fr}
+.galleryThumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px;background:#f9fafb}
+.thumb{height:78px;background-size:cover;background-position:center;border:2px solid transparent;border-radius:10px;cursor:pointer}
+.thumb.active{border-color:var(--accent)}
+.detailTabs{grid-column:1/-1;padding:0 30px 28px}
+.detailBlock{border-top:1px solid var(--border);padding-top:18px;margin-top:18px}
+.detailBlock h3{margin-bottom:10px}
+.detailList{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.detailList div{background:#f9fafb;border:1px solid var(--border);border-radius:12px;padding:12px;line-height:1.45}
+.step strong{display:inline-grid;place-items:center;background:var(--accent);width:34px;height:34px;border-radius:50%;margin-bottom:10px}
+.step p,.trustCard p{color:var(--muted);line-height:1.45;margin-top:6px}
+
 @media(max-width:900px){
   .top,.hero,.layout,.quote,.modalBox,footer{grid-template-columns:1fr}
   aside{position:static}
@@ -508,7 +537,7 @@ footer p{color:#d1fae5}
 
     <div class="actions">
       <button onclick="scrollToProducts()">Products</button>
-      <button onclick="openCart()">Quote <span id="cartCount">0</span></button>
+      <button onclick="openCart()">Build My Quote <span id="cartCount">0</span></button>
       <button onclick="adminLogin()">Admin</button>
     </div>
   </div>
@@ -522,7 +551,7 @@ footer p{color:#d1fae5}
     <h1>Custom inflatables, mascot builds, and franchise displays <span>built to stand out.</span></h1>
     <p>Browse custom King of the Hill inflatables, slip n slides, mascot inflatables, franchise characters, restaurant displays, and branded inflatable attractions.</p>
     <button class="btn primary" onclick="scrollToProducts()">Start Shopping</button>
-    <button class="btn dark" onclick="openCart()">View Quote</button>
+    <button class="btn dark" onclick="openCart()">Build My Quote</button>
   </div>
 
   <div class="heroCards">
@@ -540,6 +569,39 @@ footer p{color:#d1fae5}
     <div class="heroCard" id="heroFranchise">
       <strong>Franchise Displays</strong>
     </div>
+  </div>
+</section>
+
+
+<section class="featured">
+  <div class="sectionTitle">
+    <h2>Featured Custom Builds</h2>
+    <p>Start with a popular inflatable design type, then customize the size, colors, branding, logo placement, and production details.</p>
+  </div>
+  <div class="featuredGrid">
+    <div class="featuredCard" id="featuredHill" onclick="openModal(1)"><div><h3>King of the Hill Challenge</h3><p>Competitive climbing attraction with ropes, smooth ramps, and padded landing areas.</p></div></div>
+    <div class="featuredCard" id="featuredFranchise" onclick="openModal(6)"><div><h3>Franchise Character Inflatables</h3><p>Custom brand characters for restaurants, stores, grand openings, and photo marketing.</p></div></div>
+    <div class="featuredCard" id="featuredSlide" onclick="openModal(3)"><div><h3>Slip N Slide Water Builds</h3><p>Long water lanes, raised side walls, custom colors, and commercial-grade construction.</p></div></div>
+  </div>
+</section>
+
+<section class="howWorks">
+  <div class="sectionTitle"><h2>How It Works</h2><p>This is a custom quote catalog, not a normal checkout store.</p></div>
+  <div class="steps">
+    <div class="step"><strong>1</strong><h3>Pick a Design</h3><p>Choose a starting point like a mascot, franchise character, slip n slide, arch, or activity inflatable.</p></div>
+    <div class="step"><strong>2</strong><h3>Send Details</h3><p>Send colors, logo placement, size, theme, event use, and deadline.</p></div>
+    <div class="step"><strong>3</strong><h3>Approve Mockup</h3><p>A custom concept/mockup is finalized before production begins.</p></div>
+    <div class="step"><strong>4</strong><h3>Production & Delivery</h3><p>Production, packaging, blower details, and shipping are confirmed with the quote.</p></div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="sectionTitle"><h2>Built for Commercial Use</h2></div>
+  <div class="trustGrid">
+    <div class="trustCard"><h3>Commercial Materials</h3><p>Designed around heavy-use inflatable construction, reinforced seams, and event-ready use.</p></div>
+    <div class="trustCard"><h3>Custom Branding</h3><p>Colors, logos, character poses, and school or franchise themes can be customized.</p></div>
+    <div class="trustCard"><h3>Quote-Based Pricing</h3><p>Pricing depends on size, complexity, artwork, quantity, production time, and shipping.</p></div>
+    <div class="trustCard"><h3>Packaging Details</h3><p>Each quote can include blower needs, packed dimensions, approximate weight, and shipping notes.</p></div>
   </div>
 </section>
 
@@ -628,6 +690,9 @@ footer p{color:#d1fae5}
 
     <input id="deadline" placeholder="Needed By Date">
     <input id="budget" placeholder="Estimated Budget">
+    <input id="targetSize" placeholder="Target Size / Height">
+    <input id="brandColors" placeholder="Brand Colors">
+    <input id="logoNeeded" placeholder="Logo / Mascot Notes">
 
     <textarea id="details" placeholder="Describe colors, logo placement, size, mascot details, and use case."></textarea>
 
@@ -635,8 +700,8 @@ footer p{color:#d1fae5}
   </form>
 
   <div class="summary">
-    <h2>Your Quote List</h2>
-    <p style="color:var(--muted);margin:8px 0 15px;">Products added from the catalog appear here.</p>
+    <h2>Build My Quote</h2>
+    <p style="color:var(--muted);margin:8px 0 15px;">Designs you are interested in appear here.</p>
     <div id="quoteItems"></div>
     <div class="total">
       <span>Total</span>
@@ -655,7 +720,7 @@ footer p{color:#d1fae5}
 
 <div class="drawer" id="drawer">
   <div class="drawerHead">
-    <strong>Quote List</strong>
+    <strong>Build My Quote</strong>
     <button onclick="closeCart()">×</button>
   </div>
   <div class="drawerBody" id="drawerItems"></div>
@@ -669,7 +734,10 @@ footer p{color:#d1fae5}
 <div class="modal" id="modal">
   <div class="modalBox">
     <button class="close" onclick="closeModal()">×</button>
-    <div class="modalImg" id="modalImg"></div>
+    <div>
+      <div class="modalImg" id="modalImg"></div>
+      <div class="galleryThumbs" id="galleryThumbs"></div>
+    </div>
     <div class="modalInfo">
       <h2 id="modalName"></h2>
       <div class="stars" id="modalRating"></div>
@@ -677,7 +745,12 @@ footer p{color:#d1fae5}
       <p id="modalDesc"></p>
       <div class="tags" id="modalTags"></div>
       <div class="specs" id="modalSpecs"></div>
-      <button class="btn primary" id="modalAdd">Add to Quote</button>
+      <button class="btn primary" id="modalAdd">Request Quote</button>
+    </div>
+    <div class="detailTabs">
+      <div class="detailBlock"><h3>Product Details</h3><div class="detailList" id="productDetails"></div></div>
+      <div class="detailBlock"><h3>Packaging & Shipping</h3><div class="detailList" id="packagingDetails"></div></div>
+      <div class="detailBlock"><h3>What Is Included</h3><div class="detailList" id="includedDetails"></div></div>
     </div>
   </div>
 </div>
@@ -1140,6 +1213,37 @@ const products = [
   }
 ];
 
+
+products.forEach(p => {
+  const base = p.image;
+  p.gallery = [base,"images/inflatable-catalog-image.png",base,"images/inflatable-catalog-image.png"];
+  p.priceRange = money(p.price) + " estimated starting range";
+  p.details = [
+    "Custom size options available",
+    "Colors can be matched to brand or school colors",
+    "Logo/artwork placement available",
+    "Commercial-grade inflatable build style",
+    "Production time estimate: " + p.days + " days",
+    p.water ? "Water-compatible design option" : "Dry-use design option"
+  ];
+  p.packaging = [
+    "Packed dimensions depend on final size",
+    "Approximate weight confirmed after design approval",
+    "Blower requirements confirmed with quote",
+    "Shipping or freight quote available",
+    "Storage bag/cover options available",
+    "Setup instructions can be included"
+  ];
+  p.included = [
+    "Custom inflatable design",
+    "Artwork/color planning",
+    "Quote review before production",
+    "Blower recommendation",
+    "Repair kit option",
+    "Packaging/shipping estimate"
+  ];
+});
+
 let quote = JSON.parse(localStorage.getItem("inflatepro_quote")) || [];
 let requests = JSON.parse(localStorage.getItem("inflatepro_requests")) || [];
 let admin = false;
@@ -1185,6 +1289,9 @@ function fillNav(){
   document.getElementById("heroBig").style.backgroundImage = `url('${products[0].image}')`;
   document.getElementById("heroMascot").style.backgroundImage = `url('${products[12].image}')`;
   document.getElementById("heroFranchise").style.backgroundImage = `url('${products[5].image}')`;
+  document.getElementById("featuredHill").style.backgroundImage = `url('${products[0].image}')`;
+  document.getElementById("featuredFranchise").style.backgroundImage = `url('${products[5].image}')`;
+  document.getElementById("featuredSlide").style.backgroundImage = `url('${products[2].image}')`;
 }
 
 function setCategory(c){
@@ -1239,19 +1346,24 @@ function renderProducts(){
   document.getElementById("resultSub").textContent = "Showing custom inflatable products and quote-ready options.";
 
   document.getElementById("grid").innerHTML = list.map(p => `
-    <div class="card">
+    <div class="card" onclick="openModal(${p.id})">
       <div class="img" style="background-image:url('${p.image}')">
         <span class="badge">${p.badge}</span>
       </div>
       <div class="cardBody">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <div class="stars">★★★★★ ${p.rating} (${p.reviews})</div>
+        <div class="proofBadges">
+          <span class="proof">Custom Build</span>
+          <span class="proof">Commercial Grade</span>
+          <span class="proof">${p.days} Day Estimate</span>
+        </div>
         <div class="price">${money(p.price)}</div>
         <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+        <div class="cardHint">Click listing for full details →</div>
         <div class="cardBtns">
-          <button onclick="openModal(${p.id})">Details</button>
-          <button class="add" onclick="addToQuote(${p.id})">Add</button>
+          <button onclick="event.stopPropagation();openModal(${p.id})">Details</button>
+          <button class="add" onclick="event.stopPropagation();addToQuote(${p.id})">Request Quote</button>
         </div>
       </div>
     </div>
@@ -1261,21 +1373,33 @@ function renderProducts(){
 function openModal(id){
   const p = products.find(x=>x.id===id);
   document.getElementById("modalImg").style.backgroundImage = `url('${p.image}')`;
+  document.getElementById("galleryThumbs").innerHTML = p.gallery.map((img,i)=>`
+    <div class="thumb ${i===0 ? "active" : ""}" style="background-image:url('${img}')" onclick="setModalImage('${img}',this)"></div>
+  `).join("");
   document.getElementById("modalName").textContent = p.name;
-  document.getElementById("modalRating").textContent = `★★★★★ ${p.rating} (${p.reviews})`;
-  document.getElementById("modalPrice").textContent = money(p.price);
+  document.getElementById("modalRating").textContent = "Custom Commercial Inflatable";
+  document.getElementById("modalPrice").textContent = p.priceRange;
   document.getElementById("modalDesc").textContent = p.desc;
   document.getElementById("modalTags").innerHTML = p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
   document.getElementById("modalSpecs").innerHTML = `
     <div class="spec"><strong>Category</strong><br>${p.category}</div>
-    <div class="spec"><strong>Market</strong><br>${p.market}</div>
-    <div class="spec"><strong>Use</strong><br>${p.use}</div>
+    <div class="spec"><strong>Customer Type</strong><br>${p.market}</div>
+    <div class="spec"><strong>Use Case</strong><br>${p.use}</div>
     <div class="spec"><strong>Size</strong><br>${p.size}</div>
-    <div class="spec"><strong>Production</strong><br>${p.days} days</div>
+    <div class="spec"><strong>Production Estimate</strong><br>${p.days} days</div>
     <div class="spec"><strong>Water Use</strong><br>${p.water ? "Yes" : "No"}</div>
   `;
+  document.getElementById("productDetails").innerHTML = p.details.map(x=>`<div>${x}</div>`).join("");
+  document.getElementById("packagingDetails").innerHTML = p.packaging.map(x=>`<div>${x}</div>`).join("");
+  document.getElementById("includedDetails").innerHTML = p.included.map(x=>`<div>${x}</div>`).join("");
   document.getElementById("modalAdd").onclick = () => addToQuote(id);
   document.getElementById("modal").classList.add("open");
+}
+
+function setModalImage(img,el){
+  document.getElementById("modalImg").style.backgroundImage = `url('${img}')`;
+  document.querySelectorAll(".thumb").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
 }
 
 function closeModal(){
@@ -1338,6 +1462,9 @@ function submitQuote(e){
     qty:qty.value,
     deadline:deadline.value,
     budget:budget.value,
+    targetSize:targetSize.value,
+    brandColors:brandColors.value,
+    logoNeeded:logoNeeded.value,
     details:details.value,
     products:quote.map(p=>`${p.qty}x ${p.name}`),
     total:quote.reduce((s,p)=>s+p.price*p.qty,0),
@@ -1388,6 +1515,9 @@ function renderAdmin(){
       <p><strong>Status:</strong> ${r.status}</p>
       <p><strong>Products:</strong> ${r.products.join(", ")}</p>
       <p><strong>Total:</strong> ${money(r.total)}</p>
+      <p><strong>Target Size:</strong> ${r.targetSize || ""}</p>
+      <p><strong>Brand Colors:</strong> ${r.brandColors || ""}</p>
+      <p><strong>Logo/Mascot Notes:</strong> ${r.logoNeeded || ""}</p>
       <p>${r.details}</p>
     </div>
   `).join("");
