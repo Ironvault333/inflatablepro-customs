@@ -1170,7 +1170,7 @@ function makeImage(title,type){
   return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 }
 
-const products = [
+let products = [
   {
     id:1,
     name:"King of the Hill Inflatable",
@@ -1987,12 +1987,76 @@ window.addEventListener("click",e=>{
   if(e.target.id==="modal") closeModal();
 });
 
-fillNav();
-renderProducts();
-renderQuote();
-renderAdmin();
-runWizard();
-renderProjectGallery();
+
+function enhanceProductsForCustomerView(){
+  products.forEach(p => {
+    p.gallery = Array.isArray(p.gallery) && p.gallery.length ? p.gallery : [p.image || "images/inflatable-catalog-image.png"];
+    p.priceRange = p.priceRange || money(Number(p.price || 0)) + " estimated starting range";
+    p.rating = p.rating || 4.9;
+    p.reviews = p.reviews || 0;
+    p.badge = p.badge || "Custom";
+    p.size = p.size || p.sizes || "Custom";
+    p.days = Number(p.days || String(p.time || "60").match(/\d+/)?.[0] || 60);
+    p.tags = Array.isArray(p.tags) ? p.tags : String(p.tags || p.category || "Custom").split(",").map(x=>x.trim()).filter(Boolean);
+    p.keywords = Array.isArray(p.keywords) ? p.keywords : String(p.keywords || "").split(",").map(x=>x.trim()).filter(Boolean);
+    p.water = typeof p.water === "boolean" ? p.water : String(p.category || "").toLowerCase().includes("water");
+
+    p.details = Array.isArray(p.details) ? p.details : String(p.details || "Custom size options available|Colors can be matched to brand or school colors|Logo/artwork placement available|Commercial-grade inflatable build style").split("|");
+    p.packaging = Array.isArray(p.packaging) ? p.packaging : String(p.packaging || "Packed dimensions depend on final size|Approximate weight confirmed after design approval|Blower requirements confirmed with quote|Shipping or freight quote available").split("|");
+    p.included = Array.isArray(p.included) ? p.included : String(p.included || "Custom inflatable design|Artwork/color planning|Quote review before production|Packaging/shipping estimate").split("|");
+
+    if(!p.sizeOptions){
+      if(p.category === "Activity Inflatables"){
+        p.sizeOptions = [
+          {label:"Standard — 20 to 25 ft", mult:1, days:0},
+          {label:"Large — 30 to 40 ft", mult:1.35, days:10},
+          {label:"XL Commercial — 45+ ft", mult:1.75, days:18}
+        ];
+      }else if(p.category === "Water Attractions"){
+        p.sizeOptions = [
+          {label:"Small — 25 to 35 ft", mult:.9, days:-5},
+          {label:"Standard — 40 to 60 ft", mult:1, days:0},
+          {label:"Long Track — 70 to 100 ft", mult:1.45, days:12}
+        ];
+      }else if(p.category === "Mascot Inflatables" || p.category === "Franchise Inflatables"){
+        p.sizeOptions = [
+          {label:"Small Display — 4 to 6 ft", mult:.85, days:-5},
+          {label:"Standard Character — 7 to 10 ft", mult:1, days:0},
+          {label:"Large Photo Display — 11 to 15 ft", mult:1.4, days:12}
+        ];
+      }else{
+        p.sizeOptions = [
+          {label:"Standard", mult:1, days:0},
+          {label:"Large", mult:1.3, days:10},
+          {label:"Extra Large", mult:1.6, days:18}
+        ];
+      }
+    }
+  });
+}
+
+async function loadProductsFromJson(){
+  try{
+    const res = await fetch("products.json?cacheBust=" + Date.now());
+    if(!res.ok) throw new Error("products.json not found");
+    const data = await res.json();
+    if(Array.isArray(data) && data.length){
+      products.splice(0, products.length, ...data);
+    }
+  }catch(e){
+    console.warn("Using built-in products because products.json could not be loaded.", e);
+  }
+
+  enhanceProductsForCustomerView();
+  fillNav();
+  renderProducts();
+  renderQuote();
+  if(typeof renderAdmin === "function") renderAdmin();
+  if(typeof runWizard === "function") runWizard();
+  if(typeof renderProjectGallery === "function") renderProjectGallery();
+}
+
+loadProductsFromJson();
 </script>
 
 </body>
