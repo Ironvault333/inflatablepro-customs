@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Wave Admin</title>
+
+<style>
+:root{
+  --main:#0f766e;
+  --dark:#115e59;
+  --accent:#f97316;
+  --bg:#f5efe6;
+  --card:#fff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#d6d3d1;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:var(--bg);color:var(--text)}
+header{
+  background:linear-gradient(90deg,var(--dark),var(--main));
+  color:white;
+  padding:20px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-size:28px;font-weight:900}
+.logo span{color:var(--accent)}
+main{padding:30px 5%}
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin:7px 0 12px;
+}
+textarea{min-height:110px}
+button{
+  cursor:pointer;
+  border:0;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:900;
+  background:var(--accent);
+}
+.btnDark{background:var(--dark);color:white}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+.hidden{display:none!important}
+.item{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+  background:#f9fafb;
+}
+.stat{
+  background:#ccfbf1;
+  color:#134e4a;
+  border-radius:16px;
+  padding:18px;
+  font-weight:900;
+}
+.notice{
+  background:#fff7ed;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:16px;
+  color:#7c2d12;
+}
+.previewImg{
+  height:160px;
+  border-radius:12px;
+  background:#ecfdf5;
+  background-size:cover;
+  background-position:center;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Moon<span>Wave</span> Admin</div>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<main>
+  <section class="card" id="loginBox">
+    <h1>Admin Access</h1>
+    <p style="color:var(--muted);margin:8px 0 15px;">Enter the password to access Moon Wave admin tools.</p>
+    <input id="adminPassword" type="password" placeholder="Password">
+    <button onclick="login()">Enter Admin</button>
+  </section>
+
+  <section id="adminApp" class="hidden">
+    <div class="notice">
+      This gives you an admin page at <strong>/admin.html</strong>. This demo saves edits in your browser using localStorage. Later, for real customer/admin syncing, connect it to Supabase or another database.
+    </div>
+
+    <div class="grid">
+      <div class="stat">Quote Requests: <span id="quoteCount">0</span></div>
+      <div class="stat">Saved Product Edits: <span id="productCount">0</span></div>
+      <div class="stat">Favorites: <span id="favoriteCount">0</span></div>
+    </div>
+
+    <section class="card">
+      <h2>Add / Edit Product Information</h2>
+      <p style="color:var(--muted);margin:8px 0 15px;">Use this for customer-facing product details, images, shipping, weight, bags, production time, sizes, and notes.</p>
+
+      <div class="grid">
+        <div>
+          <label>Product Name</label>
+          <input id="productName" placeholder="King of the Hill Inflatable">
+        </div>
+
+        <div>
+          <label>Category</label>
+          <select id="productCategory">
+            <option>Franchise Inflatables</option>
+            <option>Mascot Inflatables</option>
+            <option>Water Attractions</option>
+            <option>Activity Inflatables</option>
+            <option>Promotional</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Starting Price</label>
+          <input id="productPrice" placeholder="12000">
+        </div>
+
+        <div>
+          <label>Production Time</label>
+          <input id="productTime" placeholder="60-75 days">
+        </div>
+
+        <div>
+          <label>Size Options</label>
+          <input id="productSizes" placeholder="20 ft, 30 ft, 40 ft, Custom">
+        </div>
+
+        <div>
+          <label>Color Options</label>
+          <input id="productColors" placeholder="Blue/Gray, Red/Black, School Colors">
+        </div>
+
+        <div>
+          <label>Weight</label>
+          <input id="productWeight" placeholder="Example: 250-500 lbs">
+        </div>
+
+        <div>
+          <label>Bag / Storage Details</label>
+          <input id="productBag" placeholder="Storage bag included / crate option">
+        </div>
+
+        <div>
+          <label>Packed Dimensions</label>
+          <input id="productPacked" placeholder="Example: 48 x 40 x 36 inches">
+        </div>
+
+        <div>
+          <label>Shipping Details</label>
+          <input id="productShipping" placeholder="Freight shipping quoted separately">
+        </div>
+
+        <div>
+          <label>Main Image Path</label>
+          <input id="productImage" placeholder="images/king-of-the-hill.png">
+        </div>
+
+        <div>
+          <label>Gallery Image Paths</label>
+          <input id="productGallery" placeholder="images/a.png, images/b.png, images/c.png">
+        </div>
+      </div>
+
+      <label>Description</label>
+      <textarea id="productDesc" placeholder="Full customer-facing description"></textarea>
+
+      <label>What Is Included</label>
+      <textarea id="productIncluded" placeholder="Blower, storage bag, repair kit, setup instructions..."></textarea>
+
+      <label>Safety / Setup Notes</label>
+      <textarea id="productNotes" placeholder="Surface needed, anchoring, adult supervision, water rules, etc."></textarea>
+
+      <button onclick="saveProduct()">Save Product Details</button>
+      <button class="btnDark" onclick="clearForm()">Clear Form</button>
+    </section>
+
+    <section class="card">
+      <h2>Saved Product Detail Records</h2>
+      <div id="productList"></div>
+    </section>
+
+    <section class="card">
+      <h2>Quote Requests</h2>
+      <div id="quoteList"></div>
+    </section>
+  </section>
+</main>
+
+<script>
+const ADMIN_PASSWORD = "admin123";
+
+function login(){
+  const pass = document.getElementById("adminPassword").value;
+  if(pass === ADMIN_PASSWORD){
+    localStorage.setItem("moonwave_admin_logged_in","true");
+    showAdmin();
+  }else{
+    alert("Wrong password.");
+  }
+}
+
+function logout(){
+  localStorage.removeItem("moonwave_admin_logged_in");
+  location.reload();
+}
+
+function showAdmin(){
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("adminApp").classList.remove("hidden");
+  renderAdmin();
+}
+
+function saveProduct(){
+  const products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
+
+  const record = {
+    id:Date.now(),
+    name:productName.value,
+    category:productCategory.value,
+    price:productPrice.value,
+    time:productTime.value,
+    sizes:productSizes.value,
+    colors:productColors.value,
+    weight:productWeight.value,
+    bag:productBag.value,
+    packed:productPacked.value,
+    shipping:productShipping.value,
+    image:productImage.value,
+    gallery:productGallery.value,
+    desc:productDesc.value,
+    included:productIncluded.value,
+    notes:productNotes.value,
+    date:new Date().toLocaleString()
+  };
+
+  products.push(record);
+  localStorage.setItem("moonwave_admin_products",JSON.stringify(products));
+
+  alert("Product detail record saved.");
+  clearForm();
+  renderAdmin();
+}
+
+function clearForm(){
+  [
+    productName,productPrice,productTime,productSizes,productColors,
+    productWeight,productBag,productPacked,productShipping,
+    productImage,productGallery,productDesc,productIncluded,productNotes
+  ].forEach(x=>x.value="");
+}
+
+function deleteProduct(id){
+  let products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
+  products = products.filter(p=>p.id!==id);
+  localStorage.setItem("moonwave_admin_products",JSON.stringify(products));
+  renderAdmin();
+}
+
+function renderAdmin(){
+  const products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
+  const quotes = JSON.parse(localStorage.getItem("moonwave_requests")) || [];
+  const favorites = JSON.parse(localStorage.getItem("moonwave_favorites")) || [];
+
+  document.getElementById("quoteCount").textContent = quotes.length;
+  document.getElementById("productCount").textContent = products.length;
+  document.getElementById("favoriteCount").textContent = favorites.length;
+
+  document.getElementById("productList").innerHTML = products.length ? products.map(p=>`
+    <div class="item">
+      ${p.image ? `<div class="previewImg" style="background-image:url('${p.image}')"></div>` : ""}
+      <h3>${p.name || "Unnamed Product"}</h3>
+      <p><strong>Category:</strong> ${p.category}</p>
+      <p><strong>Price:</strong> ${p.price}</p>
+      <p><strong>Production:</strong> ${p.time}</p>
+      <p><strong>Sizes:</strong> ${p.sizes}</p>
+      <p><strong>Colors:</strong> ${p.colors}</p>
+      <p><strong>Weight:</strong> ${p.weight}</p>
+      <p><strong>Bag:</strong> ${p.bag}</p>
+      <p><strong>Packed:</strong> ${p.packed}</p>
+      <p><strong>Shipping:</strong> ${p.shipping}</p>
+      <p><strong>Main Image:</strong> ${p.image}</p>
+      <p><strong>Gallery:</strong> ${p.gallery}</p>
+      <p><strong>Description:</strong> ${p.desc}</p>
+      <p><strong>Included:</strong> ${p.included}</p>
+      <p><strong>Notes:</strong> ${p.notes}</p>
+      <button onclick="deleteProduct(${p.id})">Delete</button>
+    </div>
+  `).join("") : "<p>No product detail records saved yet.</p>";
+
+  document.getElementById("quoteList").innerHTML = quotes.length ? quotes.map(q=>`
+    <div class="item">
+      <h3>${q.company || ""} — ${q.name || ""}</h3>
+      <p>${q.email || ""} | ${q.phone || ""}</p>
+      <p><strong>Products:</strong> ${(q.products || []).join(", ")}</p>
+      <p><strong>Budget:</strong> ${q.budget || ""}</p>
+      <p><strong>Target Size:</strong> ${q.targetSize || ""}</p>
+      <p><strong>Colors:</strong> ${q.brandColors || ""}</p>
+      <p><strong>Logo Notes:</strong> ${q.logoNeeded || ""}</p>
+      <p><strong>Artwork/File:</strong> ${q.artworkFile || ""}</p>
+      <p>${q.details || ""}</p>
+    </div>
+  `).join("") : "<p>No quote requests found yet.</p>";
+}
+
+if(localStorage.getItem("moonwave_admin_logged_in")==="true"){
+  showAdmin();
+}
+</script>
+
+</body>
+</html>
