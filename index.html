@@ -1,383 +1,1346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InflatePro Customs | Pro Catalog V2</title>
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InflatePro Customs</title>
+
+<style>
+:root{
+  --main:#0f766e;
+  --dark:#115e59;
+  --accent:#f97316;
+  --cream:#fff7ed;
+  --bg:#f5efe6;
+  --card:#fff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#d6d3d1;
+  --gold:#f59e0b;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select,textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:linear-gradient(90deg,var(--dark),var(--main));
+  color:white;
+  box-shadow:0 4px 18px rgba(0,0,0,.22);
+}
+
+.top{
+  padding:14px 5%;
+  display:grid;
+  grid-template-columns:230px 1fr auto;
+  gap:18px;
+  align-items:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:900;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.search{
+  display:grid;
+  grid-template-columns:150px 1fr 55px;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.search select,
+.search input,
+.search button{
+  border:0;
+  padding:14px;
+}
+
+.search select{
+  background:#ffedd5;
+  font-weight:900;
+}
+
+.search button{
+  background:var(--accent);
+  font-size:20px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.actions button{
+  background:rgba(255,255,255,.12);
+  color:white;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:9px;
+  padding:10px 13px;
+  font-weight:900;
+}
+
+nav{
+  background:#134e4a;
+  padding:10px 5%;
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+}
+
+nav button{
+  background:none;
+  border:0;
+  color:white;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+nav button:hover{
+  color:var(--accent);
+}
+
+.hero{
+  padding:35px 5%;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:25px;
+  background:linear-gradient(135deg,#fff7ed,#ccfbf1);
+}
+
+.heroText{
+  background:white;
+  border-radius:24px;
+  padding:45px;
+  box-shadow:0 15px 35px rgba(15,118,110,.18);
+}
+
+.heroText h1{
+  font-size:58px;
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:18px;
+}
+
+.heroText h1 span{
+  color:var(--main);
+}
+
+.heroText p{
+  color:var(--muted);
+  font-size:19px;
+  line-height:1.55;
+  margin-bottom:24px;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background:white;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:900;
+}
+
+.btn.primary{
+  border:0;
+  background:var(--accent);
+}
+
+.btn.dark{
+  border:0;
+  background:var(--dark);
+  color:white;
+}
+
+.heroCards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.heroCard{
+  min-height:180px;
+  background-size:cover;
+  background-position:center;
+  border-radius:24px;
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  display:flex;
+  align-items:flex-end;
+  box-shadow:0 15px 35px rgba(15,118,110,.18);
+}
+
+.heroCard.big{
+  grid-row:span 2;
+}
+
+.heroCard:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.05));
+}
+
+.heroCard h3,
+.heroCard strong,
+.heroCard p{
+  position:relative;
+  z-index:2;
+  color:white;
+}
+
+.heroCard h3{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.quick{
+  padding:18px 5%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;
+}
+
+.quick button{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:17px;
+  font-weight:900;
+  font-size:15px;
+}
+
+.layout{
+  padding:25px 5%;
+  display:grid;
+  grid-template-columns:290px 1fr;
+  gap:20px;
+}
+
+aside{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  height:max-content;
+  position:sticky;
+  top:120px;
+}
+
+.filter{
+  border-top:1px solid var(--border);
+  padding-top:14px;
+  margin-top:14px;
+}
+
+.filter label{
+  font-weight:900;
+  display:block;
+  margin-bottom:8px;
+}
+
+.filter input,
+.filter select{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.resultsTop{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.resultsTop p{
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.img{
+  height:230px;
+  background:#ecfdf5;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:var(--accent);
+  color:#111;
+  font-weight:900;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+.cardBody{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.cardBody h3{
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.cardBody p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+  margin-bottom:10px;
+}
+
+.stars{
+  color:var(--gold);
+  font-weight:900;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:8px 0 14px;
+}
+
+.tag{
+  background:#ccfbf1;
+  color:#134e4a;
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.cardBtns{
+  margin-top:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.cardBtns button{
+  border:1px solid var(--border);
+  background:white;
+  border-radius:999px;
+  padding:10px;
+  font-weight:900;
+}
+
+.cardBtns .add{
+  border:0;
+  background:var(--accent);
+}
+
+.quote{
+  padding:35px 5%;
+  display:grid;
+  grid-template-columns:1fr .85fr;
+  gap:22px;
+}
+
+form,.summary,.admin{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+}
+
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+form input,
+form select,
+form textarea{
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:15px;
+}
+
+form textarea,
+.full{
+  grid-column:1/-1;
+}
+
+textarea{
+  min-height:130px;
+}
+
+.item{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.total{
+  border-top:1px solid var(--border);
+  margin-top:15px;
+  padding-top:15px;
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:900;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.modalBox{
+  background:white;
+  width:1000px;
+  max-width:100%;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  border:0;
+  background:#eee;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.modalImg{
+  min-height:430px;
+  background:#ecfdf5;
+  background-size:cover;
+  background-position:center;
+}
+
+.modalInfo{
+  padding:30px;
+}
+
+.modalInfo h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.modalInfo p{
+  color:var(--muted);
+  line-height:1.55;
+  margin-bottom:12px;
+}
+
+.specs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:15px 0;
+}
+
+.spec{
+  background:#f9fafb;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+}
+
+.drawer{
+  position:fixed;
+  right:-420px;
+  top:0;
+  width:400px;
+  max-width:100%;
+  height:100vh;
+  background:white;
+  z-index:2100;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+  box-shadow:-10px 0 35px rgba(0,0,0,.25);
+}
+
+.drawer.open{
+  right:0;
+}
+
+.drawerHead{
+  background:var(--dark);
+  color:white;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.drawerHead button{
+  background:none;
+  border:0;
+  color:white;
+  font-size:24px;
+}
+
+.drawerBody{
+  padding:18px;
+  overflow:auto;
+  flex:1;
+}
+
+.drawerFoot{
+  border-top:1px solid var(--border);
+  padding:18px;
+}
+
+.adminSection{
+  padding:35px 5%;
+}
+
+footer{
+  background:#134e4a;
+  color:white;
+  padding:35px 5%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+footer p{
+  color:#d1fae5;
+}
+
+@media(max-width:900px){
+  .top,.hero,.layout,.quote,.modalBox,footer{
+    grid-template-columns:1fr;
+  }
+
+  aside{
+    position:static;
+  }
+
+  .heroText h1{
+    font-size:42px;
+  }
+
+  form{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<div class="utility-bar">
-  <div>Custom inflatables for franchises, colleges, restaurants, retail brands, and event companies</div>
-  <div>Bulk pricing • Design proof before production • Quote-based ordering</div>
-</div>
+<header>
+  <div class="top">
+    <div class="logo">InflatePro<span>Customs</span></div>
 
-<header class="site-header">
-  <div class="header-main">
-    <a class="brand" href="#" onclick="app.goHome()">InflatePro<span>Customs</span></a>
-
-    <div class="search-shell">
-      <select id="globalDepartment" aria-label="Department">
+    <div class="search">
+      <select id="department">
         <option value="all">All</option>
       </select>
-      <input id="globalSearch" placeholder="Search mascot, arch, water slide, panda, restaurant..." />
-      <button id="searchBtn" title="Search">🔍</button>
+      <input id="searchInput" placeholder="Search bounce house, mascot, franchise inflatable..." oninput="renderProducts()">
+      <button onclick="renderProducts()">🔍</button>
     </div>
 
-    <div class="header-actions">
-      <button class="mini-action" onclick="app.showPanel('recent')"><span>Recently</span><strong>Viewed</strong></button>
-      <button class="mini-action" onclick="app.showPanel('compare')"><span>Compare</span><strong id="compareCount">0</strong></button>
-      <button class="mini-action" onclick="app.showLogin()"><span>Admin</span><strong id="adminLoginText">Login</strong></button>
-      <button class="cart-action" onclick="app.openDrawer()">🛒 Quote <span id="cartCount">0</span></button>
+    <div class="actions">
+      <button onclick="scrollToProducts()">Products</button>
+      <button onclick="openCart()">Quote <span id="cartCount">0</span></button>
+      <button onclick="adminLogin()">Admin</button>
     </div>
   </div>
 
-  <nav class="department-nav" id="departmentNav"></nav>
+  <nav id="nav"></nav>
 </header>
 
-<main>
-  <section class="hero" id="homeSection">
-    <div class="hero-copy">
-      <div class="eyebrow">Amazon-style custom inflatable catalog</div>
-      <h1>Browse custom inflatables like a real big-business store.</h1>
-      <p>
-        Search, filter, compare, view product pages, use a design builder, estimate budget,
-        add items to a quote, and manage leads from the admin dashboard.
-      </p>
-      <div class="hero-actions">
-        <button class="btn primary" onclick="app.scrollToProducts()">Start Shopping</button>
-        <button class="btn dark" onclick="app.openDrawer()">View Quote List</button>
-        <button class="btn" onclick="app.openDesignBuilder()">Design Builder</button>
-      </div>
-    </div>
+<section class="hero">
+  <div class="heroText">
+    <div style="color:var(--main);font-weight:900;margin-bottom:10px;">COMMERCIAL INFLATABLE CATALOG</div>
+    <h1>Custom inflatables, bounce houses, and brand displays <span>built to stand out.</span></h1>
+    <p>Browse bounce houses, mascot inflatables, franchise displays, water attractions, and custom brand builds. Add products to a quote and request a custom design proof.</p>
+    <button class="btn primary" onclick="scrollToProducts()">Start Shopping</button>
+    <button class="btn dark" onclick="openCart()">View Quote</button>
+  </div>
 
-    <div class="hero-grid">
-      <div class="hero-card big">
-        <div class="floating-badge">Featured</div>
-        <div class="hero-emoji">🎈</div>
-        <h3>Custom Character Inflatables</h3>
-        <p>For franchises, brands, schools, and events.</p>
-      </div>
-      <div class="hero-card"><div>🏟️</div><strong>College Tunnels</strong></div>
-      <div class="hero-card"><div>🌊</div><strong>Water Attractions</strong></div>
-    </div>
-  </section>
-
-  <section class="quick-markets" id="quickMarkets"></section>
-
-  <section class="recent-strip hidden" id="recentStrip">
-    <div class="strip-head">
-      <h2>Recently Viewed</h2>
-      <button onclick="app.showPanel('recent')">View All</button>
-    </div>
-    <div class="mini-carousel" id="recentCarousel"></div>
-  </section>
-
-  <section class="content-layout" id="productsSection">
-    <aside class="filters">
-      <div class="filter-head">
-        <h3>Filter Results</h3>
-        <button onclick="app.resetFilters()">Reset</button>
-      </div>
-
-      <div class="filter-box">
-        <label>Category</label>
-        <select id="filterCategory"></select>
-      </div>
-
-      <div class="filter-box">
-        <label>Customer Type</label>
-        <select id="filterMarket"></select>
-      </div>
-
-      <div class="filter-box">
-        <label>Use Case</label>
-        <select id="filterUse"></select>
-      </div>
-
-      <div class="filter-box">
-        <label>Water Use</label>
-        <select id="filterWater">
-          <option value="all">All</option>
-          <option value="true">Water Compatible</option>
-          <option value="false">Dry Use</option>
-        </select>
-      </div>
-
-      <div class="filter-box">
-        <label>Starting Price</label>
-        <div class="range-row">
-          <input id="filterMin" type="number" placeholder="Min" />
-          <input id="filterMax" type="number" placeholder="Max" />
-        </div>
-      </div>
-
-      <div class="filter-box">
-        <label>Production Time</label>
-        <select id="filterSpeed">
-          <option value="all">Any</option>
-          <option value="fast">Fastest Options</option>
-          <option value="standard">Standard</option>
-          <option value="long">Large Custom Builds</option>
-        </select>
-      </div>
-
-      <div class="filter-box">
-        <label>Rating</label>
-        <select id="filterRating">
-          <option value="all">Any Rating</option>
-          <option value="4.8">4.8+</option>
-          <option value="4.6">4.6+</option>
-          <option value="4.4">4.4+</option>
-        </select>
-      </div>
-    </aside>
-
-    <section class="results">
-      <div class="results-toolbar">
-        <div>
-          <h2 id="resultsTitle">Product Results</h2>
-          <p id="resultsSubtitle">Showing products</p>
-        </div>
-        <div class="toolbar-right">
-          <button class="btn small" onclick="app.toggleView()">View: <span id="viewModeText">Grid</span></button>
-          <select id="sortSelect">
-            <option value="featured">Sort by Featured</option>
-            <option value="priceLow">Price: Low to High</option>
-            <option value="priceHigh">Price: High to Low</option>
-            <option value="rating">Highest Rated</option>
-            <option value="reviews">Most Reviewed</option>
-            <option value="name">Name A-Z</option>
-            <option value="newest">Newest</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="applied-filters" id="appliedFilters"></div>
-      <div class="product-grid" id="productGrid"></div>
-      <div class="empty-state hidden" id="emptyState">
-        <h3>No products found</h3>
-        <p>Try resetting filters or searching a different word.</p>
-        <button class="btn primary" onclick="app.resetFilters()">Reset Filters</button>
-      </div>
-    </section>
-  </section>
-
-  <section class="section light" id="productPageSection">
-    <div id="productPageContent"></div>
-  </section>
-
-  <section class="section light" id="budgetSection">
-    <div class="section-title">
-      <h2>Instant Budget Estimator</h2>
-      <p>This gives customers a rough range before they submit a quote.</p>
-    </div>
-    <div class="estimator">
-      <div class="estimator-form">
-        <label>Inflatable Type</label>
-        <select id="estimateType">
-          <option value="character">Character / Mascot</option>
-          <option value="arch">Entrance Arch</option>
-          <option value="water">Water Attraction</option>
-          <option value="game">Game / Activity</option>
-          <option value="display">Logo / Product Display</option>
-        </select>
-        <label>Height or Length</label>
-        <input id="estimateSize" type="number" value="6" min="1" />
-        <label>Quantity</label>
-        <input id="estimateQty" type="number" value="1" min="1" />
-        <label>Complexity</label>
-        <select id="estimateComplexity">
-          <option value="simple">Simple</option>
-          <option value="standard" selected>Standard</option>
-          <option value="premium">Premium / Detailed</option>
-        </select>
-        <button class="btn primary" onclick="app.calculateEstimate()">Calculate Estimate</button>
-      </div>
-      <div class="estimate-result" id="estimateResult">
-        <h3>Estimated Range</h3>
-        <p>Choose options and calculate a rough budget.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section light" id="processSection">
-    <div class="section-title">
-      <h2>How custom orders work</h2>
-      <p>This keeps the customer from feeling lost on a high-ticket custom purchase.</p>
-    </div>
-    <div class="info-grid">
-      <div class="info-card"><span>1</span><h3>Browse</h3><p>Customers search and compare product ideas.</p></div>
-      <div class="info-card"><span>2</span><h3>Add to Quote</h3><p>They build a quote list instead of checking out instantly.</p></div>
-      <div class="info-card"><span>3</span><h3>Design Builder</h3><p>They choose size, colors, logo placement, water use, and deadline.</p></div>
-      <div class="info-card"><span>4</span><h3>Design Proof</h3><p>You send a mockup before final payment and production.</p></div>
-    </div>
-  </section>
-
-  <section class="quote-section" id="quoteSection">
-    <form id="quoteForm">
-      <h2 class="full">Request a Custom Quote</h2>
-      <input id="customerName" placeholder="Full Name" required />
-      <input id="customerCompany" placeholder="Company / School / Franchise" required />
-      <input id="customerEmail" type="email" placeholder="Email" required />
-      <input id="customerPhone" placeholder="Phone Number" required />
-      <select id="buyerType" required>
-        <option value="">Buyer Type</option>
-        <option>Franchise / Restaurant</option>
-        <option>College / School</option>
-        <option>Corporate Brand</option>
-        <option>Event Company</option>
-        <option>Other</option>
-      </select>
-      <select id="quoteQuantity" required>
-        <option value="">Estimated Quantity</option>
-        <option>1</option>
-        <option>2-5</option>
-        <option>6-10</option>
-        <option>10+</option>
-      </select>
-      <input id="deadline" placeholder="Needed By Date" />
-      <input id="budget" placeholder="Estimated Budget" />
-      <textarea id="quoteDetails" placeholder="Describe size, colors, logo placement, character/mascot details, where it will be used, and anything special."></textarea>
-      <input id="builderData" type="hidden" />
-      <button class="btn primary full" type="submit">Submit Quote Request</button>
-    </form>
-
-    <div class="quote-summary">
-      <h2>Your Quote List</h2>
-      <p>Products added from the catalog appear here.</p>
-      <div id="quotePageItems"></div>
-      <div id="quoteBuilderPreview"></div>
-      <div class="summary-total">
-        <span>Estimated Starting Total</span>
-        <strong id="quotePageTotal">$0+</strong>
-      </div>
-      <button class="btn dark full" onclick="app.printQuote()">Print Quote</button>
-    </div>
-  </section>
-
-  <section class="section" id="adminSection">
-    <div class="section-title row">
+  <div class="heroCards">
+    <div class="heroCard big" style="background-image:url('images/rainforest-rapids.jpg')">
       <div>
-        <h2>Admin Dashboard</h2>
-        <p>Login required. Products and requests save in this browser using localStorage.</p>
-      </div>
-      <div class="admin-tabs">
-        <button class="btn small dark" onclick="app.setAdminTab('requests')">Requests</button>
-        <button class="btn small" onclick="app.setAdminTab('products')">Products</button>
-        <button class="btn small" onclick="app.setAdminTab('categories')">Categories</button>
-        <button class="btn small" onclick="app.exportData()">Export JSON</button>
-        <button class="btn small" onclick="app.exportRequestsCSV()">Export CSV</button>
+        <h3>Rainforest Rapids</h3>
+        <p>Large water bounce house attraction.</p>
       </div>
     </div>
 
-    <div class="admin-panel" id="adminPanel"></div>
-  </section>
-</main>
+    <div class="heroCard" style="background-image:url('images/college-mascot-inflatable.jpg')">
+      <strong>College Mascots</strong>
+    </div>
 
-<div class="drawer-backdrop" id="drawerBackdrop" onclick="app.closeDrawer()"></div>
-<aside class="quote-drawer" id="quoteDrawer">
-  <div class="drawer-head">
+    <div class="heroCard" style="background-image:url('images/franchise-character-inflatable.jpg')">
+      <strong>Franchise Displays</strong>
+    </div>
+  </div>
+</section>
+
+<section class="quick" id="quick"></section>
+
+<section class="layout" id="products">
+  <aside>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3>Filter Results</h3>
+      <button style="border:0;background:none;color:var(--main);font-weight:900;" onclick="resetFilters()">Reset</button>
+    </div>
+
+    <div class="filter">
+      <label>Category</label>
+      <select id="category" onchange="renderProducts()"></select>
+    </div>
+
+    <div class="filter">
+      <label>Customer Type</label>
+      <select id="market" onchange="renderProducts()"></select>
+    </div>
+
+    <div class="filter">
+      <label>Use Case</label>
+      <select id="use" onchange="renderProducts()"></select>
+    </div>
+
+    <div class="filter">
+      <label>Water Use</label>
+      <select id="water" onchange="renderProducts()">
+        <option value="all">All</option>
+        <option value="true">Water Compatible</option>
+        <option value="false">Dry Use</option>
+      </select>
+    </div>
+
+    <div class="filter">
+      <label>Max Price</label>
+      <input id="maxPrice" type="number" placeholder="Example: 10000" oninput="renderProducts()">
+    </div>
+  </aside>
+
+  <main>
+    <div class="resultsTop">
+      <div>
+        <h2 id="resultTitle">Products</h2>
+        <p id="resultSub">Showing products</p>
+      </div>
+
+      <select id="sort" onchange="renderProducts()">
+        <option value="featured">Featured</option>
+        <option value="low">Price Low to High</option>
+        <option value="high">Price High to Low</option>
+        <option value="rating">Highest Rated</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </main>
+</section>
+
+<section class="quote">
+  <form id="quoteForm" onsubmit="submitQuote(event)">
+    <h2 class="full">Request a Custom Quote</h2>
+    <input id="name" placeholder="Full Name" required>
+    <input id="company" placeholder="Company / School / Franchise" required>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="phone" placeholder="Phone Number" required>
+
+    <select id="buyer" required>
+      <option value="">Buyer Type</option>
+      <option>Franchise / Restaurant</option>
+      <option>College / School</option>
+      <option>Event Company</option>
+      <option>Corporate Brand</option>
+      <option>Other</option>
+    </select>
+
+    <select id="qty" required>
+      <option value="">Estimated Quantity</option>
+      <option>1</option>
+      <option>2-5</option>
+      <option>6-10</option>
+      <option>10+</option>
+    </select>
+
+    <input id="deadline" placeholder="Needed By Date">
+    <input id="budget" placeholder="Estimated Budget">
+
+    <textarea id="details" placeholder="Describe colors, logo placement, size, mascot details, and use case."></textarea>
+
+    <button class="btn primary full" type="submit">Submit Quote Request</button>
+  </form>
+
+  <div class="summary">
+    <h2>Your Quote List</h2>
+    <p style="color:var(--muted);margin:8px 0 15px;">Products added from the catalog appear here.</p>
+    <div id="quoteItems"></div>
+    <div class="total">
+      <span>Total</span>
+      <span id="quoteTotal">$0+</span>
+    </div>
+  </div>
+</section>
+
+<section class="adminSection">
+  <div class="admin">
+    <h2>Admin Dashboard</h2>
+    <p style="color:var(--muted);margin:8px 0 15px;">Demo password: <strong>admin123</strong></p>
+    <div id="adminBox">Login to see saved quote requests.</div>
+  </div>
+</section>
+
+<div class="drawer" id="drawer">
+  <div class="drawerHead">
     <strong>Quote List</strong>
-    <button onclick="app.closeDrawer()">×</button>
+    <button onclick="closeCart()">×</button>
   </div>
-  <div class="drawer-body" id="drawerItems"></div>
-  <div class="drawer-foot">
-    <div class="drawer-total"><span>Total</span><strong id="drawerTotal">$0+</strong></div>
-    <button class="btn primary full" onclick="app.goToQuote()">Finish Quote</button>
+  <div class="drawerBody" id="drawerItems"></div>
+  <div class="drawerFoot">
+    <strong>Total: <span id="drawerTotal">$0+</span></strong>
+    <br><br>
+    <button class="btn primary" style="width:100%" onclick="document.querySelector('.quote').scrollIntoView({behavior:'smooth'});closeCart();">Finish Quote</button>
   </div>
-</aside>
+</div>
 
-<div class="modal" id="productModal">
-  <div class="modal-card">
-    <button class="modal-close" onclick="app.closeProduct()">×</button>
-    <div class="modal-gallery">
-      <div class="modal-main-img" id="modalMainImage"></div>
-      <div class="thumb-row" id="modalThumbs"></div>
-    </div>
-    <div class="modal-info">
-      <div class="modal-kicker" id="modalKicker">Product</div>
-      <h2 id="modalTitle"></h2>
+<div class="modal" id="modal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="modalImg" id="modalImg"></div>
+    <div class="modalInfo">
+      <h2 id="modalName"></h2>
       <div class="stars" id="modalRating"></div>
       <h3 id="modalPrice"></h3>
       <p id="modalDesc"></p>
       <div class="tags" id="modalTags"></div>
-      <div class="spec-grid" id="modalSpecs"></div>
-      <div class="modal-actions">
-        <button class="btn primary" id="modalAdd">Add to Quote</button>
-        <button class="btn dark" id="modalCompare">Compare</button>
-        <button class="btn" id="modalPage">Open Product Page</button>
-      </div>
-      <div class="detail-note">
-        <strong>Customization:</strong> Logo, colors, size, pose, entrance points, material, and usage can be quoted.
-      </div>
-      <div class="related-box">
-        <h3>Related Products</h3>
-        <div id="modalRelated"></div>
-      </div>
+      <div class="specs" id="modalSpecs"></div>
+      <button class="btn primary" id="modalAdd">Add to Quote</button>
     </div>
   </div>
 </div>
-
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-head">
-    <strong id="sidePanelTitle">Panel</strong>
-    <button onclick="app.closePanel()">×</button>
-  </div>
-  <div id="sidePanelBody"></div>
-</div>
-
-<div class="lead-popup hidden" id="leadPopup">
-  <button class="lead-close" onclick="app.closeLeadPopup()">×</button>
-  <h3>Need a custom inflatable?</h3>
-  <p>Get a free design consultation and rough price range.</p>
-  <input id="leadEmail" type="email" placeholder="Email address" />
-  <button class="btn primary full" onclick="app.saveLead()">Get Consultation</button>
-</div>
-
-<div class="modal" id="loginModal">
-  <div class="login-card">
-    <button class="modal-close" onclick="app.closeLogin()">×</button>
-    <h2>Admin Login</h2>
-    <p>Demo password: <strong>admin123</strong></p>
-    <input id="adminPassword" type="password" placeholder="Password" />
-    <button class="btn primary full" onclick="app.login()">Login</button>
-  </div>
-</div>
-
-<div class="modal" id="designBuilderModal">
-  <div class="builder-card">
-    <button class="modal-close" onclick="app.closeDesignBuilder()">×</button>
-    <h2>Custom Design Builder</h2>
-    <p>These details are added to the quote form.</p>
-    <div class="builder-grid">
-      <label>Inflatable Type<select id="buildType"><option>Character / Mascot</option><option>Entrance Arch</option><option>Water Attraction</option><option>Product Replica</option><option>Game / Activity</option></select></label>
-      <label>Size Needed<input id="buildSize" placeholder="Example: 6 ft tall or 40 ft long"></label>
-      <label>Main Colors<input id="buildColors" placeholder="Example: red, yellow, white"></label>
-      <label>Logo Placement<select id="buildLogo"><option>Front</option><option>Both Sides</option><option>Top</option><option>Multiple Spots</option><option>No Logo</option></select></label>
-      <label>Use Location<select id="buildLocation"><option>Indoor</option><option>Outdoor</option><option>Both</option></select></label>
-      <label>Water Use<select id="buildWater"><option>No</option><option>Yes</option><option>Maybe</option></select></label>
-      <label class="full">Extra Details<textarea id="buildNotes" placeholder="Describe pose, shape, mascot details, or special features."></textarea></label>
-    </div>
-    <button class="btn primary full" onclick="app.applyDesignBuilder()">Add Design Details to Quote</button>
-  </div>
-</div>
-
-<button class="mobile-quote" onclick="app.openDrawer()">🛒 Quote <span id="mobileCartCount">0</span></button>
 
 <footer>
   <div>
     <h2>InflatePro Customs</h2>
-    <p>Amazon-style custom inflatable catalog for franchises, colleges, brands, restaurants, and event companies.</p>
+    <p>Commercial inflatable catalog for bounce houses, mascot inflatables, franchise displays, water attractions, and custom brand builds.</p>
   </div>
   <div>
     <p><strong>Email:</strong> quotes@inflateprocustoms.com</p>
     <p><strong>Phone:</strong> 801-000-0000</p>
-    <p>Replace this with your real contact info before launch.</p>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+const products = [
+  {
+    id:1,
+    name:"Rainforest Rapids Bounce House",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Water Attraction",
+    price:14500,
+    image:"images/rainforest-rapids.jpg",
+    rating:4.9,
+    reviews:41,
+    badge:"Featured",
+    size:"Large",
+    days:60,
+    water:true,
+    desc:"Large rainforest-themed bounce house and water attraction built for rentals, company events, and summer parties.",
+    tags:["Bounce House","Water","Rental Ready","Large Attraction"],
+    keywords:["rainforest","rapids","bounce house","water slide","rental"]
+  },
+  {
+    id:2,
+    name:"Dolphin Water Bounce House",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Water Attraction",
+    price:9800,
+    image:"images/dolphin-water-bounce.jpg",
+    rating:4.8,
+    reviews:27,
+    badge:"Water",
+    size:"Medium/Large",
+    days:50,
+    water:true,
+    desc:"Dolphin-themed water bounce attraction for summer rentals, pool parties, and family events.",
+    tags:["Dolphin","Water","Bounce House"],
+    keywords:["dolphin","water","bounce","kids"]
+  },
+  {
+    id:3,
+    name:"Croc Water Bouncer",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Water Attraction",
+    price:9200,
+    image:"images/croc-water-bouncer.jpg",
+    rating:4.7,
+    reviews:22,
+    badge:"Popular",
+    size:"Medium",
+    days:50,
+    water:true,
+    desc:"Crocodile-themed inflatable bouncer designed for water play, party rentals, and summer events.",
+    tags:["Croc","Water","Bouncer"],
+    keywords:["croc","crocodile","water bouncer","summer"]
+  },
+  {
+    id:4,
+    name:"Bug Bath Bounce House",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:8500,
+    image:"images/bug-bath.jpg",
+    rating:4.7,
+    reviews:19,
+    badge:"Fun",
+    size:"Medium",
+    days:45,
+    water:false,
+    desc:"Bright bug-themed bounce house attraction for younger kids, rentals, and themed events.",
+    tags:["Kids","Theme","Bounce House"],
+    keywords:["bug bath","bug","kids","bounce house"]
+  },
+  {
+    id:5,
+    name:"Elefun Bounce House",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:8900,
+    image:"images/elefun.jpg",
+    rating:4.8,
+    reviews:26,
+    badge:"Kids Favorite",
+    size:"Medium",
+    days:45,
+    water:false,
+    desc:"Elephant-themed bounce house with fun character appeal for birthdays, schools, and family events.",
+    tags:["Elephant","Kids","Bounce House"],
+    keywords:["elefun","elephant","bounce house","kids"]
+  },
+  {
+    id:6,
+    name:"Princess Paradise Bounce House",
+    category:"Bounce Houses",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:9400,
+    image:"images/princess-paradise.jpg",
+    rating:4.9,
+    reviews:34,
+    badge:"Party",
+    size:"Medium/Large",
+    days:50,
+    water:false,
+    desc:"Princess-themed inflatable bounce house made for birthday parties, school events, and rental companies.",
+    tags:["Princess","Party","Bounce House"],
+    keywords:["princess","castle","paradise","bounce house"]
+  },
+  {
+    id:7,
+    name:"Fast Food Character Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Brand Display",
+    price:10000,
+    image:"images/franchise-character-inflatable.jpg",
+    rating:4.9,
+    reviews:42,
+    badge:"Franchise",
+    size:"Up to 6 ft",
+    days:45,
+    water:false,
+    desc:"Custom restaurant character inflatable for franchises, grand openings, drive-thru promotions, and photo moments.",
+    tags:["Character","Franchise","Logo Ready","Photo Spot"],
+    keywords:["mcdonalds","burger","restaurant","fast food","character"]
+  },
+  {
+    id:8,
+    name:"Grimace Style Character Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Photo Spot",
+    price:10500,
+    image:"images/grimace-character-inflatable.jpg",
+    rating:4.8,
+    reviews:18,
+    badge:"Character",
+    size:"Up to 6 ft",
+    days:50,
+    water:false,
+    desc:"Large friendly character inflatable for restaurant chains, social media photos, and promotional events.",
+    tags:["Franchise","Character","Photo Spot"],
+    keywords:["grimace","purple","character","restaurant","franchise"]
+  },
+  {
+    id:9,
+    name:"Panda Restaurant Mascot Inflatable",
+    category:"Franchise Inflatables",
+    market:"Restaurants",
+    use:"Photo Spot",
+    price:9500,
+    image:"images/panda-mascot-inflatable.jpg",
+    rating:4.8,
+    reviews:31,
+    badge:"Mascot",
+    size:"4-8 ft",
+    days:45,
+    water:false,
+    desc:"Standing or sitting panda mascot inflatable designed for food brands, restaurants, and retail chains.",
+    tags:["Mascot","Custom Pose","Indoor/Outdoor"],
+    keywords:["panda","restaurant","mascot","brand"]
+  },
+  {
+    id:10,
+    name:"College Mascot Inflatable",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:9000,
+    image:"images/college-mascot-inflatable.jpg",
+    rating:4.9,
+    reviews:26,
+    badge:"School",
+    size:"5-10 ft",
+    days:50,
+    water:false,
+    desc:"School mascot inflatable for games, tailgates, student events, alumni activities, and campus photo areas.",
+    tags:["College","Mascot","Tailgate"],
+    keywords:["school","college","byu","utah","football","mascot"]
+  },
+  {
+    id:11,
+    name:"Sports Mascot Tunnel",
+    category:"Mascot Inflatables",
+    market:"Schools",
+    use:"School Event",
+    price:14500,
+    image:"images/sports-mascot-tunnel.jpg",
+    rating:4.8,
+    reviews:13,
+    badge:"Sports",
+    size:"Custom",
+    days:65,
+    water:false,
+    desc:"Custom sports entrance tunnel with mascot face, colors, and team branding.",
+    tags:["Sports","Mascot","Tunnel"],
+    keywords:["sports","tunnel","mascot","team"]
+  },
+  {
+    id:12,
+    name:"King of the Hill Inflatable",
+    category:"Activity Inflatables",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:12000,
+    image:"images/king-of-the-hill.jpg",
+    rating:4.8,
+    reviews:19,
+    badge:"Premium",
+    size:"Custom",
+    days:60,
+    water:true,
+    desc:"Competitive climbing inflatable with ramps, ropes, soap/water use, and padded landing zones.",
+    tags:["Activity","Teen/Adult","Climbing","Water Option"],
+    keywords:["king of the mountain","hill","climb","water","soap","teen"]
+  },
+  {
+    id:13,
+    name:"Slip and Slide Track",
+    category:"Water Attractions",
+    market:"Event Rentals",
+    use:"Water Attraction",
+    price:7500,
+    image:"images/slip-and-slide-track.jpg",
+    rating:4.6,
+    reviews:38,
+    badge:"Summer",
+    size:"30-100 ft",
+    days:50,
+    water:true,
+    desc:"Long inflatable water track with raised side walls, slick surface, and custom color combinations.",
+    tags:["Water","Summer","Custom Length"],
+    keywords:["slip n slide","slip and slide","water slide","summer"]
+  },
+  {
+    id:14,
+    name:"Inflatable Bowling Slide",
+    category:"Activity Inflatables",
+    market:"Event Rentals",
+    use:"Game / Activity",
+    price:6800,
+    image:"images/inflatable-bowling-slide.jpg",
+    rating:4.8,
+    reviews:22,
+    badge:"Fun",
+    size:"25-60 ft",
+    days:45,
+    water:true,
+    desc:"Players slide down a slick inflatable lane and crash into oversized bowling pins.",
+    tags:["Game","Bowling","Water Option"],
+    keywords:["bowling","pins","slide","game"]
+  },
+  {
+    id:15,
+    name:"Branded Entrance Arch",
+    category:"Promotional",
+    market:"Events",
+    use:"Brand Display",
+    price:4200,
+    image:"images/branded-entrance-arch.jpg",
+    rating:4.7,
+    reviews:54,
+    badge:"Best Value",
+    size:"10-30 ft wide",
+    days:35,
+    water:false,
+    desc:"Large inflatable arch for entrances, races, school events, store openings, and sponsor displays.",
+    tags:["Arch","Logo","Entrance"],
+    keywords:["arch","entrance","race","sponsor"]
+  }
+];
+
+let quote = JSON.parse(localStorage.getItem("inflatepro_quote")) || [];
+let requests = JSON.parse(localStorage.getItem("inflatepro_requests")) || [];
+let admin = false;
+
+function money(n){
+  return "$" + n.toLocaleString() + "+";
+}
+
+function categories(){
+  return ["All","Bounce Houses","Franchise Inflatables","Mascot Inflatables","Water Attractions","Activity Inflatables","Promotional"];
+}
+
+function fillNav(){
+  const nav = document.getElementById("nav");
+  nav.innerHTML = categories().map(c => `<button onclick="setCategory('${c}')">${c}</button>`).join("");
+
+  const department = document.getElementById("department");
+  department.innerHTML = categories().map(c => `<option value="${c === "All" ? "all" : c}">${c}</option>`).join("");
+
+  const category = document.getElementById("category");
+  category.innerHTML = categories().map(c => `<option value="${c === "All" ? "all" : c}">${c}</option>`).join("");
+
+  document.getElementById("market").innerHTML = `
+    <option value="all">All Customer Types</option>
+    <option>Event Rentals</option>
+    <option>Restaurants</option>
+    <option>Schools</option>
+    <option>Events</option>
+    <option>Corporate</option>
+  `;
+
+  document.getElementById("use").innerHTML = `
+    <option value="all">All Uses</option>
+    <option>Water Attraction</option>
+    <option>Game / Activity</option>
+    <option>Brand Display</option>
+    <option>Photo Spot</option>
+    <option>School Event</option>
+  `;
+
+  document.getElementById("quick").innerHTML = categories().slice(1).map(c => `<button onclick="setCategory('${c}')">${c}</button>`).join("");
+}
+
+function setCategory(c){
+  document.getElementById("department").value = c === "All" ? "all" : c;
+  document.getElementById("category").value = c === "All" ? "all" : c;
+  scrollToProducts();
+  renderProducts();
+}
+
+function scrollToProducts(){
+  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+function resetFilters(){
+  document.getElementById("department").value = "all";
+  document.getElementById("category").value = "all";
+  document.getElementById("market").value = "all";
+  document.getElementById("use").value = "all";
+  document.getElementById("water").value = "all";
+  document.getElementById("maxPrice").value = "";
+  document.getElementById("searchInput").value = "";
+  renderProducts();
+}
+
+function renderProducts(){
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const department = document.getElementById("department").value;
+  const category = document.getElementById("category").value;
+  const market = document.getElementById("market").value;
+  const use = document.getElementById("use").value;
+  const water = document.getElementById("water").value;
+  const max = Number(document.getElementById("maxPrice").value || 999999);
+  const sort = document.getElementById("sort").value;
+
+  let list = products.filter(p => {
+    const text = [p.name,p.category,p.market,p.use,p.desc,p.tags.join(" "),p.keywords.join(" ")].join(" ").toLowerCase();
+
+    return text.includes(search)
+      && (department === "all" || p.category === department)
+      && (category === "all" || p.category === category)
+      && (market === "all" || p.market === market)
+      && (use === "all" || p.use === use)
+      && (water === "all" || String(p.water) === water)
+      && p.price <= max;
+  });
+
+  if(sort === "low") list.sort((a,b)=>a.price-b.price);
+  if(sort === "high") list.sort((a,b)=>b.price-a.price);
+  if(sort === "rating") list.sort((a,b)=>b.rating-a.rating);
+
+  document.getElementById("resultTitle").textContent = list.length + " Products Found";
+  document.getElementById("resultSub").textContent = "Showing commercial inflatable products and quote-ready options.";
+
+  document.getElementById("grid").innerHTML = list.map(p => `
+    <div class="card">
+      <div class="img" style="background-image:url('${p.image}')">
+        <span class="badge">${p.badge}</span>
+      </div>
+      <div class="cardBody">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="stars">★★★★★ ${p.rating} (${p.reviews})</div>
+        <div class="price">${money(p.price)}</div>
+        <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+        <div class="cardBtns">
+          <button onclick="openModal(${p.id})">Details</button>
+          <button class="add" onclick="addToQuote(${p.id})">Add</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function openModal(id){
+  const p = products.find(x=>x.id===id);
+  document.getElementById("modalImg").style.backgroundImage = `url('${p.image}')`;
+  document.getElementById("modalName").textContent = p.name;
+  document.getElementById("modalRating").textContent = `★★★★★ ${p.rating} (${p.reviews})`;
+  document.getElementById("modalPrice").textContent = money(p.price);
+  document.getElementById("modalDesc").textContent = p.desc;
+  document.getElementById("modalTags").innerHTML = p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
+  document.getElementById("modalSpecs").innerHTML = `
+    <div class="spec"><strong>Category</strong><br>${p.category}</div>
+    <div class="spec"><strong>Market</strong><br>${p.market}</div>
+    <div class="spec"><strong>Use</strong><br>${p.use}</div>
+    <div class="spec"><strong>Size</strong><br>${p.size}</div>
+    <div class="spec"><strong>Production</strong><br>${p.days} days</div>
+    <div class="spec"><strong>Water Use</strong><br>${p.water ? "Yes" : "No"}</div>
+  `;
+  document.getElementById("modalAdd").onclick = () => addToQuote(id);
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("open");
+}
+
+function addToQuote(id){
+  const p = products.find(x=>x.id===id);
+  const existing = quote.find(x=>x.id===id);
+
+  if(existing) existing.qty++;
+  else quote.push({...p,qty:1});
+
+  localStorage.setItem("inflatepro_quote",JSON.stringify(quote));
+  renderQuote();
+  openCart();
+}
+
+function removeQuote(id){
+  quote = quote.filter(x=>x.id!==id);
+  localStorage.setItem("inflatepro_quote",JSON.stringify(quote));
+  renderQuote();
+}
+
+function renderQuote(){
+  const total = quote.reduce((s,p)=>s + p.price*p.qty,0);
+  const html = quote.length ? quote.map(p=>`
+    <div class="item">
+      <strong>${p.name}</strong>
+      <p>${money(p.price)} each</p>
+      <p>Qty: ${p.qty}</p>
+      <button class="btn" onclick="removeQuote(${p.id})">Remove</button>
+    </div>
+  `).join("") : "<p>No products added yet.</p>";
+
+  document.getElementById("quoteItems").innerHTML = html;
+  document.getElementById("drawerItems").innerHTML = html;
+  document.getElementById("quoteTotal").textContent = money(total);
+  document.getElementById("drawerTotal").textContent = money(total);
+  document.getElementById("cartCount").textContent = quote.reduce((s,p)=>s+p.qty,0);
+}
+
+function openCart(){
+  document.getElementById("drawer").classList.add("open");
+}
+
+function closeCart(){
+  document.getElementById("drawer").classList.remove("open");
+}
+
+function submitQuote(e){
+  e.preventDefault();
+
+  const request = {
+    name:name.value,
+    company:company.value,
+    email:email.value,
+    phone:phone.value,
+    buyer:buyer.value,
+    qty:qty.value,
+    deadline:deadline.value,
+    budget:budget.value,
+    details:details.value,
+    products:quote.map(p=>`${p.qty}x ${p.name}`),
+    total:quote.reduce((s,p)=>s+p.price*p.qty,0),
+    date:new Date().toLocaleString(),
+    status:"New"
+  };
+
+  requests.push(request);
+  localStorage.setItem("inflatepro_requests",JSON.stringify(requests));
+
+  quote = [];
+  localStorage.setItem("inflatepro_quote",JSON.stringify(quote));
+
+  alert("Quote request saved.");
+  e.target.reset();
+  renderQuote();
+  renderAdmin();
+}
+
+function adminLogin(){
+  const pass = prompt("Admin password:");
+  if(pass === "admin123"){
+    admin = true;
+    renderAdmin();
+    document.querySelector(".adminSection").scrollIntoView({behavior:"smooth"});
+  }else{
+    alert("Wrong password. Demo password is admin123.");
+  }
+}
+
+function renderAdmin(){
+  const box = document.getElementById("adminBox");
+
+  if(!admin){
+    box.innerHTML = "Login to see saved quote requests.";
+    return;
+  }
+
+  if(!requests.length){
+    box.innerHTML = "<p>No quote requests saved yet.</p>";
+    return;
+  }
+
+  box.innerHTML = requests.map(r=>`
+    <div class="item">
+      <strong>${r.company} — ${r.name}</strong>
+      <p>${r.email} | ${r.phone}</p>
+      <p><strong>Status:</strong> ${r.status}</p>
+      <p><strong>Products:</strong> ${r.products.join(", ")}</p>
+      <p><strong>Total:</strong> ${money(r.total)}</p>
+      <p>${r.details}</p>
+    </div>
+  `).join("");
+}
+
+window.addEventListener("click",e=>{
+  if(e.target.id==="modal") closeModal();
+});
+
+fillNav();
+renderProducts();
+renderQuote();
+renderAdmin();
+</script>
+
 </body>
 </html>
