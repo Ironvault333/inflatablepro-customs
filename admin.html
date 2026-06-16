@@ -3,339 +3,841 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moon Wave Admin</title>
-
+<title>Moon Wave Admin CMS</title>
 <style>
-:root{
-  --main:#0f766e;
-  --dark:#115e59;
-  --accent:#f97316;
-  --bg:#f5efe6;
-  --card:#fff;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --border:#d6d3d1;
-}
+:root{--main:#0f766e;--dark:#115e59;--accent:#f97316;--bg:#f5efe6;--text:#1f2937;--muted:#6b7280;--border:#d6d3d1;--danger:#dc2626}
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 body{background:var(--bg);color:var(--text)}
-header{
-  background:linear-gradient(90deg,var(--dark),var(--main));
-  color:white;
-  padding:20px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{font-size:28px;font-weight:900}
-.logo span{color:var(--accent)}
+header{background:linear-gradient(90deg,var(--dark),var(--main));color:white;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.logo{font-size:28px;font-weight:900} .logo span{color:var(--accent)}
 main{padding:30px 5%}
-.card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:22px;
-  margin-bottom:18px;
-  box-shadow:0 8px 20px rgba(0,0,0,.05);
-}
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  margin:7px 0 12px;
-}
+.card{background:white;border:1px solid var(--border);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;margin:7px 0 12px;background:white}
 textarea{min-height:110px}
-button{
-  cursor:pointer;
-  border:0;
-  border-radius:999px;
-  padding:12px 18px;
-  font-weight:900;
-  background:var(--accent);
-}
-.btnDark{background:var(--dark);color:white}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
+button{cursor:pointer;border:0;border-radius:999px;padding:12px 18px;font-weight:900;background:var(--accent);margin:3px}
+.btnDark{background:var(--dark);color:white} .btnLight{background:white;border:1px solid var(--border)} .btnDanger{background:var(--danger);color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .hidden{display:none!important}
-.item{
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
-  margin-bottom:12px;
-  background:#f9fafb;
-}
-.stat{
-  background:#ccfbf1;
-  color:#134e4a;
-  border-radius:16px;
-  padding:18px;
-  font-weight:900;
-}
-.notice{
-  background:#fff7ed;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
-  margin-bottom:16px;
-  color:#7c2d12;
-}
-.previewImg{
-  height:160px;
-  border-radius:12px;
-  background:#ecfdf5;
-  background-size:cover;
-  background-position:center;
-  margin-bottom:10px;
-}
+.notice{background:#fff7ed;border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:16px;color:#7c2d12}
+.productAdminGrid{display:grid;grid-template-columns:320px 1fr;gap:18px}
+.productList{max-height:650px;overflow:auto}
+.productRow{border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:10px;background:#fff;cursor:pointer}
+.productRow:hover{border-color:var(--main)} .productRow.active{border:3px solid var(--accent)}
+.previewImg{height:150px;border-radius:12px;background:#ecfdf5;background-size:cover;background-position:center;margin-bottom:10px}
+.thumbGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:8px;margin:10px 0}
+.thumb{height:80px;border-radius:10px;background:#ecfdf5;background-size:cover;background-position:center;border:1px solid var(--border)}
+.smallText{color:var(--muted);font-size:13px;line-height:1.4}
+.codeBox{background:#111827;color:#d1fae5;padding:14px;border-radius:12px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:12px;max-height:280px}
+.item{border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;background:#f9fafb}
+@media(max-width:900px){.productAdminGrid{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-
-<header>
-  <div class="logo">Moon<span>Wave</span> Admin</div>
-  <button onclick="logout()">Logout</button>
-</header>
-
+<header><div class="logo">Moon<span>Wave</span> Admin CMS</div><button onclick="logout()">Logout</button></header>
 <main>
-  <section class="card" id="loginBox">
-    <h1>Admin Access</h1>
-    <p style="color:var(--muted);margin:8px 0 15px;">Enter the password to access Moon Wave admin tools.</p>
-    <input id="adminPassword" type="password" placeholder="Password">
-    <button onclick="login()">Enter Admin</button>
-  </section>
+<section class="card" id="loginBox">
+<h1>Admin Access</h1>
+<p class="smallText" style="margin:8px 0 15px;">Enter admin password.</p>
+<input id="adminPassword" type="password" placeholder="Password">
+<button onclick="login()">Enter Admin</button>
+</section>
 
-  <section id="adminApp" class="hidden">
-    <div class="notice">
-      This gives you an admin page at <strong>/admin.html</strong>. This demo saves edits in your browser using localStorage. Later, for real customer/admin syncing, connect it to Supabase or another database.
-    </div>
+<section id="adminApp" class="hidden">
+<div class="notice">
+<strong>Important:</strong> This admin can update the customer website by saving changes into <strong>products.json</strong> in your GitHub repo. The customer index file reads products.json, so admin edits show on the customer view after GitHub/Vercel updates.
+</div>
 
-    <div class="grid">
-      <div class="stat">Quote Requests: <span id="quoteCount">0</span></div>
-      <div class="stat">Saved Product Edits: <span id="productCount">0</span></div>
-      <div class="stat">Favorites: <span id="favoriteCount">0</span></div>
-    </div>
+<section class="card">
+<h2>GitHub Save Settings</h2>
+<p class="smallText">You only enter this on your computer. Do not put the token inside the public code.</p>
+<div class="grid">
+<div><label>GitHub Owner</label><input id="ghOwner" placeholder="Ironvault333"></div>
+<div><label>Repository Name</label><input id="ghRepo" placeholder="inflatablepro-customs"></div>
+<div><label>Branch</label><input id="ghBranch" value="main"></div>
+<div><label>GitHub Token</label><input id="ghToken" type="password" placeholder="Paste token here"></div>
+</div>
+<button class="btnDark" onclick="saveGithubSettings()">Save Settings on This Computer</button>
+<button onclick="loadFromGithub()">Load products.json from GitHub</button>
+<button onclick="saveToGithub()">Save Products to GitHub</button>
+</section>
 
-    <section class="card">
-      <h2>Add / Edit Product Information</h2>
-      <p style="color:var(--muted);margin:8px 0 15px;">Use this for customer-facing product details, images, shipping, weight, bags, production time, sizes, and notes.</p>
+<section class="card">
+<h2>Product Editor</h2>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;">
+<button onclick="addNewProduct()">Add New Product</button>
+<button class="btnDark" onclick="saveCurrentProduct()">Save Product Locally</button>
+<button onclick="saveToGithub()">Publish to Customer Website</button>
+<button class="btnLight" onclick="downloadProductsJson()">Download products.json</button>
+<button class="btnDanger" onclick="resetProducts()">Reset Demo Products</button>
+</div>
 
-      <div class="grid">
-        <div>
-          <label>Product Name</label>
-          <input id="productName" placeholder="King of the Hill Inflatable">
-        </div>
+<div class="productAdminGrid">
+<div>
+<h3>Products</h3>
+<input id="adminSearch" placeholder="Search products..." oninput="renderProductList()">
+<div class="productList" id="productList"></div>
+</div>
 
-        <div>
-          <label>Category</label>
-          <select id="productCategory">
-            <option>Franchise Inflatables</option>
-            <option>Mascot Inflatables</option>
-            <option>Water Attractions</option>
-            <option>Activity Inflatables</option>
-            <option>Promotional</option>
-          </select>
-        </div>
+<div>
+<h3 id="editingTitle">Edit Product</h3>
+<div class="grid">
+<div><label>Product Name</label><input id="productName"></div>
+<div><label>Category</label><select id="productCategory"><option>Franchise Inflatables</option><option>Mascot Inflatables</option><option>Water Attractions</option><option>Activity Inflatables</option><option>Promotional</option></select></div>
+<div><label>Customer Type</label><input id="productMarket"></div>
+<div><label>Use Case</label><input id="productUse"></div>
+<div><label>Starting Price</label><input id="productPrice" type="number"></div>
+<div><label>Badge</label><input id="productBadge"></div>
+<div><label>Size Label</label><input id="productSize"></div>
+<div><label>Production Days</label><input id="productDays" type="number"></div>
+<div><label>Water Compatible</label><select id="productWater"><option value="true">Yes</option><option value="false">No</option></select></div>
+<div><label>Weight</label><input id="productWeight" placeholder="250-500 lbs"></div>
+<div><label>Bag / Storage</label><input id="productBag" placeholder="Storage bag included"></div>
+<div><label>Packed Dimensions</label><input id="productPacked" placeholder="48 x 40 x 36 inches"></div>
+<div><label>Shipping Details</label><input id="productShipping" placeholder="Freight quoted separately"></div>
+</div>
 
-        <div>
-          <label>Starting Price</label>
-          <input id="productPrice" placeholder="12000">
-        </div>
+<label>Main Image</label>
+<input id="productImage" placeholder="images/king-of-the-hill.png OR image URL">
 
-        <div>
-          <label>Production Time</label>
-          <input id="productTime" placeholder="60-75 days">
-        </div>
+<label>Gallery Images</label>
+<p class="smallText">Paste as many images as you want. One image path/URL per line.</p>
+<textarea id="productGallery" placeholder="images/king-1.png&#10;images/king-2.png&#10;https://example.com/image.png"></textarea>
 
-        <div>
-          <label>Size Options</label>
-          <input id="productSizes" placeholder="20 ft, 30 ft, 40 ft, Custom">
-        </div>
+<button class="btnLight" onclick="previewImages()">Preview Images</button>
+<div class="thumbGrid" id="imagePreview"></div>
 
-        <div>
-          <label>Color Options</label>
-          <input id="productColors" placeholder="Blue/Gray, Red/Black, School Colors">
-        </div>
+<label>Description</label><textarea id="productDesc"></textarea>
+<label>Tags</label><textarea id="productTags" placeholder="Activity, Teen/Adult, Water"></textarea>
+<label>Keywords</label><textarea id="productKeywords" placeholder="king of the hill, climb, water"></textarea>
+<label>Product Details</label><textarea id="productDetails" placeholder="One detail per line"></textarea>
+<label>Packaging Details</label><textarea id="productPackaging" placeholder="One packaging detail per line"></textarea>
+<label>What Is Included</label><textarea id="productIncluded" placeholder="One included item per line"></textarea>
 
-        <div>
-          <label>Weight</label>
-          <input id="productWeight" placeholder="Example: 250-500 lbs">
-        </div>
+<button class="btnDark" onclick="saveCurrentProduct()">Save Product Locally</button>
+<button onclick="saveToGithub()">Publish to Customer Website</button>
+<button class="btnLight" onclick="duplicateProduct()">Duplicate</button>
+<button class="btnDanger" onclick="deleteCurrentProduct()">Delete</button>
+</div>
+</div>
+</section>
 
-        <div>
-          <label>Bag / Storage Details</label>
-          <input id="productBag" placeholder="Storage bag included / crate option">
-        </div>
-
-        <div>
-          <label>Packed Dimensions</label>
-          <input id="productPacked" placeholder="Example: 48 x 40 x 36 inches">
-        </div>
-
-        <div>
-          <label>Shipping Details</label>
-          <input id="productShipping" placeholder="Freight shipping quoted separately">
-        </div>
-
-        <div>
-          <label>Main Image Path</label>
-          <input id="productImage" placeholder="images/king-of-the-hill.png">
-        </div>
-
-        <div>
-          <label>Gallery Image Paths</label>
-          <input id="productGallery" placeholder="images/a.png, images/b.png, images/c.png">
-        </div>
-      </div>
-
-      <label>Description</label>
-      <textarea id="productDesc" placeholder="Full customer-facing description"></textarea>
-
-      <label>What Is Included</label>
-      <textarea id="productIncluded" placeholder="Blower, storage bag, repair kit, setup instructions..."></textarea>
-
-      <label>Safety / Setup Notes</label>
-      <textarea id="productNotes" placeholder="Surface needed, anchoring, adult supervision, water rules, etc."></textarea>
-
-      <button onclick="saveProduct()">Save Product Details</button>
-      <button class="btnDark" onclick="clearForm()">Clear Form</button>
-    </section>
-
-    <section class="card">
-      <h2>Saved Product Detail Records</h2>
-      <div id="productList"></div>
-    </section>
-
-    <section class="card">
-      <h2>Quote Requests</h2>
-      <div id="quoteList"></div>
-    </section>
-  </section>
+<section class="card"><h2>Quotes</h2><div id="quoteList"></div></section>
+<section class="card"><h2>Export Preview</h2><div class="codeBox" id="exportBox">Product data appears here.</div></section>
+</section>
 </main>
 
 <script>
 const ADMIN_PASSWORD = "admin123";
+const defaultProducts = [
+  {
+    "id": 1,
+    "name": "King of the Hill Inflatable",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 12000,
+    "image": "images/king-of-the-hill.png",
+    "gallery": [
+      "images/king-of-the-hill.png",
+      "images/king-of-the-hill-side.png",
+      "images/king-of-the-hill-top.png",
+      "images/king-of-the-hill-action.png",
+      "images/king-of-the-hill-event.png"
+    ],
+    "badge": "Premium",
+    "size": "Large Custom",
+    "days": 60,
+    "water": true,
+    "desc": "Competitive climbing inflatable with smooth ramps, ropes, soap/water use, flat top, and a padded 360\u00b0 landing/start zone.",
+    "tags": [
+      "Activity",
+      "Teen/Adult",
+      "Climbing",
+      "Water Option"
+    ],
+    "keywords": [
+      "king of the mountain",
+      "king of the hill",
+      "climb",
+      "water",
+      "soap",
+      "teen"
+    ],
+    "details": [
+      "Non-steep climbable ramps",
+      "Center rope assist lanes",
+      "Flat top platform",
+      "Bounce landing/start area",
+      "Custom colors available"
+    ],
+    "packaging": [
+      "Packed dimensions depend on final size",
+      "Approximate weight confirmed after design approval",
+      "Freight shipping quoted separately",
+      "Storage bag or crate option"
+    ],
+    "included": [
+      "Custom inflatable",
+      "Blower recommendation",
+      "Repair kit option",
+      "Setup guidance",
+      "Packaging estimate"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Blue Gray King of the Hill",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 12500,
+    "image": "images/blue-gray-king-of-the-hill.png",
+    "gallery": [
+      "images/blue-gray-king-of-the-hill.png",
+      "images/inflatable-catalog-image.png"
+    ],
+    "badge": "New",
+    "size": "Large Custom",
+    "days": 65,
+    "water": true,
+    "desc": "Blue and gray King of the Hill inflatable with smooth climbing ramps, center ropes, step section, flat top, and full padded landing ring.",
+    "tags": [
+      "King of the Hill",
+      "Blue/Gray",
+      "Water",
+      "Teen/Adult"
+    ],
+    "keywords": [
+      "blue gray king of the hill",
+      "climbing inflatable",
+      "ropes",
+      "landing ring",
+      "soap water"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Slip N Slide Bounce House",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 8200,
+    "image": "images/slip-n-slide-bounce-house.png",
+    "gallery": [
+      "images/slip-n-slide-bounce-house.png",
+      "images/inflatable-catalog-image.png"
+    ],
+    "badge": "Summer",
+    "size": "Custom Length",
+    "days": 55,
+    "water": true,
+    "desc": "Blue and gray slip n slide style inflatable with raised side walls, long slick lane, and bounce-house style construction for water events.",
+    "tags": [
+      "Slip N Slide",
+      "Blue/Gray",
+      "Water",
+      "Summer"
+    ],
+    "keywords": [
+      "slip n slide",
+      "slip and slide bounce house",
+      "water track",
+      "side walls",
+      "slick lane"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Long Slip N Slide Track",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 7500,
+    "image": "images/long-slip-n-slide-track.png",
+    "gallery": [
+      "images/long-slip-n-slide-track.png"
+    ],
+    "badge": "Water",
+    "size": "30-100 ft",
+    "days": 50,
+    "water": true,
+    "desc": "Long inflatable water track with raised sides, slick sliding surface, and custom color combinations.",
+    "tags": [
+      "Water",
+      "Summer",
+      "Custom Length"
+    ],
+    "keywords": [
+      "slip n slide",
+      "water slide",
+      "summer"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Inflatable Bowling Slide",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 6800,
+    "image": "images/inflatable-bowling-slide.png",
+    "gallery": [
+      "images/inflatable-bowling-slide.png"
+    ],
+    "badge": "Fun",
+    "size": "25-60 ft",
+    "days": 45,
+    "water": true,
+    "desc": "Players slide down a slick inflatable lane and crash into oversized bowling pins.",
+    "tags": [
+      "Game",
+      "Bowling",
+      "Water Option"
+    ],
+    "keywords": [
+      "bowling",
+      "pins",
+      "slide",
+      "game"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Fast Food Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/franchise-character.png",
+    "gallery": [
+      "images/franchise-character.png",
+      "images/inflatable-catalog-image.png"
+    ],
+    "badge": "Franchise",
+    "size": "Up to 6 ft",
+    "days": 45,
+    "water": false,
+    "desc": "Custom restaurant character inflatable for franchises, grand openings, drive-thru promotions, and photo moments.",
+    "tags": [
+      "Character",
+      "Franchise",
+      "Logo Ready",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "restaurant",
+      "fast food",
+      "character",
+      "franchise",
+      "brand display"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Standing Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/standing-franchise-character.png",
+    "gallery": [
+      "images/standing-franchise-character.png"
+    ],
+    "badge": "Standing",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "desc": "Standing custom franchise character inflatable built for restaurant chains, store openings, brand activations, and photo marketing.",
+    "tags": [
+      "Standing Pose",
+      "Franchise",
+      "Custom",
+      "Brand"
+    ],
+    "keywords": [
+      "standing mascot",
+      "standing character",
+      "restaurant inflatable"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Sitting Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/sitting-franchise-character.png",
+    "gallery": [
+      "images/sitting-franchise-character.png"
+    ],
+    "badge": "Custom Pose",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "desc": "Sitting character inflatable option for franchises that want a friendly branded display customers can take photos beside.",
+    "tags": [
+      "Sitting Pose",
+      "Franchise",
+      "Custom",
+      "Display"
+    ],
+    "keywords": [
+      "sitting mascot",
+      "custom pose",
+      "franchise display"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Purple Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10500,
+    "image": "images/purple-franchise-character.png",
+    "gallery": [
+      "images/purple-franchise-character.png"
+    ],
+    "badge": "Character",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "desc": "Large friendly purple character inflatable for restaurant chains, social media photos, and promotional events.",
+    "tags": [
+      "Franchise",
+      "Character",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "purple",
+      "character",
+      "restaurant",
+      "franchise"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Panda Restaurant Mascot Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10000,
+    "image": "images/panda-mascot.png",
+    "gallery": [
+      "images/panda-mascot.png"
+    ],
+    "badge": "Panda",
+    "size": "4-8 ft",
+    "days": 45,
+    "water": false,
+    "desc": "Standing or sitting panda mascot inflatable designed for food brands, restaurants, and retail chains.",
+    "tags": [
+      "Panda",
+      "Restaurant",
+      "Mascot",
+      "Franchise"
+    ],
+    "keywords": [
+      "panda",
+      "restaurant",
+      "mascot",
+      "brand"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Custom Fast Food Mascot Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10000,
+    "image": "images/fast-food-mascot.png",
+    "gallery": [
+      "images/fast-food-mascot.png"
+    ],
+    "badge": "Restaurant",
+    "size": "4-8 ft",
+    "days": 50,
+    "water": false,
+    "desc": "Custom fast food mascot inflatable made for restaurants that want a branded character for events, social media, and in-store promotions.",
+    "tags": [
+      "Fast Food",
+      "Mascot",
+      "Restaurant",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "fast food mascot",
+      "restaurant mascot",
+      "franchise inflatable"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Franchise Mascot Display Set",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 28000,
+    "image": "images/franchise-display-set.png",
+    "gallery": [
+      "images/franchise-display-set.png"
+    ],
+    "badge": "Bundle",
+    "size": "3 Piece Set",
+    "days": 70,
+    "water": false,
+    "desc": "Multi-character franchise inflatable set for restaurants or brands that want a group of custom inflatable mascots for promotions.",
+    "tags": [
+      "Bundle",
+      "Franchise",
+      "Mascots",
+      "Display"
+    ],
+    "keywords": [
+      "franchise mascot set",
+      "restaurant display set"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "College Mascot Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/college-mascot.png",
+    "gallery": [
+      "images/college-mascot.png"
+    ],
+    "badge": "School",
+    "size": "5-10 ft",
+    "days": 50,
+    "water": false,
+    "desc": "School mascot inflatable for games, tailgates, student events, alumni activities, and campus photo areas.",
+    "tags": [
+      "College",
+      "Mascot",
+      "Tailgate"
+    ],
+    "keywords": [
+      "school",
+      "college",
+      "football",
+      "mascot"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Custom College Mascot Standing Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/standing-college-mascot.png",
+    "gallery": [
+      "images/standing-college-mascot.png"
+    ],
+    "badge": "Mascot",
+    "size": "5-10 ft",
+    "days": 55,
+    "water": false,
+    "desc": "Standing college mascot inflatable customized around school colors, mascot shape, logo placement, and event use.",
+    "tags": [
+      "College",
+      "Standing",
+      "Mascot",
+      "Custom"
+    ],
+    "keywords": [
+      "custom college mascot",
+      "standing mascot"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Cougar Style College Mascot Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/cougar-mascot.png",
+    "gallery": [
+      "images/cougar-mascot.png"
+    ],
+    "badge": "College",
+    "size": "5-10 ft",
+    "days": 55,
+    "water": false,
+    "desc": "College cougar-style mascot inflatable for school spirit events, tailgates, football games, campus displays, and fan photo areas.",
+    "tags": [
+      "College",
+      "Cougar",
+      "Mascot",
+      "Tailgate"
+    ],
+    "keywords": [
+      "cougar mascot",
+      "college mascot",
+      "school spirit"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Custom School Mascot Photo Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "Photo Spot",
+    "price": 9500,
+    "image": "images/photo-mascot.png",
+    "gallery": [
+      "images/photo-mascot.png"
+    ],
+    "badge": "Photo Spot",
+    "size": "5-10 ft",
+    "days": 50,
+    "water": false,
+    "desc": "Mascot inflatable made as a school photo spot for games, student nights, fundraisers, dances, and campus events.",
+    "tags": [
+      "School",
+      "Photo Spot",
+      "Mascot",
+      "Custom"
+    ],
+    "keywords": [
+      "school mascot",
+      "photo inflatable"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Custom Mascot Entrance Display",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 13500,
+    "image": "images/mascot-entrance.png",
+    "gallery": [
+      "images/mascot-entrance.png"
+    ],
+    "badge": "Entrance",
+    "size": "Custom",
+    "days": 65,
+    "water": false,
+    "desc": "Large mascot-themed inflatable entrance display for schools, sports teams, and event companies.",
+    "tags": [
+      "Entrance",
+      "Mascot",
+      "School",
+      "Sports"
+    ],
+    "keywords": [
+      "mascot entrance",
+      "school entrance inflatable"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Sports Mascot Tunnel",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 14500,
+    "image": "images/mascot-tunnel.png",
+    "gallery": [
+      "images/mascot-tunnel.png"
+    ],
+    "badge": "Sports",
+    "size": "Custom",
+    "days": 65,
+    "water": false,
+    "desc": "Custom sports entrance tunnel with mascot face, colors, and team branding.",
+    "tags": [
+      "Sports",
+      "Mascot",
+      "Tunnel"
+    ],
+    "keywords": [
+      "sports",
+      "tunnel",
+      "mascot",
+      "team"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Custom Brand Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Corporate",
+    "use": "Brand Display",
+    "price": 10500,
+    "image": "images/brand-character.png",
+    "gallery": [
+      "images/brand-character.png"
+    ],
+    "badge": "Custom",
+    "size": "4-10 ft",
+    "days": 55,
+    "water": false,
+    "desc": "Custom inflatable brand character for companies, franchises, stores, sports groups, or promotional events.",
+    "tags": [
+      "Custom",
+      "Brand",
+      "Character",
+      "Promotional"
+    ],
+    "keywords": [
+      "custom brand character",
+      "company mascot",
+      "corporate inflatable"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Branded Entrance Arch",
+    "category": "Promotional",
+    "market": "Events",
+    "use": "Brand Display",
+    "price": 4200,
+    "image": "images/branded-arch.png",
+    "gallery": [
+      "images/branded-arch.png"
+    ],
+    "badge": "Best Value",
+    "size": "10-30 ft wide",
+    "days": 35,
+    "water": false,
+    "desc": "Large inflatable arch for entrances, races, school events, store openings, and sponsor displays.",
+    "tags": [
+      "Arch",
+      "Logo",
+      "Entrance"
+    ],
+    "keywords": [
+      "arch",
+      "entrance",
+      "race",
+      "sponsor"
+    ]
+  }
+];
+let selectedId = null;
 
 function login(){
-  const pass = document.getElementById("adminPassword").value;
-  if(pass === ADMIN_PASSWORD){
+  if(document.getElementById("adminPassword").value === ADMIN_PASSWORD){
     localStorage.setItem("moonwave_admin_logged_in","true");
     showAdmin();
-  }else{
-    alert("Wrong password.");
-  }
+  }else alert("Wrong password.");
 }
-
-function logout(){
-  localStorage.removeItem("moonwave_admin_logged_in");
-  location.reload();
-}
-
+function logout(){localStorage.removeItem("moonwave_admin_logged_in");location.reload();}
 function showAdmin(){
-  document.getElementById("loginBox").classList.add("hidden");
-  document.getElementById("adminApp").classList.remove("hidden");
-  renderAdmin();
+  loginBox.classList.add("hidden"); adminApp.classList.remove("hidden");
+  loadGithubSettings(); initializeProducts(); renderAdmin();
 }
-
-function saveProduct(){
-  const products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
-
-  const record = {
-    id:Date.now(),
-    name:productName.value,
-    category:productCategory.value,
-    price:productPrice.value,
-    time:productTime.value,
-    sizes:productSizes.value,
-    colors:productColors.value,
-    weight:productWeight.value,
-    bag:productBag.value,
-    packed:productPacked.value,
-    shipping:productShipping.value,
-    image:productImage.value,
-    gallery:productGallery.value,
-    desc:productDesc.value,
-    included:productIncluded.value,
-    notes:productNotes.value,
-    date:new Date().toLocaleString()
-  };
-
-  products.push(record);
-  localStorage.setItem("moonwave_admin_products",JSON.stringify(products));
-
-  alert("Product detail record saved.");
-  clearForm();
-  renderAdmin();
+function initializeProducts(){
+  if(!localStorage.getItem("moonwave_admin_products")) localStorage.setItem("moonwave_admin_products",JSON.stringify(defaultProducts));
 }
-
-function clearForm(){
-  [
-    productName,productPrice,productTime,productSizes,productColors,
-    productWeight,productBag,productPacked,productShipping,
-    productImage,productGallery,productDesc,productIncluded,productNotes
-  ].forEach(x=>x.value="");
+function getProducts(){return JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];}
+function setProducts(p){localStorage.setItem("moonwave_admin_products",JSON.stringify(p)); exportBox.textContent = JSON.stringify(p,null,2);}
+function saveGithubSettings(){
+  localStorage.setItem("moonwave_gh_owner",ghOwner.value.trim());
+  localStorage.setItem("moonwave_gh_repo",ghRepo.value.trim());
+  localStorage.setItem("moonwave_gh_branch",ghBranch.value.trim() || "main");
+  sessionStorage.setItem("moonwave_gh_token",ghToken.value.trim());
+  alert("GitHub settings saved on this computer.");
 }
-
-function deleteProduct(id){
-  let products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
-  products = products.filter(p=>p.id!==id);
-  localStorage.setItem("moonwave_admin_products",JSON.stringify(products));
-  renderAdmin();
+function loadGithubSettings(){
+  ghOwner.value = localStorage.getItem("moonwave_gh_owner") || "Ironvault333";
+  ghRepo.value = localStorage.getItem("moonwave_gh_repo") || "inflatablepro-customs";
+  ghBranch.value = localStorage.getItem("moonwave_gh_branch") || "main";
+  ghToken.value = sessionStorage.getItem("moonwave_gh_token") || "";
 }
-
-function renderAdmin(){
-  const products = JSON.parse(localStorage.getItem("moonwave_admin_products")) || [];
-  const quotes = JSON.parse(localStorage.getItem("moonwave_requests")) || [];
-  const favorites = JSON.parse(localStorage.getItem("moonwave_favorites")) || [];
-
-  document.getElementById("quoteCount").textContent = quotes.length;
-  document.getElementById("productCount").textContent = products.length;
-  document.getElementById("favoriteCount").textContent = favorites.length;
-
-  document.getElementById("productList").innerHTML = products.length ? products.map(p=>`
-    <div class="item">
-      ${p.image ? `<div class="previewImg" style="background-image:url('${p.image}')"></div>` : ""}
-      <h3>${p.name || "Unnamed Product"}</h3>
-      <p><strong>Category:</strong> ${p.category}</p>
-      <p><strong>Price:</strong> ${p.price}</p>
-      <p><strong>Production:</strong> ${p.time}</p>
-      <p><strong>Sizes:</strong> ${p.sizes}</p>
-      <p><strong>Colors:</strong> ${p.colors}</p>
-      <p><strong>Weight:</strong> ${p.weight}</p>
-      <p><strong>Bag:</strong> ${p.bag}</p>
-      <p><strong>Packed:</strong> ${p.packed}</p>
-      <p><strong>Shipping:</strong> ${p.shipping}</p>
-      <p><strong>Main Image:</strong> ${p.image}</p>
-      <p><strong>Gallery:</strong> ${p.gallery}</p>
-      <p><strong>Description:</strong> ${p.desc}</p>
-      <p><strong>Included:</strong> ${p.included}</p>
-      <p><strong>Notes:</strong> ${p.notes}</p>
-      <button onclick="deleteProduct(${p.id})">Delete</button>
-    </div>
-  `).join("") : "<p>No product detail records saved yet.</p>";
-
-  document.getElementById("quoteList").innerHTML = quotes.length ? quotes.map(q=>`
-    <div class="item">
-      <h3>${q.company || ""} — ${q.name || ""}</h3>
-      <p>${q.email || ""} | ${q.phone || ""}</p>
-      <p><strong>Products:</strong> ${(q.products || []).join(", ")}</p>
-      <p><strong>Budget:</strong> ${q.budget || ""}</p>
-      <p><strong>Target Size:</strong> ${q.targetSize || ""}</p>
-      <p><strong>Colors:</strong> ${q.brandColors || ""}</p>
-      <p><strong>Logo Notes:</strong> ${q.logoNeeded || ""}</p>
-      <p><strong>Artwork/File:</strong> ${q.artworkFile || ""}</p>
-      <p>${q.details || ""}</p>
-    </div>
-  `).join("") : "<p>No quote requests found yet.</p>";
+async function githubFileInfo(){
+  const owner = ghOwner.value.trim(), repo = ghRepo.value.trim(), branch = ghBranch.value.trim() || "main";
+  const token = ghToken.value.trim();
+  if(!owner || !repo || !token) throw new Error("Fill in owner, repo, and token.");
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/products.json?ref=${branch}`;
+  const res = await fetch(url, {headers:{Authorization:`Bearer ${token}`,Accept:"application/vnd.github+json"}});
+  if(res.status === 404) return {sha:null,content:null,url,owner,repo,branch,token};
+  if(!res.ok) throw new Error("GitHub load failed: " + await res.text());
+  const data = await res.json();
+  return {sha:data.sha,content:JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,""))))),url,owner,repo,branch,token};
 }
-
-if(localStorage.getItem("moonwave_admin_logged_in")==="true"){
-  showAdmin();
+async function loadFromGithub(){
+  saveGithubSettings();
+  try{
+    const info = await githubFileInfo();
+    if(info.content){
+      setProducts(info.content);
+      alert("Loaded products.json from GitHub.");
+      renderAdmin();
+    }else alert("products.json does not exist yet. Click Save Products to GitHub to create it.");
+  }catch(e){alert(e.message);}
 }
+async function saveToGithub(){
+  saveCurrentProduct(false);
+  saveGithubSettings();
+  try{
+    const info = await githubFileInfo();
+    const products = getProducts();
+    const json = JSON.stringify(products,null,2);
+    const encoded = btoa(unescape(encodeURIComponent(json)));
+    const body = {
+      message:"Update Moon Wave products.json from admin",
+      content:encoded,
+      branch:info.branch
+    };
+    if(info.sha) body.sha = info.sha;
+    const res = await fetch(`https://api.github.com/repos/${info.owner}/${info.repo}/contents/products.json`, {
+      method:"PUT",
+      headers:{Authorization:`Bearer ${info.token}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok) throw new Error("GitHub save failed: " + await res.text());
+    alert("Saved to GitHub. Wait 1-2 minutes, then refresh the customer site.");
+  }catch(e){alert(e.message);}
+}
+function renderAdmin(){renderProductList(); renderQuotes(); exportBox.textContent=JSON.stringify(getProducts(),null,2);}
+function renderProductList(){
+  const q=(adminSearch.value||"").toLowerCase();
+  const filtered=getProducts().filter(p=>[p.name,p.category,p.market,p.use,(p.keywords||[]).join?.(" ")||p.keywords].join(" ").toLowerCase().includes(q));
+  productList.innerHTML=filtered.map(p=>`<div class="productRow ${p.id===selectedId?"active":""}" onclick="selectProduct(${p.id})">${p.image?`<div class="previewImg" style="background-image:url('${p.image}')"></div>`:""}<h3>${p.name}</h3><p class="smallText">${p.category} • ${p.market}</p><p><strong>$${Number(p.price||0).toLocaleString()}+</strong></p></div>`).join("");
+}
+function selectProduct(id){
+  const p=getProducts().find(x=>x.id===id); if(!p)return; selectedId=id; editingTitle.textContent="Edit Product: "+p.name;
+  productName.value=p.name||""; productCategory.value=p.category||"Franchise Inflatables"; productMarket.value=p.market||""; productUse.value=p.use||""; productPrice.value=p.price||""; productBadge.value=p.badge||""; productSize.value=p.size||""; productDays.value=p.days||""; productWater.value=String(!!p.water);
+  productWeight.value=p.weight||""; productBag.value=p.bag||""; productPacked.value=p.packed||""; productShipping.value=p.shipping||""; productImage.value=p.image||"";
+  productGallery.value=Array.isArray(p.gallery)?p.gallery.join("\n"):(p.gallery||""); productDesc.value=p.desc||"";
+  productTags.value=Array.isArray(p.tags)?p.tags.join(", "):(p.tags||""); productKeywords.value=Array.isArray(p.keywords)?p.keywords.join(", "):(p.keywords||"");
+  productDetails.value=Array.isArray(p.details)?p.details.join("\n"):(p.details||""); productPackaging.value=Array.isArray(p.packaging)?p.packaging.join("\n"):(p.packaging||""); productIncluded.value=Array.isArray(p.included)?p.included.join("\n"):(p.included||"");
+  previewImages(); renderProductList();
+}
+function lines(v){return String(v||"").split(/\n|,/).map(x=>x.trim()).filter(Boolean);}
+function previewImages(){
+  const imgs=[productImage.value.trim(),...lines(productGallery.value)].filter(Boolean);
+  imagePreview.innerHTML=imgs.map(img=>`<div class="thumb" style="background-image:url('${img}')"></div>`).join("");
+}
+function saveCurrentProduct(showAlert=true){
+  const products=getProducts(); const id=selectedId||Date.now();
+  const record={id,name:productName.value,category:productCategory.value,market:productMarket.value,use:productUse.value,price:Number(productPrice.value||0),badge:productBadge.value,size:productSize.value,days:Number(productDays.value||60),water:productWater.value==="true",weight:productWeight.value,bag:productBag.value,packed:productPacked.value,shipping:productShipping.value,image:productImage.value.trim(),gallery:lines(productGallery.value),desc:productDesc.value,tags:lines(productTags.value),keywords:lines(productKeywords.value),details:productDetails.value.split(/\n/).map(x=>x.trim()).filter(Boolean),packaging:productPackaging.value.split(/\n/).map(x=>x.trim()).filter(Boolean),included:productIncluded.value.split(/\n/).map(x=>x.trim()).filter(Boolean),updated:new Date().toLocaleString()};
+  const i=products.findIndex(p=>p.id===id); if(i>=0) products[i]=record; else products.push(record);
+  setProducts(products); selectedId=id; if(showAlert)alert("Saved locally. Click Publish to Customer Website to push it live."); renderAdmin();
+}
+function addNewProduct(){selectedId=null; editingTitle.textContent="Add New Product"; document.querySelectorAll("#adminApp input,#adminApp textarea").forEach(x=>{if(!["ghOwner","ghRepo","ghBranch","ghToken","adminSearch"].includes(x.id))x.value=""}); productCategory.value="Franchise Inflatables"; productWater.value="false"; imagePreview.innerHTML=""; renderProductList();}
+function duplicateProduct(){if(!selectedId)return alert("Select a product first."); const products=getProducts(); const p=products.find(x=>x.id===selectedId); const copy={...p,id:Date.now(),name:p.name+" Copy"}; products.push(copy); setProducts(products); selectProduct(copy.id);}
+function deleteCurrentProduct(){if(!selectedId)return alert("Select a product first."); if(!confirm("Delete this product?"))return; setProducts(getProducts().filter(p=>p.id!==selectedId)); selectedId=null; addNewProduct(); renderAdmin();}
+function resetProducts(){if(confirm("Reset back to default product list?")){setProducts(defaultProducts); selectedId=null; renderAdmin();}}
+function downloadProductsJson(){
+  saveCurrentProduct(false);
+  const blob=new Blob([JSON.stringify(getProducts(),null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="products.json"; a.click();
+}
+function renderQuotes(){
+  const quotes=JSON.parse(localStorage.getItem("moonwave_requests"))||[];
+  quoteList.innerHTML=quotes.length?quotes.map(q=>`<div class="item"><h3>${q.company||""} — ${q.name||""}</h3><p>${q.email||""} | ${q.phone||""}</p><p><strong>Products:</strong> ${(q.products||[]).join(", ")}</p><p><strong>Budget:</strong> ${q.budget||""}</p><p>${q.details||""}</p></div>`).join(""):"<p>No quote requests found yet.</p>";
+}
+if(localStorage.getItem("moonwave_admin_logged_in")==="true") showAdmin();
 </script>
-
 </body>
 </html>
