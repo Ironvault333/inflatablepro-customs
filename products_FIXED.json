@@ -1,0 +1,171 @@
+[
+  {
+    "id": 1,
+    "name": "King of the Hill Inflatable",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 12000,
+    "image": "images/king-of-the-hill.png",
+    "gallery": [
+      "images/king-of-the-hill.png",
+      "images/king-of-the-hill-side.png",
+      "images/king-of-the-hill-action.png",
+      "images/king-of-the-hill-event.png"
+    ],
+    "badge": "Premium",
+    "size": "Large Custom",
+    "days": 60,
+    "water": true,
+    "desc": "Competitive climbing inflatable with smooth ramps, ropes, flat top, and padded landing/start zone.",
+    "tags": [
+      "Activity",
+      "Teen/Adult",
+      "Climbing",
+      "Water Option"
+    ],
+    "keywords": [
+      "king of the hill",
+      "king of the mountain",
+      "climb",
+      "water"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Slip N Slide Bounce House",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 8200,
+    "image": "images/slip-n-slide-bounce-house.png",
+    "gallery": [
+      "images/slip-n-slide-bounce-house.png",
+      "images/inflatable-catalog-image.png"
+    ],
+    "badge": "Summer",
+    "size": "Custom Length",
+    "days": 55,
+    "water": true,
+    "desc": "Slip n slide style inflatable with raised side walls, long slick lane, and custom colors.",
+    "tags": [
+      "Slip N Slide",
+      "Water",
+      "Summer"
+    ],
+    "keywords": [
+      "slip n slide",
+      "water slide"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Fast Food Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/franchise-character.png",
+    "gallery": [
+      "images/franchise-character.png",
+      "images/inflatable-catalog-image.png"
+    ],
+    "badge": "Franchise",
+    "size": "Up to 6 ft",
+    "days": 45,
+    "water": false,
+    "desc": "Custom restaurant character inflatable for franchises, grand openings, and photo moments.",
+    "tags": [
+      "Character",
+      "Franchise",
+      "Logo Ready"
+    ],
+    "keywords": [
+      "restaurant",
+      "fast food",
+      "character",
+      "franchise"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Panda Restaurant Mascot Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10000,
+    "image": "images/panda-mascot.png",
+    "gallery": [
+      "images/panda-mascot.png"
+    ],
+    "badge": "Panda",
+    "size": "4-8 ft",
+    "days": 45,
+    "water": false,
+    "desc": "Standing or sitting panda mascot inflatable for food brands and restaurants.",
+    "tags": [
+      "Panda",
+      "Restaurant",
+      "Mascot"
+    ],
+    "keywords": [
+      "panda",
+      "restaurant",
+      "mascot"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "College Mascot Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/college-mascot.png",
+    "gallery": [
+      "images/college-mascot.png"
+    ],
+    "badge": "School",
+    "size": "5-10 ft",
+    "days": 50,
+    "water": false,
+    "desc": "School mascot inflatable for games, tailgates, campus events, and photo areas.",
+    "tags": [
+      "College",
+      "Mascot",
+      "Tailgate"
+    ],
+    "keywords": [
+      "school",
+      "college",
+      "mascot"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Sports Mascot Tunnel",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 14500,
+    "image": "images/mascot-tunnel.png",
+    "gallery": [
+      "images/mascot-tunnel.png"
+    ],
+    "badge": "Sports",
+    "size": "Custom",
+    "days": 65,
+    "water": false,
+    "desc": "Custom sports entrance tunnel with mascot face, colors, and team branding.",
+    "tags": [
+      "Sports",
+      "Mascot",
+      "Tunnel"
+    ],
+    "keywords": [
+      "sports",
+      "tunnel",
+      "team"
+    ]
+  }
+]
