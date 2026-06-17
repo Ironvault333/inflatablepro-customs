@@ -788,7 +788,6 @@ footer p{color:#d1fae5}
   font-weight:900;
 }
 
-.syncStatus{position:fixed;left:15px;bottom:15px;z-index:3000;background:#111827;color:white;padding:10px 14px;border-radius:12px;font-size:12px;display:none}.syncStatus.show{display:block}
 @media(max-width:900px){
   .top,.hero,.layout,.quote,.modalBox,footer{grid-template-columns:1fr}
   aside{position:static}
@@ -2213,14 +2212,6 @@ async function loadProductsFromJson(){
 }
 
 
-function showSyncStatus(msg){
-  const box = document.getElementById("syncStatus");
-  if(!box) return;
-  box.textContent = msg;
-  box.classList.add("show");
-  setTimeout(()=>box.classList.remove("show"),7000);
-}
-
 function normalizeProductForCustomer(p){
   p.id = Number(p.id || Date.now());
   p.name = p.name || "Custom Inflatable";
@@ -2231,15 +2222,17 @@ function normalizeProductForCustomer(p){
   p.image = p.image || "images/inflatable-catalog-image.png";
   p.gallery = Array.isArray(p.gallery) && p.gallery.length ? p.gallery : [p.image];
   p.badge = p.badge || "Custom";
-  p.size = p.size || p.sizes || "Custom";
-  p.days = Number(p.days || String(p.time || "60").match(/\d+/)?.[0] || 60);
+  p.size = p.size || "Custom";
+  p.days = Number(p.days || 60);
   p.water = typeof p.water === "boolean" ? p.water : String(p.category).toLowerCase().includes("water");
-  p.desc = p.desc || "Custom commercial inflatable with quote-based pricing, production details, and custom options.";
+  p.desc = p.desc || "Custom commercial inflatable with quote-based pricing and custom options.";
   p.tags = Array.isArray(p.tags) ? p.tags : String(p.tags || p.category).split(",").map(x=>x.trim()).filter(Boolean);
   p.keywords = Array.isArray(p.keywords) ? p.keywords : String(p.keywords || "").split(",").map(x=>x.trim()).filter(Boolean);
+  p.rating = p.rating || 4.9;
+  p.reviews = p.reviews || 0;
   p.priceRange = p.priceRange || money(p.price) + " estimated starting range";
-  p.details = Array.isArray(p.details) && p.details.length ? p.details : ["Custom size options available","Custom colors available","Logo/artwork placement available","Commercial-grade inflatable build style"];
-  p.packaging = Array.isArray(p.packaging) && p.packaging.length ? p.packaging : [p.weight ? "Weight: " + p.weight : "Weight confirmed after design approval",p.bag ? "Bag/Storage: " + p.bag : "Storage bag or crate option",p.packed ? "Packed dimensions: " + p.packed : "Packed dimensions depend on size",p.shipping ? "Shipping: " + p.shipping : "Freight shipping quoted separately"];
+  p.details = Array.isArray(p.details) && p.details.length ? p.details : ["Custom size options available","Custom colors available","Logo/artwork placement available","Commercial-grade inflatable build"];
+  p.packaging = Array.isArray(p.packaging) && p.packaging.length ? p.packaging : ["Packed dimensions depend on final size","Weight confirmed after design approval","Freight shipping quoted separately","Storage bag or crate option"];
   p.included = Array.isArray(p.included) && p.included.length ? p.included : ["Custom inflatable design","Artwork/color planning","Quote review before production","Packaging/shipping estimate"];
   if(!p.sizeOptions){
     if(p.category === "Activity Inflatables"){
@@ -2253,21 +2246,18 @@ function normalizeProductForCustomer(p){
   return p;
 }
 
-async function loadProductsFromSharedFile(){
+async function loadProductsFromProductsJson(){
   try{
-    const res = await fetch("products.json?cacheBust=" + Date.now(), {cache:"no-store"});
+    const res = await fetch("products.json?v=" + Date.now(), {cache:"no-store"});
     if(res.ok){
       const data = await res.json();
       if(Array.isArray(data) && data.length) products = data.map(normalizeProductForCustomer);
     }else{
       products = products.map(normalizeProductForCustomer);
-      console.warn("products.json did not load. Using built-in products.");
     }
   }catch(e){
     products = products.map(normalizeProductForCustomer);
-    console.warn("products.json error. Using built-in products.", e);
   }
-
   fillNav();
   renderProducts();
   renderQuote();
@@ -2276,9 +2266,8 @@ async function loadProductsFromSharedFile(){
   if(typeof renderProjectGallery === "function") renderProjectGallery();
 }
 
-loadProductsFromSharedFile();
+loadProductsFromProductsJson();
 </script>
 
-<div class="syncStatus" id="syncStatus"></div>
 </body>
 </html>
