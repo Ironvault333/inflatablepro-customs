@@ -10,6 +10,7 @@
     "gallery": [
       "images/king-of-the-hill.png",
       "images/king-of-the-hill-side.png",
+      "images/king-of-the-hill-detail.png",
       "images/king-of-the-hill-action.png",
       "images/king-of-the-hill-event.png"
     ],
@@ -17,7 +18,14 @@
     "size": "Large Custom",
     "days": 60,
     "water": true,
-    "desc": "Competitive climbing inflatable with smooth ramps, ropes, flat top, and padded landing/start zone.",
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Competitive climbing inflatable with smooth ramps, rope assist lanes, flat top challenge area, and padded landing/start zone.",
     "tags": [
       "Activity",
       "Teen/Adult",
@@ -28,11 +36,414 @@
       "king of the hill",
       "king of the mountain",
       "climb",
-      "water"
+      "water",
+      "soap",
+      "competition"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 60 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Blue Gray King of the Hill",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 12500,
+    "image": "images/blue-gray-king-of-the-hill.png",
+    "gallery": [
+      "images/blue-gray-king-of-the-hill.png",
+      "images/blue-gray-king-of-the-hill-side.png",
+      "images/blue-gray-king-of-the-hill-detail.png",
+      "images/blue-gray-king-of-the-hill-action.png",
+      "images/blue-gray-king-of-the-hill-event.png"
+    ],
+    "badge": "New",
+    "size": "Large Custom",
+    "days": 65,
+    "water": true,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Blue and gray King of the Hill inflatable with smooth climbing ramps, center ropes, flat top, and padded landing ring.",
+    "tags": [
+      "Activity",
+      "Blue Gray",
+      "Climbing",
+      "Water Option"
+    ],
+    "keywords": [
+      "blue gray king of the hill",
+      "climbing inflatable",
+      "ropes",
+      "landing ring"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 65 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   },
   {
     "id": 3,
+    "name": "Inflatable Bowling Slide",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 6800,
+    "image": "images/inflatable-bowling-slide.png",
+    "gallery": [
+      "images/inflatable-bowling-slide.png",
+      "images/inflatable-bowling-slide-side.png",
+      "images/inflatable-bowling-slide-detail.png",
+      "images/inflatable-bowling-slide-action.png",
+      "images/inflatable-bowling-slide-event.png"
+    ],
+    "badge": "Fun",
+    "size": "25-60 ft",
+    "days": 45,
+    "water": true,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Players slide down a slick inflatable lane and crash into oversized bowling pins for a competitive event game.",
+    "tags": [
+      "Game",
+      "Bowling",
+      "Water Option"
+    ],
+    "keywords": [
+      "bowling slide",
+      "inflatable bowling",
+      "pins",
+      "game"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 45 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Obstacle Challenge Inflatable",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Game / Activity",
+    "price": 11500,
+    "image": "images/obstacle-challenge.png",
+    "gallery": [
+      "images/obstacle-challenge.png",
+      "images/obstacle-challenge-side.png",
+      "images/obstacle-challenge-detail.png",
+      "images/obstacle-challenge-action.png",
+      "images/obstacle-challenge-event.png"
+    ],
+    "badge": "Challenge",
+    "size": "Custom",
+    "days": 60,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Commercial inflatable obstacle challenge with climbing, crawling, and racing features for events and rental companies.",
+    "tags": [
+      "Obstacle",
+      "Race",
+      "Event"
+    ],
+    "keywords": [
+      "obstacle course",
+      "challenge",
+      "race",
+      "inflatable game"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 60 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Interactive Sports Challenge",
+    "category": "Activity Inflatables",
+    "market": "Event Rentals",
+    "use": "Sports Game",
+    "price": 9500,
+    "image": "images/interactive-sports-challenge.png",
+    "gallery": [
+      "images/interactive-sports-challenge.png",
+      "images/interactive-sports-challenge-side.png",
+      "images/interactive-sports-challenge-detail.png",
+      "images/interactive-sports-challenge-action.png",
+      "images/interactive-sports-challenge-event.png"
+    ],
+    "badge": "Sports",
+    "size": "Custom",
+    "days": 55,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Custom sports-themed inflatable challenge built for schools, events, and competitive rental attractions.",
+    "tags": [
+      "Sports",
+      "Interactive",
+      "Custom"
+    ],
+    "keywords": [
+      "sports inflatable",
+      "interactive game",
+      "challenge"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 55 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 6,
     "name": "Slip N Slide Bounce House",
     "category": "Water Attractions",
     "market": "Event Rentals",
@@ -41,13 +452,23 @@
     "image": "images/slip-n-slide-bounce-house.png",
     "gallery": [
       "images/slip-n-slide-bounce-house.png",
-      "images/inflatable-catalog-image.png"
+      "images/slip-n-slide-bounce-house-side.png",
+      "images/slip-n-slide-bounce-house-detail.png",
+      "images/slip-n-slide-bounce-house-action.png",
+      "images/slip-n-slide-bounce-house-event.png"
     ],
     "badge": "Summer",
     "size": "Custom Length",
     "days": 55,
     "water": true,
-    "desc": "Slip n slide style inflatable with raised side walls, long slick lane, and custom colors.",
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Slip n slide style inflatable with raised side walls, long slick lane, and bounce-house style construction.",
     "tags": [
       "Slip N Slide",
       "Water",
@@ -55,11 +476,323 @@
     ],
     "keywords": [
       "slip n slide",
-      "water slide"
+      "water slide",
+      "water track",
+      "raised sides"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 55 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   },
   {
-    "id": 6,
+    "id": 7,
+    "name": "Long Slip N Slide Track",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 7500,
+    "image": "images/long-slip-n-slide-track.png",
+    "gallery": [
+      "images/long-slip-n-slide-track.png",
+      "images/long-slip-n-slide-track-side.png",
+      "images/long-slip-n-slide-track-detail.png",
+      "images/long-slip-n-slide-track-action.png",
+      "images/long-slip-n-slide-track-event.png"
+    ],
+    "badge": "Water",
+    "size": "30-100 ft",
+    "days": 50,
+    "water": true,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Long inflatable water track with raised sides, slick sliding surface, and custom color combinations.",
+    "tags": [
+      "Water",
+      "Summer",
+      "Custom Length"
+    ],
+    "keywords": [
+      "long slip n slide",
+      "water track",
+      "summer inflatable"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Dual Lane Slip N Slide",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 9800,
+    "image": "images/dual-lane-slip-n-slide.png",
+    "gallery": [
+      "images/dual-lane-slip-n-slide.png",
+      "images/dual-lane-slip-n-slide-side.png",
+      "images/dual-lane-slip-n-slide-detail.png",
+      "images/dual-lane-slip-n-slide-action.png",
+      "images/dual-lane-slip-n-slide-event.png"
+    ],
+    "badge": "Dual Lane",
+    "size": "Custom Length",
+    "days": 60,
+    "water": true,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Two-lane inflatable slip n slide for racing, summer events, schools, and rental companies.",
+    "tags": [
+      "Water",
+      "Dual Lane",
+      "Race"
+    ],
+    "keywords": [
+      "dual lane slip n slide",
+      "water race",
+      "two lane"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 60 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Water Landing Slide",
+    "category": "Water Attractions",
+    "market": "Event Rentals",
+    "use": "Water Attraction",
+    "price": 10500,
+    "image": "images/water-landing-slide.png",
+    "gallery": [
+      "images/water-landing-slide.png",
+      "images/water-landing-slide-side.png",
+      "images/water-landing-slide-detail.png",
+      "images/water-landing-slide-action.png",
+      "images/water-landing-slide-event.png"
+    ],
+    "badge": "Water",
+    "size": "Custom",
+    "days": 60,
+    "water": true,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Event Rentals, events, promotions, and commercial use",
+    "desc": "Commercial inflatable water slide with landing zone, raised sidewalls, and custom colors.",
+    "tags": [
+      "Water Slide",
+      "Landing",
+      "Summer"
+    ],
+    "keywords": [
+      "water slide",
+      "landing slide",
+      "inflatable slide"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 60 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 10,
     "name": "Fast Food Character Inflatable",
     "category": "Franchise Inflatables",
     "market": "Restaurants",
@@ -68,13 +801,23 @@
     "image": "images/franchise-character.png",
     "gallery": [
       "images/franchise-character.png",
-      "images/inflatable-catalog-image.png"
+      "images/franchise-character-side.png",
+      "images/franchise-character-detail.png",
+      "images/franchise-character-action.png",
+      "images/franchise-character-event.png"
     ],
     "badge": "Franchise",
     "size": "Up to 6 ft",
     "days": 45,
     "water": false,
-    "desc": "Custom restaurant character inflatable for franchises, grand openings, and photo moments.",
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Custom restaurant character inflatable for franchises, grand openings, drive-thru promotions, and photo moments.",
     "tags": [
       "Character",
       "Franchise",
@@ -85,10 +828,320 @@
       "fast food",
       "character",
       "franchise"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 45 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   },
   {
-    "id": 10,
+    "id": 11,
+    "name": "Standing Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/standing-franchise-character.png",
+    "gallery": [
+      "images/standing-franchise-character.png",
+      "images/standing-franchise-character-side.png",
+      "images/standing-franchise-character-detail.png",
+      "images/standing-franchise-character-action.png",
+      "images/standing-franchise-character-event.png"
+    ],
+    "badge": "Standing",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Standing custom franchise character inflatable built for restaurant chains, store openings, and brand activations.",
+    "tags": [
+      "Standing Pose",
+      "Franchise",
+      "Brand"
+    ],
+    "keywords": [
+      "standing character",
+      "restaurant inflatable",
+      "brand display"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Sitting Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 10000,
+    "image": "images/sitting-franchise-character.png",
+    "gallery": [
+      "images/sitting-franchise-character.png",
+      "images/sitting-franchise-character-side.png",
+      "images/sitting-franchise-character-detail.png",
+      "images/sitting-franchise-character-action.png",
+      "images/sitting-franchise-character-event.png"
+    ],
+    "badge": "Custom Pose",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Sitting character inflatable option for franchises that want a friendly branded display customers can take photos beside.",
+    "tags": [
+      "Sitting Pose",
+      "Franchise",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "sitting character",
+      "custom pose",
+      "franchise display"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Purple Franchise Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10500,
+    "image": "images/purple-franchise-character.png",
+    "gallery": [
+      "images/purple-franchise-character.png",
+      "images/purple-franchise-character-side.png",
+      "images/purple-franchise-character-detail.png",
+      "images/purple-franchise-character-action.png",
+      "images/purple-franchise-character-event.png"
+    ],
+    "badge": "Character",
+    "size": "Up to 6 ft",
+    "days": 50,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Large friendly purple character inflatable for restaurant chains, social media photos, and promotional events.",
+    "tags": [
+      "Franchise",
+      "Character",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "purple character",
+      "photo spot",
+      "restaurant"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 14,
     "name": "Panda Restaurant Mascot Inflatable",
     "category": "Franchise Inflatables",
     "market": "Restaurants",
@@ -96,13 +1149,24 @@
     "price": 10000,
     "image": "images/panda-mascot.png",
     "gallery": [
-      "images/panda-mascot.png"
+      "images/panda-mascot.png",
+      "images/panda-mascot-side.png",
+      "images/panda-mascot-detail.png",
+      "images/panda-mascot-action.png",
+      "images/panda-mascot-event.png"
     ],
     "badge": "Panda",
     "size": "4-8 ft",
     "days": 45,
     "water": false,
-    "desc": "Standing or sitting panda mascot inflatable for food brands and restaurants.",
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Standing or sitting panda mascot inflatable designed for food brands, restaurants, and retail chains.",
     "tags": [
       "Panda",
       "Restaurant",
@@ -112,10 +1176,319 @@
       "panda",
       "restaurant",
       "mascot"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 45 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   },
   {
-    "id": 13,
+    "id": 15,
+    "name": "Custom Fast Food Mascot Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Photo Spot",
+    "price": 10000,
+    "image": "images/fast-food-mascot.png",
+    "gallery": [
+      "images/fast-food-mascot.png",
+      "images/fast-food-mascot-side.png",
+      "images/fast-food-mascot-detail.png",
+      "images/fast-food-mascot-action.png",
+      "images/fast-food-mascot-event.png"
+    ],
+    "badge": "Restaurant",
+    "size": "4-8 ft",
+    "days": 50,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Custom fast food mascot inflatable made for restaurants that want a branded character for events and social media.",
+    "tags": [
+      "Fast Food",
+      "Mascot",
+      "Photo Spot"
+    ],
+    "keywords": [
+      "fast food mascot",
+      "restaurant mascot",
+      "franchise inflatable"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Franchise Mascot Display Set",
+    "category": "Franchise Inflatables",
+    "market": "Restaurants",
+    "use": "Brand Display",
+    "price": 28000,
+    "image": "images/franchise-display-set.png",
+    "gallery": [
+      "images/franchise-display-set.png",
+      "images/franchise-display-set-side.png",
+      "images/franchise-display-set-detail.png",
+      "images/franchise-display-set-action.png",
+      "images/franchise-display-set-event.png"
+    ],
+    "badge": "Bundle",
+    "size": "3 Piece Set",
+    "days": 75,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Restaurants, events, promotions, and commercial use",
+    "desc": "Multi-character franchise inflatable set for restaurants or brands that want a group of custom inflatable mascots.",
+    "tags": [
+      "Bundle",
+      "Franchise",
+      "Mascots"
+    ],
+    "keywords": [
+      "franchise mascot set",
+      "restaurant display set"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 75 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Custom Brand Character Inflatable",
+    "category": "Franchise Inflatables",
+    "market": "Corporate",
+    "use": "Brand Display",
+    "price": 10500,
+    "image": "images/brand-character.png",
+    "gallery": [
+      "images/brand-character.png",
+      "images/brand-character-side.png",
+      "images/brand-character-detail.png",
+      "images/brand-character-action.png",
+      "images/brand-character-event.png"
+    ],
+    "badge": "Custom",
+    "size": "4-10 ft",
+    "days": 55,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Corporate, events, promotions, and commercial use",
+    "desc": "Custom inflatable brand character for companies, franchises, stores, sports groups, or promotional events.",
+    "tags": [
+      "Custom",
+      "Brand",
+      "Character"
+    ],
+    "keywords": [
+      "custom brand character",
+      "company mascot",
+      "corporate inflatable"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 55 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 18,
     "name": "College Mascot Inflatable",
     "category": "Mascot Inflatables",
     "market": "Schools",
@@ -123,13 +1496,24 @@
     "price": 10000,
     "image": "images/college-mascot.png",
     "gallery": [
-      "images/college-mascot.png"
+      "images/college-mascot.png",
+      "images/college-mascot-side.png",
+      "images/college-mascot-detail.png",
+      "images/college-mascot-action.png",
+      "images/college-mascot-event.png"
     ],
     "badge": "School",
     "size": "5-10 ft",
     "days": 50,
     "water": false,
-    "desc": "School mascot inflatable for games, tailgates, campus events, and photo areas.",
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
+    "desc": "School mascot inflatable for games, tailgates, student events, alumni activities, and campus photo areas.",
     "tags": [
       "College",
       "Mascot",
@@ -138,11 +1522,406 @@
     "keywords": [
       "school",
       "college",
-      "mascot"
+      "mascot",
+      "tailgate"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   },
   {
-    "id": 18,
+    "id": 19,
+    "name": "Custom College Mascot Standing Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/standing-college-mascot.png",
+    "gallery": [
+      "images/standing-college-mascot.png",
+      "images/standing-college-mascot-side.png",
+      "images/standing-college-mascot-detail.png",
+      "images/standing-college-mascot-action.png",
+      "images/standing-college-mascot-event.png"
+    ],
+    "badge": "Mascot",
+    "size": "5-10 ft",
+    "days": 55,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
+    "desc": "Standing college mascot inflatable customized around school colors, mascot shape, logo placement, and event use.",
+    "tags": [
+      "College",
+      "Standing",
+      "Mascot"
+    ],
+    "keywords": [
+      "custom college mascot",
+      "standing mascot"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 55 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Cougar Style College Mascot Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 10000,
+    "image": "images/cougar-mascot.png",
+    "gallery": [
+      "images/cougar-mascot.png",
+      "images/cougar-mascot-side.png",
+      "images/cougar-mascot-detail.png",
+      "images/cougar-mascot-action.png",
+      "images/cougar-mascot-event.png"
+    ],
+    "badge": "College",
+    "size": "5-10 ft",
+    "days": 55,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
+    "desc": "College cougar-style mascot inflatable for school spirit events, tailgates, football games, and fan photo areas.",
+    "tags": [
+      "College",
+      "Cougar",
+      "Mascot"
+    ],
+    "keywords": [
+      "cougar mascot",
+      "college mascot",
+      "school spirit"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 55 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Custom School Mascot Photo Inflatable",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "Photo Spot",
+    "price": 9500,
+    "image": "images/photo-mascot.png",
+    "gallery": [
+      "images/photo-mascot.png",
+      "images/photo-mascot-side.png",
+      "images/photo-mascot-detail.png",
+      "images/photo-mascot-action.png",
+      "images/photo-mascot-event.png"
+    ],
+    "badge": "Photo Spot",
+    "size": "5-10 ft",
+    "days": 50,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
+    "desc": "Mascot inflatable made as a school photo spot for games, student nights, fundraisers, dances, and campus events.",
+    "tags": [
+      "School",
+      "Photo Spot",
+      "Mascot"
+    ],
+    "keywords": [
+      "school mascot",
+      "photo inflatable"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 50 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Custom Mascot Entrance Display",
+    "category": "Mascot Inflatables",
+    "market": "Schools",
+    "use": "School Event",
+    "price": 13500,
+    "image": "images/mascot-entrance.png",
+    "gallery": [
+      "images/mascot-entrance.png",
+      "images/mascot-entrance-side.png",
+      "images/mascot-entrance-detail.png",
+      "images/mascot-entrance-action.png",
+      "images/mascot-entrance-event.png"
+    ],
+    "badge": "Entrance",
+    "size": "Custom",
+    "days": 65,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
+    "desc": "Large mascot-themed inflatable entrance display for schools, sports teams, and event companies.",
+    "tags": [
+      "Entrance",
+      "Mascot",
+      "School"
+    ],
+    "keywords": [
+      "mascot entrance",
+      "school entrance inflatable"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 65 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 23,
     "name": "Sports Mascot Tunnel",
     "category": "Mascot Inflatables",
     "market": "Schools",
@@ -150,12 +1929,23 @@
     "price": 14500,
     "image": "images/mascot-tunnel.png",
     "gallery": [
-      "images/mascot-tunnel.png"
+      "images/mascot-tunnel.png",
+      "images/mascot-tunnel-side.png",
+      "images/mascot-tunnel-detail.png",
+      "images/mascot-tunnel-action.png",
+      "images/mascot-tunnel-event.png"
     ],
     "badge": "Sports",
     "size": "Custom",
     "days": 65,
     "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Schools, events, promotions, and commercial use",
     "desc": "Custom sports entrance tunnel with mascot face, colors, and team branding.",
     "tags": [
       "Sports",
@@ -165,7 +1955,232 @@
     "keywords": [
       "sports",
       "tunnel",
-      "team"
+      "team",
+      "mascot"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 65 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Branded Entrance Arch",
+    "category": "Promotional",
+    "market": "Events",
+    "use": "Brand Display",
+    "price": 4200,
+    "image": "images/branded-arch.png",
+    "gallery": [
+      "images/branded-arch.png",
+      "images/branded-arch-side.png",
+      "images/branded-arch-detail.png",
+      "images/branded-arch-action.png",
+      "images/branded-arch-event.png"
+    ],
+    "badge": "Best Value",
+    "size": "10-30 ft wide",
+    "days": 35,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Events, events, promotions, and commercial use",
+    "desc": "Large inflatable arch for entrances, races, school events, store openings, and sponsor displays.",
+    "tags": [
+      "Arch",
+      "Logo",
+      "Entrance"
+    ],
+    "keywords": [
+      "arch",
+      "entrance",
+      "race",
+      "sponsor"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 35 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Custom Event Archway",
+    "category": "Promotional",
+    "market": "Events",
+    "use": "Brand Display",
+    "price": 5200,
+    "image": "images/custom-event-archway.png",
+    "gallery": [
+      "images/custom-event-archway.png",
+      "images/custom-event-archway-side.png",
+      "images/custom-event-archway-detail.png",
+      "images/custom-event-archway-action.png",
+      "images/custom-event-archway-event.png"
+    ],
+    "badge": "Event",
+    "size": "Custom",
+    "days": 40,
+    "water": false,
+    "weight": "Final weight confirmed after design approval",
+    "bag": "Heavy-duty storage bag or crate option available",
+    "packed": "Packed dimensions depend on final approved size",
+    "shipping": "Freight shipping quoted separately by delivery location",
+    "blower": "Blower recommendation included with quote",
+    "surface": "Flat approved setup surface required",
+    "bestFor": "Events, events, promotions, and commercial use",
+    "desc": "Custom inflatable event archway for festivals, corporate events, races, and school entrances.",
+    "tags": [
+      "Archway",
+      "Event",
+      "Promotional"
+    ],
+    "keywords": [
+      "event archway",
+      "inflatable arch",
+      "custom arch"
+    ],
+    "details": [
+      "Custom size options available",
+      "Custom colors available",
+      "Logo and artwork placement available",
+      "Commercial-grade inflatable build style",
+      "Production time estimate: 40 days"
+    ],
+    "packaging": [
+      "Packed dimensions confirmed after final design approval",
+      "Approximate weight confirmed after final size",
+      "Storage bag or crate option available",
+      "Freight shipping quote available",
+      "Setup instructions can be included"
+    ],
+    "included": [
+      "Custom inflatable design",
+      "Artwork and color planning",
+      "Quote review before production",
+      "Blower recommendation",
+      "Packaging and shipping estimate"
+    ],
+    "safety": [
+      "Adult supervision recommended",
+      "Use on approved flat surface",
+      "Anchor according to event conditions",
+      "Keep away from sharp objects"
+    ],
+    "sizeOptions": [
+      {
+        "label": "Small Display / Standard",
+        "mult": 0.85,
+        "days": -5
+      },
+      {
+        "label": "Standard Commercial",
+        "mult": 1,
+        "days": 0
+      },
+      {
+        "label": "Large Commercial",
+        "mult": 1.35,
+        "days": 10
+      },
+      {
+        "label": "XL Custom Build",
+        "mult": 1.75,
+        "days": 18
+      }
     ]
   }
 ]
