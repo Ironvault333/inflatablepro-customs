@@ -788,6 +788,7 @@ footer p{color:#d1fae5}
   font-weight:900;
 }
 
+.syncStatus{position:fixed;left:15px;bottom:15px;z-index:3000;background:#111827;color:white;padding:10px 14px;border-radius:12px;font-size:12px;display:none}.syncStatus.show{display:block}
 @media(max-width:900px){
   .top,.hero,.layout,.quote,.modalBox,footer{grid-template-columns:1fr}
   aside{position:static}
@@ -2211,8 +2212,73 @@ async function loadProductsFromJson(){
   if(typeof renderProjectGallery === "function") renderProjectGallery();
 }
 
-loadProductsFromJson();
+
+function showSyncStatus(msg){
+  const box = document.getElementById("syncStatus");
+  if(!box) return;
+  box.textContent = msg;
+  box.classList.add("show");
+  setTimeout(()=>box.classList.remove("show"),7000);
+}
+
+function normalizeProductForCustomer(p){
+  p.id = Number(p.id || Date.now());
+  p.name = p.name || "Custom Inflatable";
+  p.category = p.category || "Franchise Inflatables";
+  p.market = p.market || "Events";
+  p.use = p.use || "Brand Display";
+  p.price = Number(p.price || 0);
+  p.image = p.image || "images/inflatable-catalog-image.png";
+  p.gallery = Array.isArray(p.gallery) && p.gallery.length ? p.gallery : [p.image];
+  p.badge = p.badge || "Custom";
+  p.size = p.size || p.sizes || "Custom";
+  p.days = Number(p.days || String(p.time || "60").match(/\d+/)?.[0] || 60);
+  p.water = typeof p.water === "boolean" ? p.water : String(p.category).toLowerCase().includes("water");
+  p.desc = p.desc || "Custom commercial inflatable with quote-based pricing, production details, and custom options.";
+  p.tags = Array.isArray(p.tags) ? p.tags : String(p.tags || p.category).split(",").map(x=>x.trim()).filter(Boolean);
+  p.keywords = Array.isArray(p.keywords) ? p.keywords : String(p.keywords || "").split(",").map(x=>x.trim()).filter(Boolean);
+  p.priceRange = p.priceRange || money(p.price) + " estimated starting range";
+  p.details = Array.isArray(p.details) && p.details.length ? p.details : ["Custom size options available","Custom colors available","Logo/artwork placement available","Commercial-grade inflatable build style"];
+  p.packaging = Array.isArray(p.packaging) && p.packaging.length ? p.packaging : [p.weight ? "Weight: " + p.weight : "Weight confirmed after design approval",p.bag ? "Bag/Storage: " + p.bag : "Storage bag or crate option",p.packed ? "Packed dimensions: " + p.packed : "Packed dimensions depend on size",p.shipping ? "Shipping: " + p.shipping : "Freight shipping quoted separately"];
+  p.included = Array.isArray(p.included) && p.included.length ? p.included : ["Custom inflatable design","Artwork/color planning","Quote review before production","Packaging/shipping estimate"];
+  if(!p.sizeOptions){
+    if(p.category === "Activity Inflatables"){
+      p.sizeOptions = [{label:"Standard — 20 to 25 ft", mult:1, days:0},{label:"Large — 30 to 40 ft", mult:1.35, days:10},{label:"XL Commercial — 45+ ft", mult:1.75, days:18}];
+    }else if(p.category === "Water Attractions"){
+      p.sizeOptions = [{label:"Small — 25 to 35 ft", mult:.9, days:-5},{label:"Standard — 40 to 60 ft", mult:1, days:0},{label:"Long Track — 70 to 100 ft", mult:1.45, days:12}];
+    }else{
+      p.sizeOptions = [{label:"Small Display — 4 to 6 ft", mult:.85, days:-5},{label:"Standard — 7 to 10 ft", mult:1, days:0},{label:"Large Display — 11 to 15 ft", mult:1.4, days:12}];
+    }
+  }
+  return p;
+}
+
+async function loadProductsFromSharedFile(){
+  try{
+    const res = await fetch("products.json?cacheBust=" + Date.now(), {cache:"no-store"});
+    if(res.ok){
+      const data = await res.json();
+      if(Array.isArray(data) && data.length) products = data.map(normalizeProductForCustomer);
+    }else{
+      products = products.map(normalizeProductForCustomer);
+      console.warn("products.json did not load. Using built-in products.");
+    }
+  }catch(e){
+    products = products.map(normalizeProductForCustomer);
+    console.warn("products.json error. Using built-in products.", e);
+  }
+
+  fillNav();
+  renderProducts();
+  renderQuote();
+  if(typeof renderAdmin === "function") renderAdmin();
+  if(typeof runWizard === "function") runWizard();
+  if(typeof renderProjectGallery === "function") renderProjectGallery();
+}
+
+loadProductsFromSharedFile();
 </script>
 
+<div class="syncStatus" id="syncStatus"></div>
 </body>
 </html>
