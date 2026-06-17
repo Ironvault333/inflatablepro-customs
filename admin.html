@@ -401,6 +401,67 @@ textarea{
   font-size:20px;
 }
 
+
+.jsonCodeModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.jsonCodeModal.open{
+  display:flex;
+}
+
+.jsonCodeBox{
+  background:white;
+  width:1100px;
+  max-width:100%;
+  max-height:92vh;
+  overflow:auto;
+  border-radius:20px;
+  padding:22px;
+  position:relative;
+}
+
+.jsonCodeBox h2{
+  margin-bottom:8px;
+}
+
+.jsonCodeBox p{
+  color:var(--muted);
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.jsonTextarea{
+  width:100%;
+  min-height:520px;
+  font-family:monospace;
+  font-size:13px;
+  line-height:1.35;
+  background:#111827;
+  color:#d1fae5;
+  border-radius:12px;
+  border:0;
+  padding:16px;
+  white-space:pre;
+}
+
+.copySteps{
+  background:#fff7ed;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin:12px 0;
+  color:#7c2d12;
+  line-height:1.5;
+}
+
 @media(max-width:900px){
   .adminLayout{
     grid-template-columns:1fr;
@@ -424,7 +485,7 @@ textarea{
   <div class="logo">Moon<span>Wave</span> Admin</div>
   <div class="headerActions">
     <button class="btn btnLight" onclick="openCustomerSite()">Open Customer Site</button>
-    <button class="btn btnLight" onclick="downloadProductsJson()">Download products.json</button>
+    <button class="btn btnLight" onclick="downloadProductsJson()">Show products.json Code</button>
     <button class="btn btnDanger" onclick="logout()">Logout</button>
   </div>
 </header>
@@ -620,7 +681,7 @@ textarea{
           <div class="rowActions">
             <button class="btn btnDark" onclick="saveCurrentProduct()">Save Product Locally</button>
             <button class="btn btnBlue" onclick="publishToGithub()">Publish to Customer Website</button>
-            <button class="btn btnLight" onclick="downloadProductsJson()">Download products.json</button>
+            <button class="btn btnLight" onclick="downloadProductsJson()">Show products.json Code</button>
           </div>
         </div>
       </div>
@@ -658,7 +719,7 @@ textarea{
     <div class="card">
       <h2>Publish / Sync to Customer Website</h2>
       <div class="notice">
-        <strong>Most reliable method:</strong> click <strong>Download products.json</strong>, then upload/replace products.json in GitHub. That always works without a GitHub token.
+        <strong>Most reliable method:</strong> click <strong>Show products.json Code</strong>, then upload/replace products.json in GitHub. That always works without a GitHub token.
         <br><br>
         <strong>Automatic method:</strong> fill in GitHub owner, repo, branch, and token, then click Publish Directly to GitHub.
       </div>
@@ -686,7 +747,7 @@ textarea{
         <button class="btn btnDark" onclick="saveGithubSettings()">Save GitHub Settings</button>
         <button class="btn btnLight" onclick="loadProductsJsonFromGithub()">Load products.json from GitHub</button>
         <button class="btn btnBlue" onclick="publishToGithub()">Publish Directly to GitHub</button>
-        <button class="btn btnGood" onclick="downloadProductsJson()">Download products.json</button>
+        <button class="btn btnGood" onclick="downloadProductsJson()">Show products.json Code</button>
         <button class="btn btnLight" onclick="copyProductsJson()">Copy products.json</button>
       </div>
 
@@ -732,6 +793,30 @@ textarea{
     <p id="confirmMessage" style="margin:10px 0 16px;color:var(--muted);line-height:1.5;"></p>
     <button class="btn btnDanger" id="confirmYes">Yes</button>
     <button class="btn btnLight" onclick="closeConfirm()">Cancel</button>
+  </div>
+</div>
+
+
+<div class="jsonCodeModal" id="jsonCodeModal">
+  <div class="jsonCodeBox">
+    <button class="close" onclick="closeProductsJsonCode()">×</button>
+    <h2>products.json Code</h2>
+    <p>This is the code you paste into GitHub's <strong>products.json</strong> file.</p>
+    <div class="copySteps">
+      <strong>Steps:</strong><br>
+      1. Click Copy products.json Code.<br>
+      2. Open products.json in GitHub.<br>
+      3. Click the pencil/edit button.<br>
+      4. Delete everything in the file.<br>
+      5. Paste this code.<br>
+      6. Commit changes.
+    </div>
+    <div class="rowActions">
+      <button class="btn btnDark" onclick="copyProductsJsonFromModal()">Copy products.json Code</button>
+      <button class="btn btnLight" onclick="selectProductsJsonCode()">Select All Code</button>
+      <button class="btn btnLight" onclick="closeProductsJsonCode()">Close</button>
+    </div>
+    <textarea class="jsonTextarea" id="productsJsonCodeBox" readonly></textarea>
   </div>
 </div>
 
@@ -1683,20 +1768,45 @@ async function publishToGithub(){
   }
 }
 
+
+function openProductsJsonCode(){
+  saveCurrentProduct(false);
+  const code = productsJsonText();
+  const box = document.getElementById("productsJsonCodeBox");
+  box.value = code;
+  document.getElementById("jsonCodeModal").classList.add("open");
+  setTimeout(()=>box.focus(),100);
+}
+
+function closeProductsJsonCode(){
+  document.getElementById("jsonCodeModal").classList.remove("open");
+}
+
+function selectProductsJsonCode(){
+  const box = document.getElementById("productsJsonCodeBox");
+  box.focus();
+  box.select();
+}
+
+function copyProductsJsonFromModal(){
+  const box = document.getElementById("productsJsonCodeBox");
+  box.focus();
+  box.select();
+
+  navigator.clipboard.writeText(box.value).then(()=>{
+    showStatus("products.json code copied. Paste it into GitHub products.json.");
+  }).catch(()=>{
+    document.execCommand("copy");
+    showStatus("products.json code selected. Copy it, then paste into GitHub products.json.");
+  });
+}
+
 function productsJsonText(){
   return JSON.stringify(getProducts(),null,2);
 }
 
 function downloadProductsJson(){
-  saveCurrentProduct(false);
-
-  const blob = new Blob([productsJsonText()],{type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "products.json";
-  a.click();
-
-  showStatus("Downloaded products.json. Upload/replace products.json in GitHub to update customer site.");
+  openProductsJsonCode();
 }
 
 function copyProductsJson(){
